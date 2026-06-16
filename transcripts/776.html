@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUBAN REGIME CHANGE??? US INDICTS RAUL CASTRO, EXTRADITION IMMINENT | America First Ep. 1686</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --header-h: 64px;
+      --accent: #c9a84c;
+      --accent-dim: rgba(201,168,76,0.12);
+      --bg: #0f0f0f;
+      --surface: #181818;
+      --header-bg: rgba(10,10,10,0.97);
+      --text: #e4e4e4;
+      --text-dim: #aaaaaa;
+      --muted: #666666;
+      --border: #282828;
+      --ts-color: #c9a84c;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    /* ── Sticky header ── */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--header-h);
+      background: var(--header-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .sticky-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 100%;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .brand {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      text-decoration: none;
+      line-height: 1;
+    }
+    .brand:hover { opacity: 0.75; }
+    .back-link {
+      font-size: 0.6rem;
+      color: var(--muted);
+      text-decoration: none;
+      line-height: 1;
+      transition: color 0.12s;
+    }
+    .back-link:hover { color: var(--accent); }
+    .ep-info { min-width: 0; overflow: hidden; }
+    .ep-title {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    .ep-meta {
+      font-size: 0.6875rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ep-meta a { color: var(--muted); text-decoration: none; }
+    .ep-meta a:hover { color: var(--accent); text-decoration: underline; }
+    .search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 10px;
+      flex-shrink: 0;
+    }
+    #search-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 0.8125rem;
+      font-family: inherit;
+      width: 160px;
+    }
+    #search-input::placeholder { color: var(--muted); }
+    #search-count {
+      font-size: 0.6875rem;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 48px;
+      text-align: center;
+    }
+    .search-nav-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1px 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .search-nav-btn:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+
+    /* ── Fixed sidebar nav (desktop) ── */
+    .sidebar-nav {
+      display: none;
+      position: fixed;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 40;
+      flex-direction: column;
+      gap: 3px;
+      max-width: 128px;
+    }
+    .sidebar-link {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 5px 8px;
+      border-radius: 4px;
+      border-left: 2px solid transparent;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.4;
+      transition: color 0.12s, border-color 0.12s, background 0.12s;
+    }
+    .sidebar-link:hover {
+      color: var(--accent);
+      border-left-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    /* ── Mobile FAB ── */
+    .nav-fab {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 20px;
+      width: 42px; height: 42px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .nav-fab-menu {
+      display: none;
+      position: fixed;
+      bottom: 76px;
+      left: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      z-index: 200;
+      min-width: 168px;
+    }
+    .nav-fab-menu.open { display: block; }
+    .fab-link {
+      display: block;
+      padding: 8px 10px;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.875rem;
+      border-radius: 6px;
+    }
+    .fab-link:hover { background: var(--accent-dim); color: var(--accent); }
+
+    /* ── Main content ── */
+    .wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+
+    /* ── Transcript ── */
+    .sec-heading {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      padding: 28px 0 10px;
+      margin-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: calc(var(--header-h) + 20px);
+    }
+    .line {
+      display: flex;
+      gap: 0;
+      padding: 2px 0;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      align-items: baseline;
+    }
+    .ts {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.8rem;
+      color: var(--ts-color);
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      width: 72px;
+      user-select: none;
+      -webkit-user-select: none;
+      padding-top: 2px;
+    }
+    .ts:hover { text-decoration: underline; }
+    .tx { flex: 1; color: var(--text); }
+    .share-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 0 4px;
+      flex-shrink: 0;
+      opacity: 0;
+      transition: opacity 0.12s, color 0.12s;
+      line-height: 1;
+      align-self: center;
+    }
+    .line:hover .share-btn { opacity: 1; }
+    .share-btn.copied { opacity: 1; color: var(--accent); }
+
+    /* ── Search highlight ── */
+    mark.sh { background: rgba(201,168,76,0.28); border-radius: 2px; padding: 0 1px; color: var(--text); }
+    mark.sh-active { background: rgba(201,168,76,0.55); }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 1120px) {
+      .sidebar-nav { display: flex; }
+      .nav-fab, .nav-fab-menu { display: none !important; }
+    }
+    @media (max-width: 1119px) {
+      .sidebar-nav { display: none; }
+      .nav-fab { display: flex; }
+    }
+    @media (max-width: 640px) {
+      #search-input { width: 90px; }
+      .ep-info { display: none; }
+      .sticky-inner { grid-template-columns: auto auto; gap: 10px; }
+    }
+
+    /* ── Print ── */
+    @media print {
+      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn { display: none !important; }
+      body { background: #fff; color: #111; font-size: 11pt; }
+      .ts { color: #777 !important; }
+      .tx { color: #111; }
+      .sec-heading { color: #333; border-bottom-color: #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sticky header (full-width, outside .wrap) -->
+<header class="sticky-header">
+  <div class="sticky-inner">
+    <div class="brand-wrap">
+      <a href="../" class="brand">America First Transcripts</a>
+      <a href="../" class="back-link">← All Episodes</a>
+    </div>
+    <div class="ep-info">
+      <div class="ep-title">CUBAN REGIME CHANGE??? US INDICTS RAUL CASTRO, EXTRADITION IMMINENT | America First Ep. 1686</div>
+      <div class="ep-meta">
+        <a href="https://rumble.com/v7a5mcq-america-first-ep.-1685.html" target="_blank" rel="noopener">rumble.com</a>
+        &nbsp;·&nbsp;May 21, 2026
+      </div>
+    </div>
+    <div class="search-wrap" role="search">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search-input" type="search" placeholder="Search…" autocomplete="off" />
+      <span id="search-count"></span>
+      <button id="search-prev" class="search-nav-btn" title="Previous (Shift+Enter)">↑</button>
+      <button id="search-next" class="search-nav-btn" title="Next (Enter)">↓</button>
+    </div>
+  </div>
+</header>
+
+<!-- Fixed sidebar (desktop only) -->
+<nav class="sidebar-nav" aria-label="Sections">
+  <a href="#intro" class="sidebar-link">Intro</a>
+  <a href="#section-0" class="sidebar-link">Topic 1: The Cuban indictment &amp; the benefits</a>
+  <a href="#section-1" class="sidebar-link">Topic 2: The jewish campaign &amp; vindicated again</a>
+  <a href="#section-2" class="sidebar-link">Topic 3: Lean-maxxing</a>
+  <a href="#section-3" class="sidebar-link">Topic 4: The Massie schizo theories</a>
+  <a href="#section-4" class="sidebar-link">Topic 5: The winning mentality</a>
+  <a href="#section-5" class="sidebar-link">Topic 6: The indictment, the meeting &amp; oil starvation</a>
+  <a href="#section-6" class="sidebar-link">Topic 7: The warrant, the motives &amp; the potential military operation</a>
+  <a href="#section-7" class="sidebar-link">Topic 8: A false flag &amp; drone warfare</a>
+  <a href="#section-8" class="sidebar-link">Topic 9: The conflict &amp; the justified strategy</a>
+  <a href="#section-9" class="sidebar-link">Topic 10: The American empire &amp; the Israeli war</a>
+  <a href="#section-10" class="sidebar-link">Superchats</a>
+</nav>
+
+<!-- Mobile floating menu -->
+<button class="nav-fab" id="nav-fab" aria-label="Jump to section">§</button>
+<div class="nav-fab-menu" id="nav-fab-menu">
+  <a href="#intro" class="fab-link">Intro</a>
+  <a href="#section-0" class="fab-link">Topic 1: The Cuban indictment &amp; the benefits</a>
+  <a href="#section-1" class="fab-link">Topic 2: The jewish campaign &amp; vindicated again</a>
+  <a href="#section-2" class="fab-link">Topic 3: Lean-maxxing</a>
+  <a href="#section-3" class="fab-link">Topic 4: The Massie schizo theories</a>
+  <a href="#section-4" class="fab-link">Topic 5: The winning mentality</a>
+  <a href="#section-5" class="fab-link">Topic 6: The indictment, the meeting &amp; oil starvation</a>
+  <a href="#section-6" class="fab-link">Topic 7: The warrant, the motives &amp; the potential military operation</a>
+  <a href="#section-7" class="fab-link">Topic 8: A false flag &amp; drone warfare</a>
+  <a href="#section-8" class="fab-link">Topic 9: The conflict &amp; the justified strategy</a>
+  <a href="#section-9" class="fab-link">Topic 10: The American empire &amp; the Israeli war</a>
+  <a href="#section-10" class="fab-link">Superchats</a>
+</div>
+
+<!-- Main content -->
+<div class="wrap">
+  <div id="transcript">
+<h2 id="intro" class="sec-heading">Intro</h2>
+<h2 id="section-0" class="sec-heading">Topic 1: The Cuban indictment &amp; the benefits</h2>
+<h2 id="section-1" class="sec-heading">Topic 2: The jewish campaign &amp; vindicated again</h2>
+<h2 id="section-2" class="sec-heading">Topic 3: Lean-maxxing</h2>
+<h2 id="section-3" class="sec-heading">Topic 4: The Massie schizo theories</h2>
+<h2 id="section-4" class="sec-heading">Topic 5: The winning mentality</h2>
+<h2 id="section-5" class="sec-heading">Topic 6: The indictment, the meeting &amp; oil starvation</h2>
+<h2 id="section-6" class="sec-heading">Topic 7: The warrant, the motives &amp; the potential military operation</h2>
+<h2 id="section-7" class="sec-heading">Topic 8: A false flag &amp; drone warfare</h2>
+<h2 id="section-8" class="sec-heading">Topic 9: The conflict &amp; the justified strategy</h2>
+<h2 id="section-9" class="sec-heading">Topic 10: The American empire &amp; the Israeli war</h2>
+<h2 id="section-10" class="sec-heading">Superchats: </h2>
+  </div>
+
+  <footer>Transcript generated by <strong>Signal</strong></footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Search ──────────────────────────────────────────────────────── */
+  var si = document.getElementById('search-input');
+  var countEl = document.getElementById('search-count');
+  var prevBtn = document.getElementById('search-prev');
+  var nextBtn = document.getElementById('search-next');
+  var marks = [];
+  var current = -1;
+
+  function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function clearSearch() {
+    document.querySelectorAll('.tx').forEach(function(span) {
+      span.innerHTML = escHtml(span.dataset.text);
+    });
+    marks = []; current = -1;
+    if (countEl) countEl.textContent = '';
+  }
+
+  function doSearch(q) {
+    clearSearch();
+    if (!q) return;
+    var re = new RegExp(escRe(q), 'gi');
+    document.querySelectorAll('.tx').forEach(function(span) {
+      var orig = span.dataset.text;
+      var out = ''; var last = 0; var m;
+      re.lastIndex = 0;
+      while ((m = re.exec(orig)) !== null) {
+        out += escHtml(orig.slice(last, m.index));
+        out += '<mark class="sh">' + escHtml(m[0]) + '</mark>';
+        last = re.lastIndex;
+      }
+      if (last === 0) return;
+      out += escHtml(orig.slice(last));
+      span.innerHTML = out;
+    });
+    marks = Array.from(document.querySelectorAll('mark.sh'));
+    if (marks.length) {
+      goTo(0);
+    } else {
+      if (countEl) countEl.textContent = 'No matches';
+    }
+  }
+
+  function goTo(idx) {
+    if (!marks.length) return;
+    current = ((idx % marks.length) + marks.length) % marks.length;
+    marks.forEach(function(m, i) { m.classList.toggle('sh-active', i === current); });
+    marks[current].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (countEl) countEl.textContent = (current + 1) + '\u002F' + marks.length;
+  }
+
+  if (si) {
+    si.addEventListener('input', function () { doSearch(si.value.trim()); });
+    si.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); goTo(e.shiftKey ? current - 1 : current + 1); }
+    });
+  }
+  if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+  /* ── Share buttons ───────────────────────────────────────────────── */
+  document.querySelectorAll('.share-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var line = btn.closest('.line');
+      if (!line) return;
+      var t = line.dataset.t;
+      var url = location.href.replace(/#.*$/, '') + '#t=' + t;
+      function fallback() { prompt('Copy this link:', url); }
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function () {
+          btn.classList.add('copied');
+          setTimeout(function () { btn.classList.remove('copied'); }, 1500);
+        }).catch(fallback);
+      } else { fallback(); }
+    });
+  });
+
+  /* ── Hash-based timestamp scroll on load ─────────────────────────── */
+  function scrollToTimestamp() {
+    var m = location.hash.match(/^#t=(\d+)$/);
+    if (!m) return;
+    var target = parseInt(m[1], 10);
+    var lines = Array.from(document.querySelectorAll('.line[data-t]'));
+    var best = null, bestDiff = Infinity;
+    lines.forEach(function (l) {
+      var diff = Math.abs(parseInt(l.dataset.t, 10) - target);
+      if (diff < bestDiff) { bestDiff = diff; best = l; }
+    });
+    if (best) best.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scrollToTimestamp);
+  } else {
+    setTimeout(scrollToTimestamp, 80);
+  }
+  window.addEventListener('hashchange', scrollToTimestamp);
+
+  /* ── Mobile FAB ──────────────────────────────────────────────────── */
+  var fab = document.getElementById('nav-fab');
+  var fabMenu = document.getElementById('nav-fab-menu');
+  if (fab && fabMenu) {
+    fab.addEventListener('click', function (e) { e.stopPropagation(); fabMenu.classList.toggle('open'); });
+    document.addEventListener('click', function (e) {
+      if (!fabMenu.contains(e.target) && e.target !== fab) { fabMenu.classList.remove('open'); }
+    });
+    fabMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { fabMenu.classList.remove('open'); });
+    });
+  }
+
+})();
+  </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>America First Transcripts</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #c9a84c;
+      --accent-dim: rgba(201,168,76,0.10);
+      --bg: #0f0f0f;
+      --surface: #181818;
+      --text: #e4e4e4;
+      --text-dim: #aaaaaa;
+      --muted: #666666;
+      --border: #282828;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      padding: 28px 20px 24px;
+    }
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .site-brand {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+    .site-brand:hover { opacity: 0.8; }
+    .site-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .site-desc {
+      margin-top: 8px;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* ── Main ── */
+    .main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── Episode list ── */
+    .ep-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .ep-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.1s;
+    }
+    .ep-item:first-child { border-top: 1px solid var(--border); }
+    .ep-item:hover .ep-title { color: var(--accent); }
+    .ep-date {
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+      min-width: 96px;
+    }
+    .ep-title {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.12s;
+      line-height: 1.4;
+    }
+    .ep-arrow {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 0.875rem;
+      flex-shrink: 0;
+      opacity: 0;
+      transition: opacity 0.12s;
+    }
+    .ep-item:hover .ep-arrow { opacity: 1; }
+
+    /* ── States ── */
+    .state-msg {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding: 40px 0;
+      text-align: center;
+    }
+    .state-error { color: #f87171; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-brand">America First Transcripts</a>
+    <h1 class="site-title">All Episodes</h1>
+    <p class="site-desc">Full transcripts with timestamps, search, and shareable links.</p>
+  </div>
+</header>
+
+<main class="main">
+  <div id="list" class="ep-list">
+    <a class="ep-item" href="transcripts/763.html"><span class="ep-date">Jun 15, 2026</span><span class="ep-title">IRAN WAR OVER??? US and Iran Make Peace, MOU Discussed | America First Ep. 1699</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/764.html"><span class="ep-date">Jun 12, 2026</span><span class="ep-title">CNN HAS FALLEN??? Bari Weiss TAKES OVER CNN and CBS | America First Ep. 1698</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/765.html"><span class="ep-date">Jun 11, 2026</span><span class="ep-title">IRAN WAR RESUMES??? US Bombs Iran AGAIN, Peace Talks COLLAPSE | America First Ep. 1697</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/766.html"><span class="ep-date">Jun 10, 2026</span><span class="ep-title">KARMELO ANTHONY GUILTY??? Black KILLER Sentenced To 35 YEARS | America First Ep. 1696</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/767.html"><span class="ep-date">Jun 9, 2026</span><span class="ep-title">IRAN WAR RESTARTS??? Israel TRIGGERS Iran New WAR | America First Ep. 1695</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/768.html"><span class="ep-date">Jun 5, 2026</span><span class="ep-title">TRUMP VS NETANYAHU??? Trump FORCES Israel Into CEASEFIRE With Lebanon | America First Ep. 1694</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/769.html"><span class="ep-date">Jun 4, 2026</span><span class="ep-title">TUCKER HATES WHITES??? Tucker ATTACKS White Identity In UK Stabbing Aftermath | America First Ep. 1693</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/770.html"><span class="ep-date">Jun 3, 2026</span><span class="ep-title">WHITE GEORGE FLOYD??? UK Teen STABBED TO DEATH, Held Down By Police | America First Ep. 1692</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/771.html"><span class="ep-date">Jun 2, 2026</span><span class="ep-title">HASAN BANNED FROM UK??? TERRORIST DOG ABUSER BANNED FROM UK | America First Ep. 1691</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/772.html"><span class="ep-date">May 28, 2026</span><span class="ep-title">TRUMP SUES RAPE VICTIM??? Rapist-in-Chief TARGETS Jean Carroll | America First Ep. 1690</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/773.html"><span class="ep-date">May 27, 2026</span><span class="ep-title">IRAN DEAL IMMINENT??? Israel SABOTAGES US-Iran Peace Process | America First Ep. 1689</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/774.html"><span class="ep-date">May 26, 2026</span><span class="ep-title">JAIL HASAN PIKER NOW??? Do It Mr. President, PUT HIM IN JAIL FOREVER | America First Ep. 1688</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/775.html"><span class="ep-date">May 22, 2026</span><span class="ep-title">IRAN'S REVENGE??? Iran REBUILDING Drone and Missile Arsenal | America First Ep. 1687</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/776.html"><span class="ep-date">May 21, 2026</span><span class="ep-title">CUBAN REGIME CHANGE??? US INDICTS RAUL CASTRO, EXTRADITION IMMINENT | America First Ep. 1686</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/777.html"><span class="ep-date">May 20, 2026</span><span class="ep-title">MASSIE DEFEATED??? Israel and Trump OUST America First Republican | America First Ep. 1685</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/778.html"><span class="ep-date">May 19, 2026</span><span class="ep-title">MASSIE IN JEOPARDY??? Israel Lobby UNLOADS $20 Million Against Massie | America First Ep. 1684</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/779.html"><span class="ep-date">May 15, 2026</span><span class="ep-title">DAILYWIRE DESTROYED??? Mass Layoffs, Collapsing Viewership, TOTAL GROYPER VICTORY | America First Ep. 1683</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/780.html"><span class="ep-date">May 14, 2026</span><span class="ep-title">CHUD THE BUILDER ARRESTED??? Streamer JAILED For Attempted Murder | America First Ep. 1682</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/781.html"><span class="ep-date">May 13, 2026</span><span class="ep-title">US LOSES IRAN WAR??? New Intel Shows US LOST THE WAR | America First Ep. 1681</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/782.html"><span class="ep-date">May 12, 2026</span><span class="ep-title">AMERICA FIRST SCHISM??? MUTINY AGAINST NICK FUENTES... AGAIN | America First Ep. 1680</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/783.html"><span class="ep-date">May 8, 2026</span><span class="ep-title">IRAN WAR RESTARTS??? US Bombs Iran After Persian Gulf Attack | America First Ep. 1679</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/784.html"><span class="ep-date">May 7, 2026</span><span class="ep-title">DEMS EXPOSE ISRAEL??? Democrats DEMAND Israel Nuclear Disclosure | America First Ep. 1678</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/785.html"><span class="ep-date">May 6, 2026</span><span class="ep-title">VIVEK WINS NOMINATION??? Ohio Governors Race INTENSIFIES | America First Ep. 1677</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/786.html"><span class="ep-date">May 5, 2026</span><span class="ep-title">TUCKER ATTACKS ME??? Tucker DISAVOWS Me In NYT Interview | America First Ep. 1676</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/787.html"><span class="ep-date">May 2, 2026</span><span class="ep-title">DAILYWIRE LAYOFFS??? Jewish Media CRASHING AND BURNING, Goyim AWAKENING | America First Ep. 1675</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/788.html"><span class="ep-date">Apr 30, 2026</span><span class="ep-title">CASE DISMISSED??? Jewish Activist PHYSICALLY REMOVED From Porch | America First Ep. 1674</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/789.html"><span class="ep-date">Apr 29, 2026</span><span class="ep-title">SPLC INDICTED??? DOJ Brings FRAUD Charges Against Left Wing Group | America First Ep. 1673</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/790.html"><span class="ep-date">Apr 28, 2026</span><span class="ep-title">TRUMP ASSASSINATION ATTEMPT??? Most Boring Happening Of All Time | America First Ep. 1672</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/791.html"><span class="ep-date">Apr 10, 2026</span><span class="ep-title">IRAN WAR DAY 41: Netanyahu SABOTAGES Iran Ceasefire | America First Ep. 1671</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/792.html"><span class="ep-date">Apr 9, 2026</span><span class="ep-title">IRAN WAR DAY 40: TRUMP SURRENDERS, CEASEFIRE COLLAPSES??? | America First Ep. 1670</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/793.html"><span class="ep-date">Apr 8, 2026</span><span class="ep-title">IRAN WAR FINAL DAY 39: CEASEFIRE DECLARED, WAR IS OVER??? | America First Ep. 1669</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/794.html"><span class="ep-date">Apr 7, 2026</span><span class="ep-title">IRAN WAR DAY 38: Trump Threatens TO DESTROY IRAN... AGAIN???  | America First Ep. 1668</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/795.html"><span class="ep-date">Apr 2, 2026</span><span class="ep-title">IRAN WAR DAY 33: Trump Announces NOTHING, GROUND OPS IMMINENT | America First Ep. 1667</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/796.html"><span class="ep-date">Apr 1, 2026</span><span class="ep-title">IRAN WAR DAY 32: Trump To Announce SURRENDER IMMINENTLY??? | America First Ep. 1666</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/797.html"><span class="ep-date">Mar 31, 2026</span><span class="ep-title">IRAN WAR DAY 31: Trump Signals END OF WAR IMMINENT??? | America First Ep. 1665</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/798.html"><span class="ep-date">Mar 28, 2026</span><span class="ep-title">IRAN WAR DAY 28: GROUND INVASION IMMINENT??? | America First Ep. 1664</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/799.html"><span class="ep-date">Mar 25, 2026</span><span class="ep-title">IRAN WAR DAY 25: Exposing The FAKE Peace Process | America First Ep. 1663</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/800.html"><span class="ep-date">Mar 24, 2026</span><span class="ep-title">IRAN WAR DAY 24: Trump TACOs On Iran Ultimatum, FAKEOUT?? | America First Ep. 1662</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/801.html"><span class="ep-date">Mar 20, 2026</span><span class="ep-title">IRAN WAR DAY 20: Strait of Hormuz INVASION IMMINENT??? | America First Ep. 1661</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/802.html"><span class="ep-date">Mar 19, 2026</span><span class="ep-title">IRAN WAR DAY 19: Israel Strikes IRANIAN OIL, Iran RETALIATES | America First Ep. 1660</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/804.html"><span class="ep-date">Mar 18, 2026</span><span class="ep-title">IRAN WAR DAY 18: Joe Kent RESIGNS In Protest Of Iran War | America First Ep. 1659</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/805.html"><span class="ep-date">Mar 17, 2026</span><span class="ep-title">IRAN WAR DAY 17: Trump BEGS NATO Allies To Open Hormuz | America First Ep. 1658</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/803.html"><span class="ep-date">Mar 14, 2026</span><span class="ep-title">IRAN WAR DAY 14: Kharg Island ATTACK, INVASION IMMINENT??? | America First Ep. 1657</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/806.html"><span class="ep-date">Mar 13, 2026</span><span class="ep-title">IRAN WAR DAY 13: Netanyahu Concedes NO REGIME CHANGE???  | America First Ep. 1656</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/14.html"><span class="ep-date">Mar 12, 2026</span><span class="ep-title">IRAN WAR DAY 12: Strait of Hormuz CRISIS, NO END IN SIGHT | America First Ep. 1655</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/15.html"><span class="ep-date">Mar 11, 2026</span><span class="ep-title">IRAN WAR DAY 11: US CONDEMNS ISRAEL Over Oil Attack | America First Ep. 1654</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/3.html"><span class="ep-date">Mar 10, 2026</span><span class="ep-title">IRAN WAR DAY 10: Oil Crunch Threatens To DESTROY Global Economy | America First Ep. 1653</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/2.html"><span class="ep-date">Mar 6, 2026</span><span class="ep-title">IRAN WAR DAY 6: CENTCOM Prepares For 100 DAY WAR | America First Ep. 1652</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/1.html"><span class="ep-date">Mar 5, 2026</span><span class="ep-title">IRAN WAR DAY 5: Marine Protester BEAT UP By ZOG Senator | America First Ep. 1651</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/4.html"><span class="ep-date">Mar 4, 2026</span><span class="ep-title">IRAN WAR DAY 4: Boots on the Ground IMMINENT??? | America First Ep. 1650</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/5.html"><span class="ep-date">Mar 3, 2026</span><span class="ep-title">IRAN WAR DAY 3: ISRAEL Dragged US To War, Rubio CONFIRMS | America First Ep. 1649</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/6.html"><span class="ep-date">Mar 1, 2026</span><span class="ep-title">IRAN WAR BEGINS</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/7.html"><span class="ep-date">Feb 27, 2026</span><span class="ep-title">IRAN TALKS COLLAPSE??? Iran REJECTS US Demands, WAR IMMINENT (FOR REAL) | America First Ep. 1648</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/8.html"><span class="ep-date">Feb 26, 2026</span><span class="ep-title">TRUMP CRUSHES SOTU??? Democrats ANNIHILATED By TRUMP | America First Ep. 1647</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/9.html"><span class="ep-date">Feb 25, 2026</span><span class="ep-title">State of the Union Address | America First Ep. 1646</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/10.html"><span class="ep-date">Feb 24, 2026</span><span class="ep-title">TUCKER EXPOSES HUCKABEE??? Israel Ambassador CONDEMNED By Middle East | America First Ep. 1645</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/11.html"><span class="ep-date">Feb 20, 2026</span><span class="ep-title">IRAN WAR WATCH: 10 Day Countdown To US-IRAN WAR | America First Ep. 1644</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/12.html"><span class="ep-date">Feb 19, 2026</span><span class="ep-title">IRAN WAR WATCH: US Assembles Largest Force Since Iraq War??? | America First Ep. 1643</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/13.html"><span class="ep-date">Feb 18, 2026</span><span class="ep-title">IRAN WAR IMMINENT??? SECOND Aircraft Carrier EN ROUTE To Middle East | America First Ep. 1642</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/29.html"><span class="ep-date">Feb 17, 2026</span><span class="ep-title">MIDTERM DESTRUCTION??? Why The GOP Is FINISHED After 2026 Midterms | America First Ep. 1641</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/30.html"><span class="ep-date">Feb 13, 2026</span><span class="ep-title">TOTAL ICE SURRENDER??? Trump WITHDRAWS ICE From Minneapolis | America First Ep. 1640</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/31.html"><span class="ep-date">Feb 12, 2026</span><span class="ep-title">DOJ-EPSTEIN COVERUP??? Pam Bondi FOLDS In Senate Hearing | America First Ep. 1639</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/32.html"><span class="ep-date">Feb 11, 2026</span><span class="ep-title">IRAN NEGOTIATIONS FLOP??? US Headed To WAR After FAILED TALKS | America First Ep. 1638</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/33.html"><span class="ep-date">Feb 10, 2026</span><span class="ep-title">SPANISH SUPERBOWL??? Latino DEGENERATE SOILS Sacred HALFTIME TRADITION | America First Ep. 1637</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/34.html"><span class="ep-date">Feb 7, 2026</span><span class="ep-title">The Truth About Jeffrey Epstein: Jewish Fixer | America First Ep. 1636</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/35.html"><span class="ep-date">Feb 6, 2026</span><span class="ep-title">RETREAT FROM MINNEAPOLIS??? Trump Initiates FULL WITHDRAWAL From Minneapolis | America First Ep. 1635</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/36.html"><span class="ep-date">Feb 4, 2026</span><span class="ep-title">IRAN WAR AVERTED??? US-Iran Negotiations SCHEDULE For Friday | America First Ep. 1634</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/37.html"><span class="ep-date">Feb 3, 2026</span><span class="ep-title">EPSTEIN HOAX??? DEBUNKING The FAKE Epstein HOAX | America First Ep. 1633</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/38.html"><span class="ep-date">Jan 31, 2026</span><span class="ep-title">EPSTEIN FILE DUMP??? WILD New Allegations In LEAKED EPSTEIN FILES | America First Ep. 1632</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/39.html"><span class="ep-date">Jan 30, 2026</span><span class="ep-title">IRAN WAR IMMINENT??? Trump Plans GROUND RAIDS In IRAN | America First Ep. 1631</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/40.html"><span class="ep-date">Jan 29, 2026</span><span class="ep-title">ABOLISH ICE??? Government Shutdown To DEFUND DHS, STOP ICE | America First Ep. 1630</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/41.html"><span class="ep-date">Jan 28, 2026</span><span class="ep-title">TRUMP SURRENDERS??? TERRORISTS WIN, ICE WITHDRAWS FROM MINNEAPOLIS | America First Ep. 1629</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/42.html"><span class="ep-date">Jan 27, 2026</span><span class="ep-title">ALEX PRETTI KILLED??? Left Wing Nutjob ICED By DHS, JUSTIFIED | America First Ep. 1628</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/43.html"><span class="ep-date">Jan 24, 2026</span><span class="ep-title">TIKTOKS JEWISH CEO??? US-TikTok Deal Places ZIONIST JEW As TIKTOK BOSS | America First Ep. 1627</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/44.html"><span class="ep-date">Jan 23, 2026</span><span class="ep-title">DON LEMON FREE??? Trump Admin FAILS To Prosecute Don Lemon | America First Ep. 1626</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/45.html"><span class="ep-date">Jan 22, 2026</span><span class="ep-title">GREENLAND TACO DEAL??? Trump CHICKENS OUT On Greenland At Davos | America First Ep. 1625</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/46.html"><span class="ep-date">Jan 21, 2026</span><span class="ep-title">BANNED FROM THE CLUB??? Redpill Avengers SHUT DOWN Miami Beach With HITLER ANTHEM | America First Ep. 1624</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/47.html"><span class="ep-date">Jan 17, 2026</span><span class="ep-title">TRUMP CHICKENS OUT??? Trump Admin SECOND GUESSING ICE Raids | America First Ep. 1623</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/48.html"><span class="ep-date">Jan 16, 2026</span><span class="ep-title">TRUMP INVADES GREENLAND??? Rubio Prepares $700 Billion Bid For Greenland | America First Ep. 1622</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/49.html"><span class="ep-date">Jan 15, 2026</span><span class="ep-title">ICE EXECUTES PROTESTER??? Renee Good KILLED In Battle By ICE Agent | America First Ep. 1621</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/50.html"><span class="ep-date">Jan 14, 2026</span><span class="ep-title">IRAN WAR IMMINENT??? Trump Vows To &quot;SAVE&quot; Iranian Protesters | America First Ep. 1620</span><span class="ep-arrow">&rarr;</span></a>
+    <a class="ep-item" href="transcripts/51.html"><span class="ep-date">Jan 13, 2026</span><span class="ep-title">VENEZUELAN WAR??? Trump KIDNAPS Maduro, SEIZES Oil | America First Ep. 1619</span><span class="ep-arrow">&rarr;</span></a>
+  </div>
+  <footer>Powered by <strong>Signal</strong></footer>
+</main>
+
+
+
+</body>
+</html>
