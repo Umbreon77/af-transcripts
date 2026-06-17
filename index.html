@@ -57,6 +57,22 @@
       font-size: 0.875rem;
       color: var(--muted);
     }
+    .search-row { margin-top: 18px; }
+    #ep-search {
+      width: 100%;
+      max-width: 380px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 9px 13px;
+      font-size: 0.875rem;
+      font-family: inherit;
+      outline: none;
+    }
+    #ep-search:focus { border-color: var(--accent); }
+    #ep-search::placeholder { color: var(--muted); }
+    .no-matches { display: none; }
 
     /* ── Main ── */
     .main {
@@ -135,6 +151,9 @@
     <a href="./" class="site-brand">America First Transcripts</a>
     <h1 class="site-title">All Episodes</h1>
     <p class="site-desc">Full transcripts with timestamps, search, and shareable links.</p>
+    <div class="search-row">
+      <input id="ep-search" type="search" placeholder="Search episodes by title…" autocomplete="off" />
+    </div>
   </div>
 </header>
 
@@ -223,10 +242,32 @@
     <a class="ep-item" href="transcripts/50.html"><span class="ep-date">Jan 14, 2026</span><span class="ep-title">IRAN WAR IMMINENT??? Trump Vows To &quot;SAVE&quot; Iranian Protesters | America First Ep. 1620</span><span class="ep-arrow">&rarr;</span></a>
     <a class="ep-item" href="transcripts/51.html"><span class="ep-date">Jan 13, 2026</span><span class="ep-title">VENEZUELAN WAR??? Trump KIDNAPS Maduro, SEIZES Oil | America First Ep. 1619</span><span class="ep-arrow">&rarr;</span></a>
   </div>
+  <p id="ep-empty" class="state-msg no-matches">No episodes match your search.</p>
   <footer>Powered by <strong>Signal</strong></footer>
 </main>
 
 
+
+<script id="catalogue-filter">
+(function () {
+  var input = document.getElementById('ep-search');
+  var empty = document.getElementById('ep-empty');
+  if (!input) return;
+  input.addEventListener('input', function () {
+    var q = input.value.trim().toLowerCase();
+    var items = document.querySelectorAll('.ep-item');
+    var shown = 0;
+    items.forEach(function (el) {
+      var titleEl = el.querySelector('.ep-title');
+      var t = titleEl ? titleEl.textContent.toLowerCase() : '';
+      var match = !q || t.indexOf(q) !== -1;
+      el.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    if (empty) empty.style.display = (q && shown === 0) ? 'block' : 'none';
+  });
+})();
+</script>
 
 </body>
 </html>
