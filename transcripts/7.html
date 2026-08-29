@@ -293,9 +293,48 @@
       .sticky-inner { grid-template-columns: auto auto; gap: 10px; }
     }
 
+    /* ── Legend bar ── */
+    .legend-bar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 7px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .legend-ts-sample {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      color: var(--ts-color);
+      font-size: 0.7rem;
+    }
+    .legend-share-sample {
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+    }
+    .legend-dismiss {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0 4px;
+      line-height: 1;
+    }
+    .legend-dismiss:hover { color: var(--text); }
+
     /* ── Print ── */
     @media print {
-      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn { display: none !important; }
+      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn, .legend-bar { display: none !important; }
       body { background: #fff; color: #111; font-size: 11pt; }
       .ts { color: #777 !important; }
       .tx { color: #111; }
@@ -329,11 +368,18 @@
   </div>
 </header>
 
+<!-- Legend bar -->
+<div class="legend-bar" id="legend-bar">
+  <span class="legend-item"><span class="legend-ts-sample">[0:00]</span> = jump to video at this time</span>
+  <span class="legend-item"><span class="legend-share-sample"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span> = copy link to this line</span>
+  <button class="legend-dismiss" id="legend-dismiss" title="Dismiss" aria-label="Dismiss legend">✕</button>
+</div>
+
 <!-- Fixed sidebar (desktop only) -->
 <nav class="sidebar-nav" aria-label="Sections">
   <a href="#intro" class="sidebar-link">Intro</a>
   <a href="#section-0" class="sidebar-link">Topic 1: Iran update, deadline approaching</a>
-  <a href="#section-1" class="sidebar-link">Superchats: Superchats</a>
+  <a href="#section-1" class="sidebar-link">Superchats</a>
 </nav>
 
 <!-- Mobile floating menu -->
@@ -341,7 +387,7 @@
 <div class="nav-fab-menu" id="nav-fab-menu">
   <a href="#intro" class="fab-link">Intro</a>
   <a href="#section-0" class="fab-link">Topic 1: Iran update, deadline approaching</a>
-  <a href="#section-1" class="fab-link">Superchats: Superchats</a>
+  <a href="#section-1" class="fab-link">Superchats</a>
 </div>
 
 <!-- Main content -->
@@ -1573,7 +1619,7 @@
 <p class="line" data-t="9788"><a href="https://rumble.com/embed/v745gbu?t=9788" class="ts" target="_blank" rel="noopener">[163:08]</a><span class="tx" data-text="Let's see what you guys got going on here. Let's see.">Let's see what you guys got going on here. Let's see.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="9792"><a href="https://rumble.com/embed/v745gbu?t=9792" class="ts" target="_blank" rel="noopener">[163:12]</a><span class="tx" data-text="Classic big B percent, $20, huge support from the Eastern shore of Maryland. Thanks for">Classic big B percent, $20, huge support from the Eastern shore of Maryland. Thanks for</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="9795"><a href="https://rumble.com/embed/v745gbu?t=9795" class="ts" target="_blank" rel="noopener">[163:15]</a><span class="tx" data-text="your hard work. Hey, thanks a lot, man. I appreciate it. Never been up there.">your hard work. Hey, thanks a lot, man. I appreciate it. Never been up there.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
-<h2 id="section-1" class="sec-heading">Superchats: Superchats</h2>
+<h2 id="section-1" class="sec-heading">Superchats</h2>
 <p class="line" data-t="9801"><a href="https://rumble.com/embed/v745gbu?t=9801" class="ts" target="_blank" rel="noopener">[163:21]</a><span class="tx" data-text="I guess I've been a national harbored. Is that the eastern shore? I don't know">I guess I've been a national harbored. Is that the eastern shore? I don't know</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="9804"><a href="https://rumble.com/embed/v745gbu?t=9804" class="ts" target="_blank" rel="noopener">[163:24]</a><span class="tx" data-text="Goblin sent $20 just finished reading River of Darkness by Buddy Levy Pizarro and Orianna were top tier wanks. I">Goblin sent $20 just finished reading River of Darkness by Buddy Levy Pizarro and Orianna were top tier wanks. I</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="9810"><a href="https://rumble.com/embed/v745gbu?t=9810" class="ts" target="_blank" rel="noopener">[163:30]</a><span class="tx" data-text="Don't know that one JJ's accent $25. What's up? Just wanted to send a super chat. Have a good night. Peach emoji">Don't know that one JJ's accent $25. What's up? Just wanted to send a super chat. Have a good night. Peach emoji</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
@@ -2488,6 +2534,21 @@
     setTimeout(scrollToTimestamp, 80);
   }
   window.addEventListener('hashchange', scrollToTimestamp);
+
+  /* ── Legend bar dismiss ──────────────────────────────────────────── */
+  var legendBar = document.getElementById('legend-bar');
+  var legendDismiss = document.getElementById('legend-dismiss');
+  try {
+    if (localStorage.getItem('af-legend-dismissed')) {
+      if (legendBar) legendBar.style.display = 'none';
+    }
+  } catch (e) {}
+  if (legendDismiss && legendBar) {
+    legendDismiss.addEventListener('click', function () {
+      legendBar.style.display = 'none';
+      try { localStorage.setItem('af-legend-dismissed', '1'); } catch (e) {}
+    });
+  }
 
   /* ── Mobile FAB ──────────────────────────────────────────────────── */
   var fab = document.getElementById('nav-fab');

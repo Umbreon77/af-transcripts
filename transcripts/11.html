@@ -293,9 +293,48 @@
       .sticky-inner { grid-template-columns: auto auto; gap: 10px; }
     }
 
+    /* ── Legend bar ── */
+    .legend-bar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 7px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .legend-ts-sample {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      color: var(--ts-color);
+      font-size: 0.7rem;
+    }
+    .legend-share-sample {
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+    }
+    .legend-dismiss {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0 4px;
+      line-height: 1;
+    }
+    .legend-dismiss:hover { color: var(--text); }
+
     /* ── Print ── */
     @media print {
-      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn { display: none !important; }
+      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn, .legend-bar { display: none !important; }
       body { background: #fff; color: #111; font-size: 11pt; }
       .ts { color: #777 !important; }
       .tx { color: #111; }
@@ -329,19 +368,26 @@
   </div>
 </header>
 
+<!-- Legend bar -->
+<div class="legend-bar" id="legend-bar">
+  <span class="legend-item"><span class="legend-ts-sample">[0:00]</span> = jump to video at this time</span>
+  <span class="legend-item"><span class="legend-share-sample"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span> = copy link to this line</span>
+  <button class="legend-dismiss" id="legend-dismiss" title="Dismiss" aria-label="Dismiss legend">✕</button>
+</div>
+
 <!-- Fixed sidebar (desktop only) -->
 <nav class="sidebar-nav" aria-label="Sections">
   <a href="#intro" class="sidebar-link">Intro</a>
-  <a href="#section-0" class="sidebar-link">Topic 1: Iran war </a>
-  <a href="#section-1" class="sidebar-link">Superchats: superchats</a>
+  <a href="#section-0" class="sidebar-link">Topic 1: Iran war</a>
+  <a href="#section-1" class="sidebar-link">Superchats</a>
 </nav>
 
 <!-- Mobile floating menu -->
 <button class="nav-fab" id="nav-fab" aria-label="Jump to section">§</button>
 <div class="nav-fab-menu" id="nav-fab-menu">
   <a href="#intro" class="fab-link">Intro</a>
-  <a href="#section-0" class="fab-link">Topic 1: Iran war </a>
-  <a href="#section-1" class="fab-link">Superchats: superchats</a>
+  <a href="#section-0" class="fab-link">Topic 1: Iran war</a>
+  <a href="#section-1" class="fab-link">Superchats</a>
 </div>
 
 <!-- Main content -->
@@ -620,7 +666,7 @@
 <p class="line" data-t="9218"><a href="https://rumble.com/embed/v73thh8?t=9218" class="ts" target="_blank" rel="noopener">[153:38]</a><span class="tx" data-text="what do you think about, what, what did she mean by that? Why did she quote tweet me guys?">what do you think about, what, what did she mean by that? Why did she quote tweet me guys?</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="9224"><a href="https://rumble.com/embed/v73thh8?t=9224" class="ts" target="_blank" rel="noopener">[153:44]</a><span class="tx" data-text="So bold. What a bold move. Add normal. Don't act like a chud. Hey, dude, just act cool,">So bold. What a bold move. Add normal. Don't act like a chud. Hey, dude, just act cool,</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="9237"><a href="https://rumble.com/embed/v73thh8?t=9237" class="ts" target="_blank" rel="noopener">[153:57]</a><span class="tx" data-text="our feature story. We're once again talking all about the war in Iran. I'm not going to spend too">our feature story. We're once again talking all about the war in Iran. I'm not going to spend too</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
-<h2 id="section-0" class="sec-heading">Topic 1: Iran war </h2>
+<h2 id="section-0" class="sec-heading">Topic 1: Iran war</h2>
 <p class="line" data-t="9242"><a href="https://rumble.com/embed/v73thh8?t=9242" class="ts" target="_blank" rel="noopener">[154:02]</a><span class="tx" data-text="much time about it tonight because we've been talking about it. I talked about it last night.">much time about it tonight because we've been talking about it. I talked about it last night.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="9247"><a href="https://rumble.com/embed/v73thh8?t=9247" class="ts" target="_blank" rel="noopener">[154:07]</a><span class="tx" data-text="I've been talking about it. I think you guys know the score here. I'll do a little bit of">I've been talking about it. I think you guys know the score here. I'll do a little bit of</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="9252"><a href="https://rumble.com/embed/v73thh8?t=9252" class="ts" target="_blank" rel="noopener">[154:12]</a><span class="tx" data-text="background tonight. But for the most part, I want to talk about the latest. So as you know,">background tonight. But for the most part, I want to talk about the latest. So as you know,</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
@@ -1440,7 +1486,7 @@
 <p class="line" data-t="13129"><a href="https://rumble.com/embed/v73thh8?t=13129" class="ts" target="_blank" rel="noopener">[218:49]</a><span class="tx" data-text="So, we love you, Beth. Don't take it. I hope you don't. I hope you accept my apology. Let">So, we love you, Beth. Don't take it. I hope you don't. I hope you accept my apology. Let</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="13133"><a href="https://rumble.com/embed/v73thh8?t=13133" class="ts" target="_blank" rel="noopener">[218:53]</a><span class="tx" data-text="me say it that way.">me say it that way.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="13138"><a href="https://rumble.com/embed/v73thh8?t=13138" class="ts" target="_blank" rel="noopener">[218:58]</a><span class="tx" data-text="No, I didn't see that. No, I haven't seen that interaction. What happened? How did">No, I didn't see that. No, I haven't seen that interaction. What happened? How did</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
-<h2 id="section-1" class="sec-heading">Superchats: superchats</h2>
+<h2 id="section-1" class="sec-heading">Superchats</h2>
 <p class="line" data-t="13148"><a href="https://rumble.com/embed/v73thh8?t=13148" class="ts" target="_blank" rel="noopener">[219:08]</a><span class="tx" data-text="he get mugged?">he get mugged?</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="13150"><a href="https://rumble.com/embed/v73thh8?t=13150" class="ts" target="_blank" rel="noopener">[219:10]</a><span class="tx" data-text="Hey, thank you for the big super chat. No message.">Hey, thank you for the big super chat. No message.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="13154"><a href="https://rumble.com/embed/v73thh8?t=13154" class="ts" target="_blank" rel="noopener">[219:14]</a><span class="tx" data-text="Nice.">Nice.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
@@ -2354,6 +2400,21 @@
     setTimeout(scrollToTimestamp, 80);
   }
   window.addEventListener('hashchange', scrollToTimestamp);
+
+  /* ── Legend bar dismiss ──────────────────────────────────────────── */
+  var legendBar = document.getElementById('legend-bar');
+  var legendDismiss = document.getElementById('legend-dismiss');
+  try {
+    if (localStorage.getItem('af-legend-dismissed')) {
+      if (legendBar) legendBar.style.display = 'none';
+    }
+  } catch (e) {}
+  if (legendDismiss && legendBar) {
+    legendDismiss.addEventListener('click', function () {
+      legendBar.style.display = 'none';
+      try { localStorage.setItem('af-legend-dismissed', '1'); } catch (e) {}
+    });
+  }
 
   /* ── Mobile FAB ──────────────────────────────────────────────────── */
   var fab = document.getElementById('nav-fab');

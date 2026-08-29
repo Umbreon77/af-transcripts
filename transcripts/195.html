@@ -293,9 +293,48 @@
       .sticky-inner { grid-template-columns: auto auto; gap: 10px; }
     }
 
+    /* ── Legend bar ── */
+    .legend-bar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 7px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .legend-ts-sample {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      color: var(--ts-color);
+      font-size: 0.7rem;
+    }
+    .legend-share-sample {
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+    }
+    .legend-dismiss {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0 4px;
+      line-height: 1;
+    }
+    .legend-dismiss:hover { color: var(--text); }
+
     /* ── Print ── */
     @media print {
-      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn { display: none !important; }
+      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn, .legend-bar { display: none !important; }
       body { background: #fff; color: #111; font-size: 11pt; }
       .ts { color: #777 !important; }
       .tx { color: #111; }
@@ -328,6 +367,13 @@
     </div>
   </div>
 </header>
+
+<!-- Legend bar -->
+<div class="legend-bar" id="legend-bar">
+  <span class="legend-item"><span class="legend-ts-sample">[0:00]</span> = jump to video at this time</span>
+  <span class="legend-item"><span class="legend-share-sample"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span> = copy link to this line</span>
+  <button class="legend-dismiss" id="legend-dismiss" title="Dismiss" aria-label="Dismiss legend">✕</button>
+</div>
 
 <!-- Fixed sidebar (desktop only) -->
 <nav class="sidebar-nav" aria-label="Sections">
@@ -3707,6 +3753,21 @@
     setTimeout(scrollToTimestamp, 80);
   }
   window.addEventListener('hashchange', scrollToTimestamp);
+
+  /* ── Legend bar dismiss ──────────────────────────────────────────── */
+  var legendBar = document.getElementById('legend-bar');
+  var legendDismiss = document.getElementById('legend-dismiss');
+  try {
+    if (localStorage.getItem('af-legend-dismissed')) {
+      if (legendBar) legendBar.style.display = 'none';
+    }
+  } catch (e) {}
+  if (legendDismiss && legendBar) {
+    legendDismiss.addEventListener('click', function () {
+      legendBar.style.display = 'none';
+      try { localStorage.setItem('af-legend-dismissed', '1'); } catch (e) {}
+    });
+  }
 
   /* ── Mobile FAB ──────────────────────────────────────────────────── */
   var fab = document.getElementById('nav-fab');

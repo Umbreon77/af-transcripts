@@ -293,9 +293,48 @@
       .sticky-inner { grid-template-columns: auto auto; gap: 10px; }
     }
 
+    /* ── Legend bar ── */
+    .legend-bar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 7px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .legend-ts-sample {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      color: var(--ts-color);
+      font-size: 0.7rem;
+    }
+    .legend-share-sample {
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+    }
+    .legend-dismiss {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0 4px;
+      line-height: 1;
+    }
+    .legend-dismiss:hover { color: var(--text); }
+
     /* ── Print ── */
     @media print {
-      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn { display: none !important; }
+      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn, .legend-bar { display: none !important; }
       body { background: #fff; color: #111; font-size: 11pt; }
       .ts { color: #777 !important; }
       .tx { color: #111; }
@@ -329,11 +368,18 @@
   </div>
 </header>
 
+<!-- Legend bar -->
+<div class="legend-bar" id="legend-bar">
+  <span class="legend-item"><span class="legend-ts-sample">[0:00]</span> = jump to video at this time</span>
+  <span class="legend-item"><span class="legend-share-sample"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span> = copy link to this line</span>
+  <button class="legend-dismiss" id="legend-dismiss" title="Dismiss" aria-label="Dismiss legend">✕</button>
+</div>
+
 <!-- Fixed sidebar (desktop only) -->
 <nav class="sidebar-nav" aria-label="Sections">
   <a href="#intro" class="sidebar-link">Intro</a>
   <a href="#section-0" class="sidebar-link">Topic 1: Iran war coverage</a>
-  <a href="#section-1" class="sidebar-link">Superchats: Superchats</a>
+  <a href="#section-1" class="sidebar-link">Superchats</a>
 </nav>
 
 <!-- Mobile floating menu -->
@@ -341,7 +387,7 @@
 <div class="nav-fab-menu" id="nav-fab-menu">
   <a href="#intro" class="fab-link">Intro</a>
   <a href="#section-0" class="fab-link">Topic 1: Iran war coverage</a>
-  <a href="#section-1" class="fab-link">Superchats: Superchats</a>
+  <a href="#section-1" class="fab-link">Superchats</a>
 </div>
 
 <!-- Main content -->
@@ -1518,7 +1564,7 @@
 <p class="line" data-t="8913"><a href="https://rumble.com/embed/v748vx6?t=8913" class="ts" target="_blank" rel="noopener">[148:33]</a><span class="tx" data-text="We'll read the big ones and then I'm maybe I'll read the smaller ones on Monday">We'll read the big ones and then I'm maybe I'll read the smaller ones on Monday</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="8919"><a href="https://rumble.com/embed/v748vx6?t=8919" class="ts" target="_blank" rel="noopener">[148:39]</a><span class="tx" data-text="Okay, African-American source said $1,000 you are so right. Hey, thank you for the huge super chat. I am right">Okay, African-American source said $1,000 you are so right. Hey, thank you for the huge super chat. I am right</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="8925"><a href="https://rumble.com/embed/v748vx6?t=8925" class="ts" target="_blank" rel="noopener">[148:45]</a><span class="tx" data-text="Isn't that crazy how vindicated I am?">Isn't that crazy how vindicated I am?</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
-<h2 id="section-1" class="sec-heading">Superchats: Superchats</h2>
+<h2 id="section-1" class="sec-heading">Superchats</h2>
 <p class="line" data-t="8929"><a href="https://rumble.com/embed/v748vx6?t=8929" class="ts" target="_blank" rel="noopener">[148:49]</a><span class="tx" data-text="Everybody doubted me. Why don't you know I'm the best in the world at what I do. Don't you know I'm the number one live streamer of all time. I had people doubting me. It's like people that don't even know the first thing about politics.">Everybody doubted me. Why don't you know I'm the best in the world at what I do. Don't you know I'm the number one live streamer of all time. I had people doubting me. It's like people that don't even know the first thing about politics.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="8945"><a href="https://rumble.com/embed/v748vx6?t=8945" class="ts" target="_blank" rel="noopener">[149:05]</a><span class="tx" data-text="It's crazy. So I'm feeling pretty smug. Everybody, all these Groyper come lately types. They said he's sold out. He took the paycheck. Never forget.">It's crazy. So I'm feeling pretty smug. Everybody, all these Groyper come lately types. They said he's sold out. He took the paycheck. Never forget.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="8957"><a href="https://rumble.com/embed/v748vx6?t=8957" class="ts" target="_blank" rel="noopener">[149:17]</a><span class="tx" data-text="I told people not to vote for Trump. I earned this. Okay. We needed this. We earned this.">I told people not to vote for Trump. I earned this. Okay. We needed this. We earned this.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
@@ -1884,6 +1930,21 @@
     setTimeout(scrollToTimestamp, 80);
   }
   window.addEventListener('hashchange', scrollToTimestamp);
+
+  /* ── Legend bar dismiss ──────────────────────────────────────────── */
+  var legendBar = document.getElementById('legend-bar');
+  var legendDismiss = document.getElementById('legend-dismiss');
+  try {
+    if (localStorage.getItem('af-legend-dismissed')) {
+      if (legendBar) legendBar.style.display = 'none';
+    }
+  } catch (e) {}
+  if (legendDismiss && legendBar) {
+    legendDismiss.addEventListener('click', function () {
+      legendBar.style.display = 'none';
+      try { localStorage.setItem('af-legend-dismissed', '1'); } catch (e) {}
+    });
+  }
 
   /* ── Mobile FAB ──────────────────────────────────────────────────── */
   var fab = document.getElementById('nav-fab');

@@ -293,9 +293,48 @@
       .sticky-inner { grid-template-columns: auto auto; gap: 10px; }
     }
 
+    /* ── Legend bar ── */
+    .legend-bar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 7px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .legend-ts-sample {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      color: var(--ts-color);
+      font-size: 0.7rem;
+    }
+    .legend-share-sample {
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+    }
+    .legend-dismiss {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      padding: 0 4px;
+      line-height: 1;
+    }
+    .legend-dismiss:hover { color: var(--text); }
+
     /* ── Print ── */
     @media print {
-      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn { display: none !important; }
+      .sticky-header, .sidebar-nav, .nav-fab, .nav-fab-menu, .share-btn, .legend-bar { display: none !important; }
       body { background: #fff; color: #111; font-size: 11pt; }
       .ts { color: #777 !important; }
       .tx { color: #111; }
@@ -329,12 +368,19 @@
   </div>
 </header>
 
+<!-- Legend bar -->
+<div class="legend-bar" id="legend-bar">
+  <span class="legend-item"><span class="legend-ts-sample">[0:00]</span> = jump to video at this time</span>
+  <span class="legend-item"><span class="legend-share-sample"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span> = copy link to this line</span>
+  <button class="legend-dismiss" id="legend-dismiss" title="Dismiss" aria-label="Dismiss legend">✕</button>
+</div>
+
 <!-- Fixed sidebar (desktop only) -->
 <nav class="sidebar-nav" aria-label="Sections">
   <a href="#intro" class="sidebar-link">Intro</a>
   <a href="#section-0" class="sidebar-link">Topic 1: State of the Union</a>
   <a href="#section-1" class="sidebar-link">Topic 2: Iran update</a>
-  <a href="#section-2" class="sidebar-link">Superchats: Superchats</a>
+  <a href="#section-2" class="sidebar-link">Superchats</a>
 </nav>
 
 <!-- Mobile floating menu -->
@@ -343,7 +389,7 @@
   <a href="#intro" class="fab-link">Intro</a>
   <a href="#section-0" class="fab-link">Topic 1: State of the Union</a>
   <a href="#section-1" class="fab-link">Topic 2: Iran update</a>
-  <a href="#section-2" class="fab-link">Superchats: Superchats</a>
+  <a href="#section-2" class="fab-link">Superchats</a>
 </div>
 
 <!-- Main content -->
@@ -1352,7 +1398,7 @@
 <p class="line" data-t="12800"><a href="https://rumble.com/embed/v743ols?t=12800" class="ts" target="_blank" rel="noopener">[213:20]</a><span class="tx" data-text="So maybe that's just me">So maybe that's just me</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="12802"><a href="https://rumble.com/embed/v743ols?t=12802" class="ts" target="_blank" rel="noopener">[213:22]</a><span class="tx" data-text="I'm gonna feel like I got cheated if we don't get something, you know">I'm gonna feel like I got cheated if we don't get something, you know</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="12806"><a href="https://rumble.com/embed/v743ols?t=12806" class="ts" target="_blank" rel="noopener">[213:26]</a><span class="tx" data-text="Rick 17 cent $20 hey five feet nine inches chud beta why the low energy tonight you hate on Trump no matter what speech was good tonight">Rick 17 cent $20 hey five feet nine inches chud beta why the low energy tonight you hate on Trump no matter what speech was good tonight</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
-<h2 id="section-2" class="sec-heading">Superchats: Superchats</h2>
+<h2 id="section-2" class="sec-heading">Superchats</h2>
 <p class="line" data-t="12811"><a href="https://rumble.com/embed/v743ols?t=12811" class="ts" target="_blank" rel="noopener">[213:31]</a><span class="tx" data-text="Give him time. He's turning the country around. I give him time. It's been ten years. I">Give him time. He's turning the country around. I give him time. It's been ten years. I</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="12817"><a href="https://rumble.com/embed/v743ols?t=12817" class="ts" target="_blank" rel="noopener">[213:37]</a><span class="tx" data-text="Love that. It's always. Hey, we just need more time. It's like">Love that. It's always. Hey, we just need more time. It's like</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
 <p class="line" data-t="12821"><a href="https://rumble.com/embed/v743ols?t=12821" class="ts" target="_blank" rel="noopener">[213:41]</a><span class="tx" data-text="That's just the wrong heuristic.">That's just the wrong heuristic.</span><button class="share-btn" title="Copy link to this moment" aria-label="Copy link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button></p>
@@ -2290,6 +2336,21 @@
     setTimeout(scrollToTimestamp, 80);
   }
   window.addEventListener('hashchange', scrollToTimestamp);
+
+  /* ── Legend bar dismiss ──────────────────────────────────────────── */
+  var legendBar = document.getElementById('legend-bar');
+  var legendDismiss = document.getElementById('legend-dismiss');
+  try {
+    if (localStorage.getItem('af-legend-dismissed')) {
+      if (legendBar) legendBar.style.display = 'none';
+    }
+  } catch (e) {}
+  if (legendDismiss && legendBar) {
+    legendDismiss.addEventListener('click', function () {
+      legendBar.style.display = 'none';
+      try { localStorage.setItem('af-legend-dismissed', '1'); } catch (e) {}
+    });
+  }
 
   /* ── Mobile FAB ──────────────────────────────────────────────────── */
   var fab = document.getElementById('nav-fab');
