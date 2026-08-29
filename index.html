@@ -133,6 +133,96 @@
     }
     .state-error { color: #f87171; }
 
+    /* ── Full-text search results ── */
+    .ft-status {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 12px 0;
+    }
+    .ft-results { display: flex; flex-direction: column; gap: 0; }
+    .ft-ep {
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+    }
+    .ft-ep:first-child { border-top: 1px solid var(--border); }
+    .ft-ep-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .ft-ep-date {
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 96px;
+      font-variant-numeric: tabular-nums;
+    }
+    .ft-ep-title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .ft-ep-title:hover { color: var(--accent); }
+    .ft-ep-count {
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ft-hits { display: flex; flex-direction: column; gap: 2px; padding-left: 108px; }
+    .ft-hit {
+      display: flex;
+      gap: 8px;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      text-decoration: none;
+      color: inherit;
+      padding: 2px 0;
+      border-radius: 4px;
+    }
+    .ft-hit:hover { background: var(--accent-dim); }
+    .ft-hit-ts {
+      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    .ft-hit-text { color: var(--text-dim); }
+    .ft-hit-text mark { background: rgba(201,168,76,0.3); color: var(--text); border-radius: 2px; padding: 0 1px; }
+    .ft-more-hits {
+      font-size: 0.75rem;
+      color: var(--muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px 0;
+      text-align: left;
+      font-family: inherit;
+    }
+    .ft-more-hits:hover { color: var(--accent); }
+    .ft-more-eps {
+      font-size: 0.8rem;
+      color: var(--muted);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 16px 0;
+      text-align: center;
+      width: 100%;
+      font-family: inherit;
+      border-bottom: 1px solid var(--border);
+    }
+    .ft-more-eps:hover { color: var(--accent); }
+    @media (max-width: 640px) {
+      .ft-hits { padding-left: 0; }
+    }
+
     /* ── Footer ── */
     footer {
       margin-top: 48px;
@@ -152,7 +242,7 @@
     <h1 class="site-title">All Episodes</h1>
     <p class="site-desc">Full transcripts with timestamps, search, and shareable links.</p>
     <div class="search-row">
-      <input id="ep-search" type="search" placeholder="Search episodes by title…" autocomplete="off" />
+      <input id="ep-search" type="search" placeholder="Search episodes or transcripts…" autocomplete="off" />
     </div>
   </div>
 </header>
@@ -455,6 +545,7 @@
     <a class="ep-item" href="transcripts/236.html"><span class="ep-date">Jan 21, 2025</span><span class="ep-title">TRUMP ADMIN DAY 1: Executive Order RESTORES Border, 2 Genders, Oil, AND MORE | America First Ep. 1440</span><span class="ep-arrow">&rarr;</span></a>
     <a class="ep-item" href="transcripts/237.html"><span class="ep-date">Jan 20, 2025</span><span class="ep-title">The Inauguration of Donald Trump</span><span class="ep-arrow">&rarr;</span></a>
   </div>
+  <div id="ft-container" style="display:none"></div>
   <p id="ep-empty" class="state-msg no-matches">No episodes match your search.</p>
   <footer>Powered by <strong>Signal</strong></footer>
 </main>
@@ -464,20 +555,210 @@
 <script id="catalogue-filter">
 (function () {
   var input = document.getElementById('ep-search');
+  var listEl = document.getElementById('list');
+  var ftEl = document.getElementById('ft-container');
   var empty = document.getElementById('ep-empty');
   if (!input) return;
-  input.addEventListener('input', function () {
-    var q = input.value.trim().toLowerCase();
+
+  var searchIndex = null;
+  var indexLoading = false;
+  var TS_RE = /^\[(\d{1,3}):(\d{2})(?::(\d{2}))?\]\s*/;
+
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function parseTs(line) {
+    var m = line.match(TS_RE);
+    if (!m) return null;
+    var parts = m[0];
+    var a = parseInt(m[1],10), b = parseInt(m[2],10), c = m[3] ? parseInt(m[3],10) : null;
+    var secs = c !== null ? a*3600+b*60+c : a*60+b;
+    var text = line.slice(parts.length);
+    var hh = Math.floor(secs/3600), mm = Math.floor((secs%3600)/60), ss = secs%60;
+    var tsStr = hh ? hh+':'+String(mm).padStart(2,'0')+':'+String(ss).padStart(2,'0')
+                   : mm+':'+String(ss).padStart(2,'0');
+    return { secs: secs, text: text, tsStr: tsStr };
+  }
+
+  function highlightMatch(text, q) {
+    var lower = text.toLowerCase();
+    var idx = lower.indexOf(q);
+    if (idx === -1) return escHtml(text);
+    return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx+q.length)) + '</mark>' + escHtml(text.slice(idx+q.length));
+  }
+
+  function snippetAround(text, q, maxLen) {
+    maxLen = maxLen || 120;
+    var lower = text.toLowerCase();
+    var idx = lower.indexOf(q);
+    if (idx === -1) return text.slice(0, maxLen);
+    var start = Math.max(0, idx - 40);
+    var end = Math.min(text.length, idx + q.length + 60);
+    var snippet = (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+    return snippet;
+  }
+
+  function loadIndex(cb) {
+    if (searchIndex) return cb();
+    if (indexLoading) return;
+    indexLoading = true;
+    ftEl.style.display = 'block';
+    ftEl.innerHTML = '<p class="ft-status">Loading transcript search index…</p>';
+    fetch('search-index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { searchIndex = data; indexLoading = false; cb(); })
+      .catch(function() {
+        indexLoading = false;
+        ftEl.innerHTML = '<p class="ft-status">Could not load search index.</p>';
+      });
+  }
+
+  function doTitleFilter(q) {
+    ftEl.style.display = 'none';
+    listEl.style.display = '';
     var items = document.querySelectorAll('.ep-item');
     var shown = 0;
-    items.forEach(function (el) {
-      var titleEl = el.querySelector('.ep-title');
-      var t = titleEl ? titleEl.textContent.toLowerCase() : '';
-      var match = !q || t.indexOf(q) !== -1;
+    items.forEach(function(el) {
+      var t = (el.querySelector('.ep-title') || {}).textContent || '';
+      var match = !q || t.toLowerCase().indexOf(q) !== -1;
       el.style.display = match ? '' : 'none';
       if (match) shown++;
     });
     if (empty) empty.style.display = (q && shown === 0) ? 'block' : 'none';
+  }
+
+  function doFullTextSearch(q) {
+    if (!searchIndex) return;
+    listEl.style.display = 'none';
+    ftEl.style.display = 'block';
+    if (empty) empty.style.display = 'none';
+
+    var results = [];
+    var epIds = Object.keys(searchIndex);
+    for (var i = 0; i < epIds.length; i++) {
+      var eid = epIds[i];
+      var ep = searchIndex[eid];
+      var hits = [];
+      var titleMatch = ep.t.toLowerCase().indexOf(q) !== -1;
+      for (var j = 0; j < ep.l.length; j++) {
+        if (ep.l[j].toLowerCase().indexOf(q) !== -1) {
+          hits.push(ep.l[j]);
+        }
+      }
+      if (titleMatch || hits.length) {
+        results.push({ id: eid, title: ep.t, date: ep.d, hits: hits, titleMatch: titleMatch });
+      }
+    }
+
+    results.sort(function(a, b) {
+      if (a.hits.length !== b.hits.length) return b.hits.length - a.hits.length;
+      return parseInt(b.id) - parseInt(a.id);
+    });
+
+    if (!results.length) {
+      ftEl.innerHTML = '<p class="ft-status">No results found in any transcript.</p>';
+      return;
+    }
+
+    var totalHits = results.reduce(function(s,r){ return s+r.hits.length; }, 0);
+    var html = '<p class="ft-status">Found ' + totalHits + ' match' + (totalHits!==1?'es':'') +
+               ' across ' + results.length + ' episode' + (results.length!==1?'s':'') + '</p>';
+    html += '<div class="ft-results">';
+
+    var SHOW_EPS = 10;
+    var SHOW_HITS = 3;
+
+    for (var ri = 0; ri < Math.min(results.length, SHOW_EPS); ri++) {
+      html += renderEpResult(results[ri], q, SHOW_HITS);
+    }
+
+    if (results.length > SHOW_EPS) {
+      html += '<button class="ft-more-eps" data-all="' + escHtml(JSON.stringify(
+        results.slice(SHOW_EPS).map(function(r){return r.id})
+      )) + '">Show ' + (results.length - SHOW_EPS) + ' more episodes</button>';
+    }
+
+    html += '</div>';
+    ftEl.innerHTML = html;
+
+    ftEl.querySelectorAll('.ft-more-hits').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var wrap = btn.parentElement;
+        wrap.querySelectorAll('.ft-hit[hidden]').forEach(function(el){ el.removeAttribute('hidden'); });
+        btn.remove();
+      });
+    });
+
+    var moreEpsBtn = ftEl.querySelector('.ft-more-eps');
+    if (moreEpsBtn) {
+      moreEpsBtn.addEventListener('click', function() {
+        var ids = JSON.parse(moreEpsBtn.dataset.all);
+        var extra = '';
+        for (var k = 0; k < ids.length; k++) {
+          var r = results.find(function(x){return x.id===ids[k]});
+          if (r) extra += renderEpResult(r, q, SHOW_HITS);
+        }
+        moreEpsBtn.insertAdjacentHTML('beforebegin', extra);
+        moreEpsBtn.remove();
+        ftEl.querySelectorAll('.ft-more-hits').forEach(function(btn2) {
+          btn2.addEventListener('click', function() {
+            var wrap2 = btn2.parentElement;
+            wrap2.querySelectorAll('.ft-hit[hidden]').forEach(function(el){ el.removeAttribute('hidden'); });
+            btn2.remove();
+          });
+        });
+      });
+    }
+  }
+
+  function renderEpResult(r, q, showHits) {
+    var h = '<div class="ft-ep">';
+    h += '<div class="ft-ep-header">';
+    h += '<span class="ft-ep-date">' + escHtml(r.date) + '</span>';
+    h += '<a class="ft-ep-title" href="transcripts/' + r.id + '.html">' + highlightMatch(r.title, q) + '</a>';
+    if (r.hits.length) h += '<span class="ft-ep-count">' + r.hits.length + ' match' + (r.hits.length!==1?'es':'') + '</span>';
+    h += '</div>';
+    if (r.hits.length) {
+      h += '<div class="ft-hits">';
+      for (var j = 0; j < r.hits.length; j++) {
+        var p = parseTs(r.hits[j]);
+        var hidden = j >= showHits ? ' hidden' : '';
+        if (p) {
+          var snippet = snippetAround(p.text, q);
+          h += '<a class="ft-hit" href="transcripts/' + r.id + '.html#t=' + p.secs + '"' + hidden + '>';
+          h += '<span class="ft-hit-ts">[' + escHtml(p.tsStr) + ']</span>';
+          h += '<span class="ft-hit-text">' + highlightMatch(snippet, q) + '</span>';
+          h += '</a>';
+        }
+      }
+      if (r.hits.length > showHits) {
+        h += '<button class="ft-more-hits">+ ' + (r.hits.length - showHits) + ' more</button>';
+      }
+      h += '</div>';
+    }
+    h += '</div>';
+    return h;
+  }
+
+  var debounceTimer;
+  input.addEventListener('input', function () {
+    clearTimeout(debounceTimer);
+    var q = input.value.trim().toLowerCase();
+
+    if (!q) {
+      doTitleFilter('');
+      return;
+    }
+
+    if (q.length < 3) {
+      doTitleFilter(q);
+      return;
+    }
+
+    debounceTimer = setTimeout(function() {
+      loadIndex(function() { doFullTextSearch(q); });
+    }, 300);
   });
 })();
 </script>
