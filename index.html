@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem('signal-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <title>America First Transcripts: every episode, word for word</title>
+  <meta name="description" content="Transcripts of America First, the nightly show hosted by Nick Fuentes: every episode word for word, searchable, and linked to the second on the video." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="America First Transcripts" />
+  <meta property="og:title" content="America First Transcripts" />
+  <meta property="og:description" content="Transcripts of America First, the nightly show hosted by Nick Fuentes: every episode word for word, searchable, and linked to the second on the video." />
+  <meta property="og:url" content="https://umbreon77.github.io/af-transcripts/" />
+  <meta property="og:image" content="https://umbreon77.github.io/af-transcripts/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://umbreon77.github.io/af-transcripts/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c9a84c'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='%230f0f0f'%3EAF%3C/text%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ── Themes (shared: public/index.html, public/positions.html, generateHTML.js) ── */
+    :root, [data-theme="signal-dark"] { color-scheme: dark; --bg: #0f0f0f; --surface: #181818; --header-bg: rgba(10,10,10,0.97); --text: #e4e4e4; --text-dim: #aaaaaa; --muted: #8a8a8a; --border: #282828; --strong: #ffffff; --accent: #c9a84c; --accent-dim: rgba(201,168,76,0.12); --ts-color: #c9a84c; --hl: rgba(201,168,76,0.28); --hl-active: rgba(201,168,76,0.46); --flag: #e0a84c; --flag-border: #7a5a1c; --error: #f87171; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="midnight"] { color-scheme: dark; --bg: #0d1117; --surface: #161b22; --header-bg: rgba(13,17,23,0.97); --text: #e6edf3; --text-dim: #b1bac4; --muted: #8d96a0; --border: #30363d; --strong: #ffffff; --accent: #58a6ff; --accent-dim: rgba(88,166,255,0.12); --ts-color: #58a6ff; --hl: rgba(88,166,255,0.3); --hl-active: rgba(88,166,255,0.55); --flag: #e3b341; --flag-border: rgba(227,179,65,0.55); --error: #ff7b72; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="graphite"] { color-scheme: dark; --bg: #1b1d21; --surface: #24272c; --header-bg: rgba(27,29,33,0.97); --text: #e8e6e3; --text-dim: #bdb9b3; --muted: #94908a; --border: #363a40; --strong: #ffffff; --accent: #e8855f; --accent-dim: rgba(232,133,95,0.12); --ts-color: #e8855f; --hl: rgba(232,133,95,0.28); --hl-active: rgba(232,133,95,0.44); --flag: #e5b45a; --flag-border: rgba(229,180,90,0.55); --error: #ff8a80; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="forest"] { color-scheme: dark; --bg: #0e1411; --surface: #16201b; --header-bg: rgba(14,20,17,0.97); --text: #e1e9e4; --text-dim: #adbcb3; --muted: #879a8e; --border: #26332c; --strong: #ffffff; --accent: #6fcf97; --accent-dim: rgba(111,207,151,0.12); --ts-color: #6fcf97; --hl: rgba(111,207,151,0.24); --hl-active: rgba(111,207,151,0.4); --flag: #e6c15c; --flag-border: rgba(230,193,92,0.55); --error: #ff8a7a; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="oxblood"] { color-scheme: dark; --bg: #150f10; --surface: #201718; --header-bg: rgba(21,15,16,0.97); --text: #ede3e3; --text-dim: #c0b1b1; --muted: #998787; --border: #352728; --strong: #ffffff; --accent: #e7787f; --accent-dim: rgba(231,120,127,0.12); --ts-color: #e7787f; --hl: rgba(231,120,127,0.3); --hl-active: rgba(231,120,127,0.55); --flag: #e8b45a; --flag-border: rgba(232,180,90,0.55); --error: #ff9c8a; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="arctic"] { color-scheme: dark; --bg: #2b303b; --surface: #353b47; --header-bg: rgba(43,48,59,0.97); --text: #eceff4; --text-dim: #ccd3de; --muted: #aab3c2; --border: #4a5162; --strong: #ffffff; --accent: #88c0d0; --accent-dim: rgba(136,192,208,0.12); --ts-color: #88c0d0; --hl: rgba(136,192,208,0.2); --hl-active: rgba(136,192,208,0.3); --flag: #ebcb8b; --flag-border: rgba(235,203,139,0.55); --error: #f2a0a6; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="paper"] { color-scheme: light; --bg: #fbfaf7; --surface: #f1ede4; --header-bg: rgba(251,250,247,0.97); --text: #1f1d1a; --text-dim: #45413b; --muted: #625d55; --border: #ddd7ca; --strong: #000000; --accent: #865a00; --accent-dim: rgba(134,90,0,0.12); --ts-color: #865a00; --hl: rgba(134,90,0,0.22); --hl-active: rgba(134,90,0,0.4); --flag: #8a4b00; --flag-border: rgba(138,75,0,0.55); --error: #b42318; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    [data-theme="daylight"] { color-scheme: light; --bg: #ffffff; --surface: #f2f5f9; --header-bg: rgba(255,255,255,0.97); --text: #17202c; --text-dim: #3c4655; --muted: #596476; --border: #d9dfe7; --strong: #000000; --accent: #0a58b8; --accent-dim: rgba(10,88,184,0.12); --ts-color: #0a58b8; --hl: rgba(10,88,184,0.18); --hl-active: rgba(10,88,184,0.36); --flag: #8a4b00; --flag-border: rgba(138,75,0,0.55); --error: #b42318; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    [data-theme="sepia"] { color-scheme: light; --bg: #f4ecd8; --surface: #ebe0c4; --header-bg: rgba(244,236,216,0.97); --text: #382c1c; --text-dim: #54452f; --muted: #6c5b42; --border: #d8c9a6; --strong: #1c140a; --accent: #8f3a17; --accent-dim: rgba(143,58,23,0.12); --ts-color: #8f3a17; --hl: rgba(143,58,23,0.2); --hl-active: rgba(143,58,23,0.38); --flag: #7a4100; --flag-border: rgba(122,65,0,0.55); --error: #a3200f; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    [data-theme="sage"] { color-scheme: light; --bg: #f2f5f1; --surface: #e4ebe2; --header-bg: rgba(242,245,241,0.97); --text: #1b2820; --text-dim: #3b4b40; --muted: #56675b; --border: #cbd6c8; --strong: #0d1610; --accent: #2b6a43; --accent-dim: rgba(43,106,67,0.12); --ts-color: #2b6a43; --hl: rgba(43,106,67,0.2); --hl-active: rgba(43,106,67,0.38); --flag: #7f4a00; --flag-border: rgba(127,74,0,0.55); --error: #a8271b; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: inherit; }
+    button, input, select { font-family: inherit; font-size: inherit; color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .skip { position: absolute; left: -999px; top: 0; z-index: 999; background: var(--accent); color: var(--bg); padding: 8px 12px; }
+    .skip:focus { left: 8px; top: 8px; }
+    mark { background: var(--hl); color: var(--text); border-radius: 2px; padding: 0 1px; }
+    .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-variant-numeric: tabular-nums; }
+    .chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); font-size: 0.72rem; line-height: 1.5; white-space: nowrap; }
+    .chip.kind { border-style: dashed; color: var(--text); }
+
+    /* ── Site header (shared: public/index.html, episodes.html, research.html, positions.html, guide.html, generateHTML.js) ── */
+    .site-head { border-bottom: 1px solid var(--border); background: var(--bg); }
+    .site-head-in { max-width: 1150px; margin: 0 auto; padding: 14px 20px 0; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+    .site-logo { font-size: 1.15rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.2; color: var(--accent); text-decoration: none; padding: 6px 12px; border: 2px solid var(--accent); border-radius: 6px; }
+    @media (max-width: 640px) { .site-logo { font-size: 0.88rem; padding: 4px 8px; letter-spacing: 0.08em; } }
+    .site-logo:hover { opacity: 0.8; }
+    .site-head .theme-pick { margin-left: auto; }
+    .site-tabs { display: flex; gap: 2px; width: 100%; overflow-x: auto; scrollbar-width: none; }
+    .site-tabs a { padding: 6px 12px 10px; font-size: 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; white-space: nowrap; }
+    .site-tabs a:first-child { padding-left: 0; }
+    .site-tabs a:hover { color: var(--text); }
+    .site-tabs a[aria-current] { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
+    @media (max-width: 640px) { .site-head-in { padding: 12px 16px 0; } .theme-label { display: none; } .theme-btn { padding: 4px; } .site-tabs { gap: 0; } .site-tabs a { padding: 6px 5px 10px; font-size: 0.78rem; } }
+    @media (max-width: 480px) { .site-tabs .tab-x { display: none; } }
+    @media (max-width: 380px) { .site-tabs a { padding: 6px 3px 10px; font-size: 0.76rem; } }
+
+    /* ── Home ── */
+    [hidden] { display: none !important; }
+    .home { max-width: 1150px; margin: 0 auto; padding: 0 20px 80px; }
+    .k { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); }
+    .hero .k { font-size: 0.9rem; }
+    .sh { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; margin: 44px 0 14px; }
+    .sh h2 { font-size: 1.15rem; letter-spacing: -0.01em; color: var(--strong); }
+    .sh a { font-size: 0.82rem; color: var(--accent); text-decoration: none; }
+    .sh a:hover { text-decoration: underline; }
+    .sh .sub { font-size: 0.8rem; color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    a.chip { text-decoration: none; }
+    a.chip:hover { border-color: var(--accent); color: var(--text); }
+    .loading { padding: 40px 0; color: var(--muted); text-align: center; }
+
+    /* Intro: what the site is, then search */
+    .intro { padding: 30px 0 6px; max-width: 760px; }
+    .intro h1 { font-size: 2.1rem; line-height: 1.12; letter-spacing: -0.02em; color: var(--strong); }
+    .intro .lede { margin-top: 10px; color: var(--text-dim); font-size: 1rem; }
+    .intro .lede a, .ask-note a { color: var(--accent); }
+    .ask-form { display: flex; gap: 8px; margin-top: 16px; }
+    .ask-form input { flex: 1; min-width: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 11px 14px; font-size: 1rem; color: var(--text); outline: none; }
+    .ask-form input:focus { border-color: var(--accent); }
+    .ask-form input::placeholder { color: var(--muted); }
+    .ask-form button { padding: 0 18px; border-radius: 10px; border: 0; background: var(--accent); color: var(--bg); font-weight: 700; cursor: pointer; }
+    .ask-note { font-size: 0.78rem; color: var(--muted); margin-top: 8px; }
+
+    /* Hero: the latest episode */
+    .hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; padding: 26px 0 4px; margin-top: 22px; border-top: 1px solid var(--border); }
+    .hero-h { font-size: 1.6rem; line-height: 1.18; letter-spacing: -0.02em; margin: 10px 0 12px; color: var(--strong); overflow-wrap: anywhere; }
+    .hero-h a { text-decoration: none; }
+    .hero-h a:hover { color: var(--accent); }
+    .hero .gist { color: var(--text-dim); font-size: 0.98rem; }
+    .hero .chips { margin: 14px 0 18px; }
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+    .cta { display: inline-flex; gap: 8px; padding: 10px 16px; border-radius: 10px; background: var(--accent); color: var(--bg); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+    .cta:hover { opacity: 0.9; }
+    .cta-row span { color: var(--muted); font-size: 0.8rem; }
+    .inside { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; align-self: start; }
+    .inside h3 { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); }
+    .inside-note { font-size: 0.72rem; color: var(--muted); margin: 2px 0 6px; }
+    .inside-list { max-height: 380px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+    .inside a { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 8px; padding: 6px 0; font-size: 0.85rem; line-height: 1.4; text-decoration: none; border-bottom: 1px solid var(--border); color: var(--text-dim); }
+    .inside a:last-child { border-bottom: 0; }
+    .inside a:hover { color: var(--text); }
+    .inside .t { color: var(--ts-color); font-size: 0.72rem; padding-top: 2px; }
+    .spk { display: inline-block; font-size: 0.58rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--flag); border: 1px solid var(--flag-border); border-radius: 4px; padding: 0 4px; margin-right: 5px; vertical-align: 1px; }
+
+    /* Entry points */
+    .doors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
+    .door { display: flex; flex-direction: column; gap: 4px; padding: 16px; border: 1px solid var(--border); border-radius: 14px; text-decoration: none; background: var(--surface); }
+    .door:hover { border-color: var(--accent); }
+    .door b { font-size: 1rem; color: var(--strong); }
+    .door span { font-size: 0.84rem; color: var(--text-dim); }
+    .door small { margin-top: auto; padding-top: 6px; font-size: 0.75rem; color: var(--accent); }
+
+    /* In his words */
+    .words { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .word { display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+    .word blockquote { font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif; font-size: 1rem; line-height: 1.5; color: var(--text); border-left: 3px solid var(--accent); padding-left: 12px; overflow-wrap: anywhere; }
+    .word footer { margin-top: auto; font-size: 0.75rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 2px 8px; }
+    .word footer a { color: var(--accent); text-decoration: none; }
+    .word footer a:hover { text-decoration: underline; }
+    .note { font-size: 0.75rem; color: var(--muted); margin-top: 10px; }
+
+    /* Episode cards and shelves */
+    .shelf { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(230px, 1fr); gap: 12px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+    .card { scroll-snap-align: start; display: flex; flex-direction: column; gap: 6px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); text-decoration: none; min-height: 150px; min-width: 0; }
+    .card:hover { border-color: var(--accent); }
+    .card .d { font-size: 0.72rem; color: var(--muted); }
+    .card b { font-size: 0.92rem; line-height: 1.3; color: var(--text); overflow-wrap: anywhere; }
+    .card p { font-size: 0.78rem; color: var(--text-dim); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .card .foot { margin-top: auto; display: flex; gap: 4px; flex-wrap: wrap; }
+    .tshelf { margin-top: 24px; }
+    .tshelf-h { display: flex; align-items: baseline; gap: 4px 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .tshelf-h h3 { font-size: 0.98rem; color: var(--strong); }
+    .tshelf-h small { color: var(--muted); font-size: 0.78rem; }
+    .tshelf-h .links { margin-left: auto; display: flex; gap: 14px; }
+    .tshelf-h .links a { font-size: 0.78rem; color: var(--accent); text-decoration: none; }
+    .tshelf-h .links a:hover { text-decoration: underline; }
+
+    /* Heatmap: topic × month. Older browsers without color-mix() get the theme's rgba steps. */
+    .heat { overflow-x: auto; scrollbar-width: thin; }
+    .heat table { border-collapse: separate; border-spacing: 2px; font-size: 0.72rem; }
+    .heat th { font-weight: 500; color: var(--muted); white-space: nowrap; text-align: right; padding-right: 8px; }
+    .heat th a { color: var(--text-dim); text-decoration: none; }
+    .heat th a:hover { color: var(--accent); }
+    .heat thead th { text-align: center; padding: 0; font-size: 0.62rem; line-height: 1.2; vertical-align: bottom; }
+    .heat td { padding: 0; width: 26px; min-width: 20px; height: 20px; border-radius: 3px; background: var(--field); }
+    .heat td a { display: block; width: 100%; height: 100%; border-radius: 3px; }
+    .heat td a:hover, .heat td a:focus-visible { outline: 2px solid var(--text); outline-offset: -1px; }
+    .heat .l1 { background: var(--accent-dim); }
+    .heat .l2 { background: var(--hl); }
+    .heat .l3 { background: var(--hl-active); }
+    .heat .l4 { background: var(--accent); }
+    /* A color-mix() with var() inside passes parsing even where unsupported (and then turns
+       transparent), so the solid steps only apply behind @supports. */
+    @supports (background: color-mix(in srgb, red 50%, blue)) {
+      .heat .l1 { background: color-mix(in srgb, var(--accent) 22%, var(--bg)); }
+      .heat .l2 { background: color-mix(in srgb, var(--accent) 45%, var(--bg)); }
+      .heat .l3 { background: color-mix(in srgb, var(--accent) 70%, var(--bg)); }
+    }
+    .legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; font-size: 0.72rem; color: var(--muted); margin-top: 8px; }
+    .legend i { width: 18px; height: 12px; border-radius: 3px; display: inline-block; background: var(--field); }
+    .tip { position: fixed; z-index: 300; pointer-events: none; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 6px 20px var(--shadow); border-radius: 8px; padding: 6px 9px; font-size: 0.75rem; color: var(--text); display: none; max-width: 260px; }
+
+    /* Calendar archive */
+    .yearbar { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    .yearbar button { cursor: pointer; font-size: 0.8rem; padding: 3px 12px; }
+    .yearbar button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); font-weight: 600; }
+    .cal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .cal { border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+    .cal-h { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .cal h3 { font-size: 0.85rem; color: var(--text); }
+    .cal h3 a { text-decoration: none; }
+    .cal h3 a:hover { color: var(--accent); }
+    .cal-h span { color: var(--muted); font-weight: 400; font-size: 0.75rem; }
+    .days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+    .days .dw { font-size: 0.6rem; color: var(--muted); text-align: center; }
+    .days a, .days span.x { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; border-radius: 6px; text-decoration: none; color: var(--muted); }
+    .days a { background: var(--accent-dim); color: var(--text); font-weight: 600; border: 1px solid transparent; }
+    .days a.g { border-color: var(--accent); }
+    .days a:hover, .days a:focus-visible { background: var(--accent); color: var(--bg); }
+    .cal-key { font-size: 0.75rem; color: var(--muted); margin-top: 10px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .cal-key i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; background: var(--accent-dim); vertical-align: -2px; margin-right: 4px; border: 1px solid transparent; }
+    .cal-key i.g { border-color: var(--accent); }
+
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); text-align: center; }
+    footer a { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .words { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 760px) {
+      .home { padding: 0 16px 80px; }
+      .hero { grid-template-columns: 1fr; padding-top: 20px; gap: 18px; }
+      .intro { padding-top: 22px; }
+      .intro h1 { font-size: 1.55rem; }
+      .hero-h { font-size: 1.3rem; }
+      .ask-form input { font-size: 16px; }
+      .doors, .words { grid-template-columns: 1fr; }
+      .shelf { grid-auto-columns: 78%; }
+      .cal-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .cal { padding: 8px; }
+      .days .dw { display: none; }
+      .days a, .days span.x { font-size: 0.62rem; border-radius: 4px; }
+      .tshelf-h .links { margin-left: 0; width: 100%; }
+    }
+    /* ── Theme picker (shared) ── */
+    .theme-pick { position: relative; flex-shrink: 0; }
+    .theme-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 10px 4px 5px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; color: var(--text-dim); font-family: inherit; font-size: 0.75rem; line-height: 1; cursor: pointer; }
+    .theme-btn:hover, .theme-btn[aria-expanded="true"] { border-color: var(--accent); color: var(--text); }
+    .theme-sw { display: inline-block; width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--border); background: linear-gradient(135deg, var(--bg) 50%, var(--accent) 50%); }
+    .theme-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: 300; min-width: 200px; max-height: 75vh; overflow-y: auto; padding: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 8px 28px var(--shadow); text-align: left; }
+    .theme-menu[hidden] { display: none; }
+    .theme-group { padding: 6px 8px 2px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+    .theme-opt { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 6px 8px; background: none; border: 0; border-radius: 6px; color: var(--text); font-family: inherit; font-size: 0.875rem; text-align: left; cursor: pointer; }
+    .theme-opt:hover, .theme-opt:focus-visible { background: var(--accent-dim); outline: none; }
+    .theme-opt[aria-checked="true"] { color: var(--accent); font-weight: 600; }
+    .theme-opt[aria-checked="true"]::after { content: '✓'; margin-left: auto; }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a href="./" class="site-logo">America First Transcripts</a>
+    <div class="theme-pick" id="theme-pick"><button type="button" class="theme-btn" aria-haspopup="true" aria-expanded="false" aria-label="Color theme" title="Color theme"><span class="theme-sw"></span><span class="theme-label">Theme</span></button><div class="theme-menu" role="menu" hidden></div></div>
+    <nav class="site-tabs" aria-label="Site">
+      <a href="./" aria-current="page">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="research.html">Research</a>
+      <a href="positions.html"><span class="tab-x">Nick's </span>Positions</a>
+      <a href="guide.html">How to use</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="home" id="main" tabindex="-1">
+  <section class="intro" aria-labelledby="site-h1">
+    <h1 id="site-h1">Every America First episode, word for word and searchable</h1>
+    <p class="lede">Transcripts of <i>America First</i>, the nightly show hosted by Nick Fuentes<span id="coverage"></span>. Every line is timestamped and links to that second of the video. <a href="about.html">How this is made</a></p>
+    <form id="ask" class="ask-form" action="research.html" role="search">
+      <label class="sr-only" for="ask-q">Search what he said</label>
+      <input id="ask-q" name="q" type="search" placeholder="Search what he said: a name, or a phrase in quotes" autocomplete="off" />
+      <button type="submit">Search</button>
+    </form>
+    <p class="ask-note">Opens <b>Research</b> with your search. New here? <a href="guide.html">How to use this site</a>, step by step.</p>
+  </section>
+
+  <section class="hero" id="hero" aria-label="Latest episode"><p class="loading">Loading…</p></section>
+
+  <nav class="doors" id="doors" aria-label="Ways in"></nav>
+
+  <div class="sh"><h2>In his words</h2><a href="positions.html">All of Nick's Positions →</a></div>
+  <div class="words" id="words"></div>
+  <p class="note">Recent lines quoted in Nick's Positions, each checked word for word against the transcript. The time opens the episode at that moment.</p>
+
+  <div class="sh"><h2>Recent episodes</h2><a href="episodes.html">All episodes →</a></div>
+  <div class="shelf" id="recent"></div>
+
+  <div class="sh"><h2>Follow a topic</h2><span class="sub">the topics he has talked about most in the last two months</span></div>
+  <div id="shelves"></div>
+
+  <div class="sh"><h2>What he's been talking about</h2><span class="sub">share of each month's show, by topic · click a square to see those moments</span></div>
+  <div class="heat" id="heat"></div>
+  <div class="legend" id="legend"></div>
+
+  <div class="sh" id="archive"><h2>Archive</h2><span class="sub" id="arch-n"></span></div>
+  <div class="yearbar" id="years" role="group" aria-label="Year"></div>
+  <div class="cal-grid" id="cal"></div>
+  <p class="cal-key"><span><i></i>a show (click to read it)</span><span><i class="g"></i>an interview or special</span></p>
+
+  <footer><span id="foot-upd"></span><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFVo0FznkFfD4VMrMhvTrxI5SiGqacwLXyWMkojunxg-GN3w/viewform" target="_blank" rel="noopener">Report an error</a></footer>
+</main>
+<div class="tip" id="tip" aria-hidden="true"></div>
+
+<script>
+(function () {
+  // export_static.py flips this to true for the static site.
+  var STATIC = true;
+  var DATA = STATIC ? 'data/' : '/data/';
+  // Old catalogue links (/?topic=…&q=…) belong to Episodes now. :8000 redirects them
+  // server-side; this covers the static site.
+  if (/[?&](q|topic|kind|year|sort)=/.test(location.search)) { location.replace((STATIC ? 'episodes.html' : '/episodes') + location.search + location.hash); return; }
+  // Episode links are /ep/<slug> (catalogue "u"); the old id URL is only a fallback.
+  var U = {};
+  function epHref(id, t) { return (U[id] ? (STATIC ? 'ep/' + U[id] + '/' : '/ep/' + U[id]) : (STATIC ? 'transcripts/' + id + '.html' : '/transcripts/' + id + '/html')) + (t != null ? '#t=' + t : ''); }
+  function posHref(h) { return (STATIC ? 'positions.html' : '/positions') + (h ? '#' + h : ''); }
+  function episodesHref(q) { return (STATIC ? 'episodes.html' : '/episodes') + (q ? '?' + q : ''); }
+  function researchHref(q) { return (STATIC ? 'research.html' : '/research') + (q ? '?' + q : ''); }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var MONL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var DOWL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var KIND = { regular: 'Episode', guest: 'Interview', special: 'Special' };
+  var SPK = { bit: 'Bit', clip: 'Clip', reading: 'Reading', guest: 'Guest' };
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function d(s) { return new Date(+s.slice(0, 4), +s.slice(4, 6) - 1, +s.slice(6, 8)); }
+  function dateMed(s) { return s ? MON[+s.slice(4, 6) - 1] + ' ' + +s.slice(6, 8) + ', ' + s.slice(0, 4) : ''; }
+  function dateLong(s) { return s ? DOWL[d(s).getDay()] + ', ' + MONL[+s.slice(4, 6) - 1] + ' ' + +s.slice(6, 8) + ', ' + s.slice(0, 4) : ''; }
+  function monthLabel(k) { return MONL[+k.slice(4, 6) - 1] + ' ' + k.slice(0, 4); }
+  function hms(s) { var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + ':' + (m < 10 ? '0' : '') + m : m) + ':' + (x < 10 ? '0' : '') + x; }
+  function dur(min) { if (!min) return ''; var h = Math.floor(min / 60), m = min % 60; return h ? h + 'h ' + (m < 10 ? '0' : '') + m + 'm' : m + 'm'; }
+  function n(x) { return Number(x).toLocaleString('en-US'); }
+
+  if (STATIC) $('ask').setAttribute('action', 'research.html');
+
+  function getJSON(u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error(r.status + ' ' + u); return r.json(); }); }
+  Promise.all([getJSON(DATA + 'catalogue.json'), getJSON(DATA + 'home.json')]).then(function (r) { render(r[0], r[1]); }, function (err) {
+    $('hero').innerHTML = '<p class="loading">Could not load the site data: ' + esc(err.message) + '. <a href="' + episodesHref() + '">Go to Episodes</a>.</p>';
+  });
+
+  function render(CAT, H) {
+    var E = CAT.episodes, byId = {}, SHORT = {}, TOPIC = {};
+    E.forEach(function (e) { byId[e.id] = e; U[e.id] = e.u; });
+    CAT.topics.forEach(function (t) { SHORT[t.slug] = t.short || t.name; TOPIC[t.slug] = t; });
+    var dates = E.map(function (e) { return e.date; }).filter(Boolean).sort();
+    var last = dates[dates.length - 1];
+    if (dates.length) $('coverage').textContent = ': ' + n(E.length) + ' transcripts, ' + monthLabel(dates[0].slice(0, 6)) + ' to ' + MONL[+last.slice(4, 6) - 1] + ' ' + +last.slice(6) + ', ' + last.slice(0, 4);
+    if (CAT.updated) $('foot-upd').textContent = 'Updated ' + dateMed(CAT.updated) + ' · ';
+    function chip(t) { return '<a class="chip" href="' + episodesHref('topic=' + encodeURIComponent(t)) + '">' + esc(SHORT[t] || t) + '</a>'; }
+    function card(e) {
+      return '<a class="card" href="' + epHref(e.id) + '"><span class="d">' + DOW[d(e.date).getDay()] + ' ' + dateMed(e.date) + (e.ep ? ' · Ep. ' + e.ep : '') + (e.kind !== 'regular' ? ' · ' + KIND[e.kind] : '') + '</span>' +
+        '<b>' + esc(e.h) + '</b>' + (e.gist ? '<p>' + esc(e.gist) + '</p>' : '') +
+        '<span class="foot">' + (e.topics || []).slice(0, 2).map(function (t) { return '<span class="chip">' + esc(SHORT[t] || t) + '</span>'; }).join('') + '</span></a>';
+    }
+
+    /* Latest episode */
+    var L = H.latest && byId[H.latest.id] || E[0];
+    if (L) {
+      var inside = (H.latest && H.latest.id === L.id ? H.latest.inside : []);
+      $('hero').innerHTML = '<div><div class="k">Latest · ' + dateLong(L.date) + (L.ep ? ' · Ep. ' + L.ep : '') + '</div>' +
+        '<h2 class="hero-h"><a href="' + epHref(L.id) + '">' + esc(L.h) + '</a></h2>' + (L.gist ? '<p class="gist">' + esc(L.gist) + '</p>' : '') +
+        '<div class="chips">' + (L.topics || []).slice(0, 5).map(chip).join('') + '</div>' +
+        '<div class="cta-row"><a class="cta" href="' + epHref(L.id) + '">Read the transcript →</a><span>' +
+        [dur(L.min), L.quoted ? L.quoted + ' line' + (L.quoted === 1 ? '' : 's') + ' quoted in Nick\'s Positions' : ''].filter(Boolean).join(' · ') + '</span></div></div>' +
+        (inside.length ? '<div class="inside"><h3>Inside this episode · ' + inside.length + ' parts</h3>' +
+          '<p class="inside-note">Auto chapters, from the index summaries. Times match the video' + (H.latest.start > 120 ? ': the show starts ' + hms(H.latest.start) + ' into the stream' : '') + '.</p><div class="inside-list">' + inside.map(function (s) {
+          return '<a href="' + epHref(L.id, s[0]) + '"><span class="t mono">' + hms(s[0]) + '</span><span>' + (SPK[s[2]] ? '<span class="spk">' + SPK[s[2]] + '</span>' : '') + esc(s[1]) + '</span></a>';
+        }).join('') + '</div></div>' : '');
+    }
+
+    /* Three doors */
+    var st = H.stats;
+    $('doors').innerHTML =
+      '<a class="door" href="' + researchHref() + '"><b>Research</b><span>Every part of every show, summarized and searchable, with his verified quotes. Filter by topic, year and who is speaking.</span><small>' + n(st.segments + st.quotes) + ' moments →</small></a>' +
+      '<a class="door" href="' + posHref() + '"><b>Nick\'s Positions</b><span>What he argues, topic by topic, in short summaries backed by his own words, each linked to the second he said it.</span><small>' + st.topics + ' topics · ' + st.positions + ' positions · ' + n(st.pquotes) + ' quotes →</small></a>' +
+      '<a class="door" href="' + episodesHref() + '"><b>Episodes</b><span>Every transcript, newest first. Filter by topic or year, or search every word.</span><small>' + n(st.episodes) + ' transcripts →</small></a>';
+
+    /* In his words */
+    $('words').innerHTML = (H.words || []).map(function (w) {
+      var e = byId[w[0]];
+      if (!e) return '';
+      return '<figure class="word"><blockquote>“' + esc(w[2]) + '”</blockquote><footer><span>' + esc(SHORT[w[4]] || w[4]) + '</span><span>' + dateMed(e.date) + (e.ep ? ' · Ep. ' + e.ep : '') +
+        ' · <a href="' + epHref(w[0], w[1]) + '">' + hms(w[1]) + '</a></span><a href="' + posHref(w[3]) + '">Position ' + w[5] + ' →</a></footer></figure>';
+    }).join('');
+
+    /* Recent episodes */
+    $('recent').innerHTML = E.slice(0, 8).map(card).join('');
+
+    /* Topic shelves: the 4 topics with the most segments in the last two months */
+    var months = CAT.months.slice().sort(), recentM = months.slice(-2);
+    var rank = CAT.topics.map(function (t) {
+      var c = H.heat[t.slug] || {}, r = 0, all = 0;
+      recentM.forEach(function (m) { r += c[m] || 0; });
+      Object.keys(c).forEach(function (m) { all += c[m]; });
+      return { t: t, r: r, all: all };
+    });
+    rank.sort(function (a, b) { return b.r - a.r || b.all - a.all; });
+    $('shelves').innerHTML = rank.slice(0, 4).map(function (x) {
+      // Shelf cards: episodes where the topic is one of the two biggest; the count covers every episode filed under it.
+      var t = x.t, eps = E.filter(function (e) { return (e.ft || []).indexOf(t.slug) !== -1; });
+      var lead = eps.filter(function (e) { return (e.topics || []).slice(0, 2).indexOf(t.slug) !== -1; });
+      return '<div class="tshelf"><div class="tshelf-h"><h3>' + esc(t.short || t.name) + '</h3><small>' + eps.length + ' episodes · ' + t.n + ' positions</small>' +
+        '<span class="links"><a href="' + posHref(t.slug) + '">His positions →</a><a href="' + episodesHref('topic=' + encodeURIComponent(t.slug)) + '">All episodes →</a></span></div>' +
+        '<div class="shelf">' + lead.slice(0, 8).map(card).join('') + '</div></div>';
+    }).join('');
+
+    /* Heatmap: share of each month's segments, by topic */
+    var order = rank.slice().sort(function (a, b) { return b.all - a.all; });
+    var h = '<table aria-label="Share of each month\'s show by topic"><thead><tr><th></th>' + months.map(function (m, i) {
+      var first = i === 0 || m.slice(4) === '01';
+      return '<th scope="col" title="' + monthLabel(m) + '">' + (first ? MON[+m.slice(4) - 1] + '<br>' + m.slice(2, 4) : MON[+m.slice(4) - 1].charAt(0)) + '</th>';
+    }).join('') + '</tr></thead><tbody>';
+    order.forEach(function (x) {
+      var t = x.t, c = H.heat[t.slug] || {};
+      h += '<tr><th scope="row"><a href="' + researchHref('topic=' + encodeURIComponent(t.slug)) + '">' + esc(t.short || t.name) + '</a></th>' + months.map(function (m) {
+        var k = c[m] || 0, of = H.segs[m] || 0, share = of ? k / of : 0;
+        var l = !k ? '' : share < 0.05 ? 'l1' : share < 0.12 ? 'l2' : share < 0.25 ? 'l3' : 'l4';
+        var label = (t.short || t.name) + ', ' + monthLabel(m) + ': ' + k + ' of ' + of + ' segments';
+        return '<td class="' + l + '">' + (k ? '<a href="' + researchHref('topic=' + encodeURIComponent(t.slug) + '&m=' + m) + '" data-t="' + esc(t.short || t.name) + '" data-m="' + m + '" data-n="' + k + '" data-of="' + of + '" aria-label="' + esc(label) + '"></a>' : '') + '</td>';
+      }).join('') + '</tr>';
+    });
+    $('heat').innerHTML = h + '</tbody></table>';
+    $('legend').innerHTML = 'Share of that month\'s show segments: <i></i>0 <i class="l1"></i>under 5% <i class="l2"></i>under 12% <i class="l3"></i>under 25% <i class="l4"></i>25% or more';
+    var tip = $('tip');
+    $('heat').addEventListener('mousemove', function (ev) {
+      var a = ev.target.closest('a[data-m]');
+      if (!a) { tip.style.display = 'none'; return; }
+      tip.innerHTML = '<b>' + esc(a.getAttribute('data-t')) + '</b> · ' + monthLabel(a.getAttribute('data-m')) + '<br>' + a.getAttribute('data-n') + ' of ' + a.getAttribute('data-of') + ' segments (' + Math.round(a.getAttribute('data-n') / a.getAttribute('data-of') * 100) + '%) · click to see them';
+      tip.style.display = 'block';
+      tip.style.left = Math.min(ev.clientX + 12, window.innerWidth - tip.offsetWidth - 8) + 'px'; tip.style.top = (ev.clientY - 46) + 'px';
+    });
+    $('heat').addEventListener('mouseleave', function () { tip.style.display = 'none'; });
+    var heat = $('heat'); heat.scrollLeft = heat.scrollWidth;
+
+    /* Calendar archive */
+    var years = {}, byDay = {};
+    E.forEach(function (e) { if (!e.date) return; years[e.date.slice(0, 4)] = (years[e.date.slice(0, 4)] || 0) + 1; (byDay[e.date] = byDay[e.date] || []).push(e); });
+    var ys = Object.keys(years).sort().reverse(), year = ys[0];
+    $('arch-n').textContent = n(E.length) + ' transcripts · ' + monthLabel(months[0]) + ' to ' + monthLabel(months[months.length - 1]);
+    function renderCal() {
+      $('years').innerHTML = ys.map(function (y) { return '<button type="button" class="chip" data-y="' + y + '" aria-pressed="' + (y === year) + '">' + y + ' <span class="n">' + years[y] + '</span></button>'; }).join('');
+      $('cal').innerHTML = months.filter(function (m) { return m.slice(0, 4) === year; }).reverse().map(function (m) {
+        var y = +m.slice(0, 4), mo = +m.slice(4) - 1, first = new Date(y, mo, 1).getDay(), nd = new Date(y, mo + 1, 0).getDate(), cnt = 0;
+        var h = ['S', 'M', 'T', 'W', 'T', 'F', 'S'].map(function (x) { return '<span class="dw" aria-hidden="true">' + x + '</span>'; }).join('');
+        for (var i = 0; i < first; i++) h += '<span aria-hidden="true"></span>';
+        for (var day = 1; day <= nd; day++) {
+          var key = m + (day < 10 ? '0' : '') + day, es = byDay[key];
+          if (es) {
+            cnt += es.length;
+            h += '<a href="' + epHref(es[0].id) + '"' + (es.some(function (e) { return e.kind !== 'regular'; }) ? ' class="g"' : '') +
+              ' title="' + esc(es.map(function (e) { return (e.ep ? 'Ep. ' + e.ep + ': ' : '') + e.h; }).join(' / ')) + '" aria-label="' + esc(dateMed(key) + ': ' + es[0].h) + '">' + day + '</a>';
+          } else h += '<span class="x" aria-hidden="true">' + day + '</span>';
+        }
+        return '<div class="cal"><div class="cal-h"><h3><a href="' + researchHref('m=' + m) + '" title="Browse this month in Research">' + monthLabel(m) + '</a></h3><span>' + cnt + ' show' + (cnt === 1 ? '' : 's') + '</span></div><div class="days">' + h + '</div></div>';
+      }).join('');
+    }
+    $('years').addEventListener('click', function (e) { var b = e.target.closest('[data-y]'); if (b) { year = b.getAttribute('data-y'); renderCal(); } });
+    renderCal();
+    // The sections only exist now, so the browser's own jump to /#archive (etc.) found nothing.
+    var target = location.hash.length > 1 && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) target.scrollIntoView();
+  }
+})();
+</script>
+<script id="theme-picker">
+(function () {
+  var THEMES = [['signal-dark','Classic Dark','dark'],['midnight','Midnight','dark'],['graphite','Graphite','dark'],['forest','Forest','dark'],['oxblood','Oxblood','dark'],['arctic','Arctic Night','dark'],['paper','Paper','light'],['daylight','Daylight','light'],['sepia','Sepia','light'],['sage','Sage','light']];
+  var KEY = 'signal-theme', root = document.documentElement;
+  var pick = document.getElementById('theme-pick');
+  if (!pick) return;
+  var btn = pick.querySelector('.theme-btn'), menu = pick.querySelector('.theme-menu');
+  var h = '', group = '';
+  THEMES.forEach(function (t) {
+    if (t[2] !== group) { group = t[2]; h += '<div class="theme-group">' + (group === 'dark' ? 'Dark' : 'Light') + '</div>'; }
+    h += '<button type="button" class="theme-opt" role="menuitemradio" data-set="' + t[0] + '"><span class="theme-sw" data-theme="' + t[0] + '"></span>' + t[1] + '</button>';
+  });
+  menu.innerHTML = h;
+  var opts = [].slice.call(menu.querySelectorAll('.theme-opt'));
+  function cur() { return root.getAttribute('data-theme') || 'signal-dark'; }
+  function sync() { opts.forEach(function (o) { o.setAttribute('aria-checked', o.getAttribute('data-set') === cur() ? 'true' : 'false'); }); }
+  function show(v) {
+    menu.hidden = !v;
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    if (v) { sync(); (menu.querySelector('[aria-checked="true"]') || opts[0]).focus(); }
+  }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); show(menu.hidden); });
+  menu.addEventListener('click', function (e) {
+    var o = e.target.closest('.theme-opt');
+    if (!o) return;
+    root.setAttribute('data-theme', o.getAttribute('data-set'));
+    try { localStorage.setItem(KEY, o.getAttribute('data-set')); } catch (err) {}
+    show(false); btn.focus();
+  });
+  menu.addEventListener('keydown', function (e) {
+    var i = opts.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); opts[(i + 1) % opts.length].focus(); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); opts[(i - 1 + opts.length) % opts.length].focus(); }
+  });
+  document.addEventListener('click', function (e) { if (!menu.hidden && !pick.contains(e.target)) show(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { show(false); btn.focus(); } });
+  window.addEventListener('storage', function (e) {
+    if (e.key !== KEY) return;
+    if (e.newValue) root.setAttribute('data-theme', e.newValue); else root.removeAttribute('data-theme');
+  });
+})();
+</script>
+</body>
+</html>

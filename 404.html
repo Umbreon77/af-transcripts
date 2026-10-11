@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+  // export_static.py flips this to true. GitHub Pages serves this page for a missing path at
+  // any depth, so relative links are pinned to the site root (the /af-transcripts/ project path).
+  var STATIC = true;
+  if (STATIC) document.write('<base href="' + (/^\/af-transcripts(\/|$)/.test(location.pathname) ? '/af-transcripts/' : '/') + '">');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem('signal-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <title>Page not found · America First Transcripts</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="This page does not exist on America First Transcripts." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="America First Transcripts" />
+  <meta property="og:title" content="Page not found · America First Transcripts" />
+  <meta property="og:description" content="This page does not exist on America First Transcripts." />
+  <meta property="og:image" content="https://umbreon77.github.io/af-transcripts/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c9a84c'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='%230f0f0f'%3EAF%3C/text%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ── Themes (shared: public/index.html, public/positions.html, generateHTML.js) ── */
+    :root, [data-theme="signal-dark"] { color-scheme: dark; --bg: #0f0f0f; --surface: #181818; --header-bg: rgba(10,10,10,0.97); --text: #e4e4e4; --text-dim: #aaaaaa; --muted: #8a8a8a; --border: #282828; --strong: #ffffff; --accent: #c9a84c; --accent-dim: rgba(201,168,76,0.12); --ts-color: #c9a84c; --hl: rgba(201,168,76,0.28); --hl-active: rgba(201,168,76,0.46); --flag: #e0a84c; --flag-border: #7a5a1c; --error: #f87171; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="midnight"] { color-scheme: dark; --bg: #0d1117; --surface: #161b22; --header-bg: rgba(13,17,23,0.97); --text: #e6edf3; --text-dim: #b1bac4; --muted: #8d96a0; --border: #30363d; --strong: #ffffff; --accent: #58a6ff; --accent-dim: rgba(88,166,255,0.12); --ts-color: #58a6ff; --hl: rgba(88,166,255,0.3); --hl-active: rgba(88,166,255,0.55); --flag: #e3b341; --flag-border: rgba(227,179,65,0.55); --error: #ff7b72; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="graphite"] { color-scheme: dark; --bg: #1b1d21; --surface: #24272c; --header-bg: rgba(27,29,33,0.97); --text: #e8e6e3; --text-dim: #bdb9b3; --muted: #94908a; --border: #363a40; --strong: #ffffff; --accent: #e8855f; --accent-dim: rgba(232,133,95,0.12); --ts-color: #e8855f; --hl: rgba(232,133,95,0.28); --hl-active: rgba(232,133,95,0.44); --flag: #e5b45a; --flag-border: rgba(229,180,90,0.55); --error: #ff8a80; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="forest"] { color-scheme: dark; --bg: #0e1411; --surface: #16201b; --header-bg: rgba(14,20,17,0.97); --text: #e1e9e4; --text-dim: #adbcb3; --muted: #879a8e; --border: #26332c; --strong: #ffffff; --accent: #6fcf97; --accent-dim: rgba(111,207,151,0.12); --ts-color: #6fcf97; --hl: rgba(111,207,151,0.24); --hl-active: rgba(111,207,151,0.4); --flag: #e6c15c; --flag-border: rgba(230,193,92,0.55); --error: #ff8a7a; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="oxblood"] { color-scheme: dark; --bg: #150f10; --surface: #201718; --header-bg: rgba(21,15,16,0.97); --text: #ede3e3; --text-dim: #c0b1b1; --muted: #998787; --border: #352728; --strong: #ffffff; --accent: #e7787f; --accent-dim: rgba(231,120,127,0.12); --ts-color: #e7787f; --hl: rgba(231,120,127,0.3); --hl-active: rgba(231,120,127,0.55); --flag: #e8b45a; --flag-border: rgba(232,180,90,0.55); --error: #ff9c8a; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="arctic"] { color-scheme: dark; --bg: #2b303b; --surface: #353b47; --header-bg: rgba(43,48,59,0.97); --text: #eceff4; --text-dim: #ccd3de; --muted: #aab3c2; --border: #4a5162; --strong: #ffffff; --accent: #88c0d0; --accent-dim: rgba(136,192,208,0.12); --ts-color: #88c0d0; --hl: rgba(136,192,208,0.2); --hl-active: rgba(136,192,208,0.3); --flag: #ebcb8b; --flag-border: rgba(235,203,139,0.55); --error: #f2a0a6; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="paper"] { color-scheme: light; --bg: #fbfaf7; --surface: #f1ede4; --header-bg: rgba(251,250,247,0.97); --text: #1f1d1a; --text-dim: #45413b; --muted: #625d55; --border: #ddd7ca; --strong: #000000; --accent: #865a00; --accent-dim: rgba(134,90,0,0.12); --ts-color: #865a00; --hl: rgba(134,90,0,0.22); --hl-active: rgba(134,90,0,0.4); --flag: #8a4b00; --flag-border: rgba(138,75,0,0.55); --error: #b42318; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    [data-theme="daylight"] { color-scheme: light; --bg: #ffffff; --surface: #f2f5f9; --header-bg: rgba(255,255,255,0.97); --text: #17202c; --text-dim: #3c4655; --muted: #596476; --border: #d9dfe7; --strong: #000000; --accent: #0a58b8; --accent-dim: rgba(10,88,184,0.12); --ts-color: #0a58b8; --hl: rgba(10,88,184,0.18); --hl-active: rgba(10,88,184,0.36); --flag: #8a4b00; --flag-border: rgba(138,75,0,0.55); --error: #b42318; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    [data-theme="sepia"] { color-scheme: light; --bg: #f4ecd8; --surface: #ebe0c4; --header-bg: rgba(244,236,216,0.97); --text: #382c1c; --text-dim: #54452f; --muted: #6c5b42; --border: #d8c9a6; --strong: #1c140a; --accent: #8f3a17; --accent-dim: rgba(143,58,23,0.12); --ts-color: #8f3a17; --hl: rgba(143,58,23,0.2); --hl-active: rgba(143,58,23,0.38); --flag: #7a4100; --flag-border: rgba(122,65,0,0.55); --error: #a3200f; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    [data-theme="sage"] { color-scheme: light; --bg: #f2f5f1; --surface: #e4ebe2; --header-bg: rgba(242,245,241,0.97); --text: #1b2820; --text-dim: #3b4b40; --muted: #56675b; --border: #cbd6c8; --strong: #0d1610; --accent: #2b6a43; --accent-dim: rgba(43,106,67,0.12); --ts-color: #2b6a43; --hl: rgba(43,106,67,0.2); --hl-active: rgba(43,106,67,0.38); --flag: #7f4a00; --flag-border: rgba(127,74,0,0.55); --error: #a8271b; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: inherit; }
+    button, input, select { font-family: inherit; font-size: inherit; color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .skip { position: absolute; left: -999px; top: 0; z-index: 999; background: var(--accent); color: var(--bg); padding: 8px 12px; }
+    .skip:focus { left: 8px; top: 8px; }
+    mark { background: var(--hl); color: var(--text); border-radius: 2px; padding: 0 1px; }
+    .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-variant-numeric: tabular-nums; }
+    .chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); font-size: 0.72rem; line-height: 1.5; white-space: nowrap; }
+    .chip.kind { border-style: dashed; color: var(--text); }
+
+    /* ── Site header (shared: public/index.html, episodes.html, research.html, positions.html, guide.html, generateHTML.js) ── */
+    .site-head { border-bottom: 1px solid var(--border); background: var(--bg); }
+    .site-head-in { max-width: 1150px; margin: 0 auto; padding: 14px 20px 0; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+    .site-logo { font-size: 1.15rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.2; color: var(--accent); text-decoration: none; padding: 6px 12px; border: 2px solid var(--accent); border-radius: 6px; }
+    @media (max-width: 640px) { .site-logo { font-size: 0.88rem; padding: 4px 8px; letter-spacing: 0.08em; } }
+    .site-logo:hover { opacity: 0.8; }
+    .site-head .theme-pick { margin-left: auto; }
+    .site-tabs { display: flex; gap: 2px; width: 100%; overflow-x: auto; scrollbar-width: none; }
+    .site-tabs a { padding: 6px 12px 10px; font-size: 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; white-space: nowrap; }
+    .site-tabs a:first-child { padding-left: 0; }
+    .site-tabs a:hover { color: var(--text); }
+    .site-tabs a[aria-current] { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
+    @media (max-width: 640px) { .site-head-in { padding: 12px 16px 0; } .theme-label { display: none; } .theme-btn { padding: 4px; } .site-tabs { gap: 0; } .site-tabs a { padding: 6px 5px 10px; font-size: 0.78rem; } }
+    @media (max-width: 480px) { .site-tabs .tab-x { display: none; } }
+    @media (max-width: 380px) { .site-tabs a { padding: 6px 3px 10px; font-size: 0.76rem; } }
+
+    /* ── 404 ── */
+    .nf { max-width: 640px; margin: 0 auto; padding: 60px 20px 80px; }
+    .page-title { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--strong); }
+    .nf p { margin: 10px 0; color: var(--text-dim); }
+    .nf form { display: flex; gap: 8px; margin: 18px 0; }
+    .nf input { flex: 1; min-width: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 11px 14px; font-size: 1rem; color: var(--text); outline: none; }
+    .nf input:focus { border-color: var(--accent); }
+    .nf button { padding: 0 18px; border-radius: 10px; border: 0; background: var(--accent); color: var(--bg); font-weight: 700; cursor: pointer; }
+    .nf ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .nf ul a { display: inline-block; padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px; text-decoration: none; color: var(--text); font-size: 0.9rem; }
+    .nf ul a:hover { border-color: var(--accent); }
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); text-align: center; }
+    footer a { color: var(--accent); }
+    @media (max-width: 700px) { .nf { padding: 36px 16px 80px; } .nf input { font-size: 16px; } }
+    /* ── Theme picker (shared) ── */
+    .theme-pick { position: relative; flex-shrink: 0; }
+    .theme-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 10px 4px 5px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; color: var(--text-dim); font-family: inherit; font-size: 0.75rem; line-height: 1; cursor: pointer; }
+    .theme-btn:hover, .theme-btn[aria-expanded="true"] { border-color: var(--accent); color: var(--text); }
+    .theme-sw { display: inline-block; width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--border); background: linear-gradient(135deg, var(--bg) 50%, var(--accent) 50%); }
+    .theme-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: 300; min-width: 200px; max-height: 75vh; overflow-y: auto; padding: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 8px 28px var(--shadow); text-align: left; }
+    .theme-menu[hidden] { display: none; }
+    .theme-group { padding: 6px 8px 2px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+    .theme-opt { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 6px 8px; background: none; border: 0; border-radius: 6px; color: var(--text); font-family: inherit; font-size: 0.875rem; text-align: left; cursor: pointer; }
+    .theme-opt:hover, .theme-opt:focus-visible { background: var(--accent-dim); outline: none; }
+    .theme-opt[aria-checked="true"] { color: var(--accent); font-weight: 600; }
+    .theme-opt[aria-checked="true"]::after { content: '✓'; margin-left: auto; }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the page</a>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a href="./" class="site-logo">America First Transcripts</a>
+    <div class="theme-pick" id="theme-pick"><button type="button" class="theme-btn" aria-haspopup="true" aria-expanded="false" aria-label="Color theme" title="Color theme"><span class="theme-sw"></span><span class="theme-label">Theme</span></button><div class="theme-menu" role="menu" hidden></div></div>
+    <nav class="site-tabs" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="research.html">Research</a>
+      <a href="positions.html"><span class="tab-x">Nick's </span>Positions</a>
+      <a href="guide.html">How to use</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="nf" id="main" tabindex="-1">
+  <h1 class="page-title">Page not found</h1>
+  <p>There's nothing at this address. If you followed a link to an episode, it may have a new address: episodes live at <b>/ep/</b> and the episode number, like <b>/ep/1759</b>.</p>
+  <form action="research.html" role="search">
+    <label class="sr-only" for="nf-q">Search what he said</label>
+    <input id="nf-q" name="q" type="search" placeholder="Search what he said" autocomplete="off" />
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+    <li><a href="./">Home</a></li>
+    <li><a href="episodes.html">All episodes</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="positions.html">Nick's Positions</a></li>
+  </ul>
+  <footer><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFVo0FznkFfD4VMrMhvTrxI5SiGqacwLXyWMkojunxg-GN3w/viewform" target="_blank" rel="noopener">Report an error</a></footer>
+</main>
+
+<script id="theme-picker">
+(function () {
+  var THEMES = [['signal-dark','Classic Dark','dark'],['midnight','Midnight','dark'],['graphite','Graphite','dark'],['forest','Forest','dark'],['oxblood','Oxblood','dark'],['arctic','Arctic Night','dark'],['paper','Paper','light'],['daylight','Daylight','light'],['sepia','Sepia','light'],['sage','Sage','light']];
+  var KEY = 'signal-theme', root = document.documentElement;
+  var pick = document.getElementById('theme-pick');
+  if (!pick) return;
+  var btn = pick.querySelector('.theme-btn'), menu = pick.querySelector('.theme-menu');
+  var h = '', group = '';
+  THEMES.forEach(function (t) {
+    if (t[2] !== group) { group = t[2]; h += '<div class="theme-group">' + (group === 'dark' ? 'Dark' : 'Light') + '</div>'; }
+    h += '<button type="button" class="theme-opt" role="menuitemradio" data-set="' + t[0] + '"><span class="theme-sw" data-theme="' + t[0] + '"></span>' + t[1] + '</button>';
+  });
+  menu.innerHTML = h;
+  var opts = [].slice.call(menu.querySelectorAll('.theme-opt'));
+  function cur() { return root.getAttribute('data-theme') || 'signal-dark'; }
+  function sync() { opts.forEach(function (o) { o.setAttribute('aria-checked', o.getAttribute('data-set') === cur() ? 'true' : 'false'); }); }
+  function show(v) {
+    menu.hidden = !v;
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    if (v) { sync(); (menu.querySelector('[aria-checked="true"]') || opts[0]).focus(); }
+  }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); show(menu.hidden); });
+  menu.addEventListener('click', function (e) {
+    var o = e.target.closest('.theme-opt');
+    if (!o) return;
+    root.setAttribute('data-theme', o.getAttribute('data-set'));
+    try { localStorage.setItem(KEY, o.getAttribute('data-set')); } catch (err) {}
+    show(false); btn.focus();
+  });
+  menu.addEventListener('keydown', function (e) {
+    var i = opts.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); opts[(i + 1) % opts.length].focus(); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); opts[(i - 1 + opts.length) % opts.length].focus(); }
+  });
+  document.addEventListener('click', function (e) { if (!menu.hidden && !pick.contains(e.target)) show(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { show(false); btn.focus(); } });
+  window.addEventListener('storage', function (e) {
+    if (e.key !== KEY) return;
+    if (e.newValue) root.setAttribute('data-theme', e.newValue); else root.removeAttribute('data-theme');
+  });
+})();
+</script>
+</body>
+</html>

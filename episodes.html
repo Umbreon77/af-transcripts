@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem('signal-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <title>Episodes · America First Transcripts</title>
+  <meta name="description" content="Every episode of America First, hosted by Nick Fuentes: full transcripts with timestamps, search, and shareable links." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="America First Transcripts" />
+  <meta property="og:title" content="Episodes · America First Transcripts" />
+  <meta property="og:description" content="Every episode of America First, hosted by Nick Fuentes: full transcripts with timestamps, search, and shareable links." />
+  <meta property="og:url" content="https://umbreon77.github.io/af-transcripts/episodes.html" />
+  <meta property="og:image" content="https://umbreon77.github.io/af-transcripts/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://umbreon77.github.io/af-transcripts/episodes.html" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c9a84c'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='%230f0f0f'%3EAF%3C/text%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ── Themes (shared: public/index.html, public/positions.html, generateHTML.js) ── */
+    :root, [data-theme="signal-dark"] { color-scheme: dark; --bg: #0f0f0f; --surface: #181818; --header-bg: rgba(10,10,10,0.97); --text: #e4e4e4; --text-dim: #aaaaaa; --muted: #8a8a8a; --border: #282828; --strong: #ffffff; --accent: #c9a84c; --accent-dim: rgba(201,168,76,0.12); --ts-color: #c9a84c; --hl: rgba(201,168,76,0.28); --hl-active: rgba(201,168,76,0.46); --flag: #e0a84c; --flag-border: #7a5a1c; --error: #f87171; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="midnight"] { color-scheme: dark; --bg: #0d1117; --surface: #161b22; --header-bg: rgba(13,17,23,0.97); --text: #e6edf3; --text-dim: #b1bac4; --muted: #8d96a0; --border: #30363d; --strong: #ffffff; --accent: #58a6ff; --accent-dim: rgba(88,166,255,0.12); --ts-color: #58a6ff; --hl: rgba(88,166,255,0.3); --hl-active: rgba(88,166,255,0.55); --flag: #e3b341; --flag-border: rgba(227,179,65,0.55); --error: #ff7b72; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="graphite"] { color-scheme: dark; --bg: #1b1d21; --surface: #24272c; --header-bg: rgba(27,29,33,0.97); --text: #e8e6e3; --text-dim: #bdb9b3; --muted: #94908a; --border: #363a40; --strong: #ffffff; --accent: #e8855f; --accent-dim: rgba(232,133,95,0.12); --ts-color: #e8855f; --hl: rgba(232,133,95,0.28); --hl-active: rgba(232,133,95,0.44); --flag: #e5b45a; --flag-border: rgba(229,180,90,0.55); --error: #ff8a80; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="forest"] { color-scheme: dark; --bg: #0e1411; --surface: #16201b; --header-bg: rgba(14,20,17,0.97); --text: #e1e9e4; --text-dim: #adbcb3; --muted: #879a8e; --border: #26332c; --strong: #ffffff; --accent: #6fcf97; --accent-dim: rgba(111,207,151,0.12); --ts-color: #6fcf97; --hl: rgba(111,207,151,0.24); --hl-active: rgba(111,207,151,0.4); --flag: #e6c15c; --flag-border: rgba(230,193,92,0.55); --error: #ff8a7a; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="oxblood"] { color-scheme: dark; --bg: #150f10; --surface: #201718; --header-bg: rgba(21,15,16,0.97); --text: #ede3e3; --text-dim: #c0b1b1; --muted: #998787; --border: #352728; --strong: #ffffff; --accent: #e7787f; --accent-dim: rgba(231,120,127,0.12); --ts-color: #e7787f; --hl: rgba(231,120,127,0.3); --hl-active: rgba(231,120,127,0.55); --flag: #e8b45a; --flag-border: rgba(232,180,90,0.55); --error: #ff9c8a; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="arctic"] { color-scheme: dark; --bg: #2b303b; --surface: #353b47; --header-bg: rgba(43,48,59,0.97); --text: #eceff4; --text-dim: #ccd3de; --muted: #aab3c2; --border: #4a5162; --strong: #ffffff; --accent: #88c0d0; --accent-dim: rgba(136,192,208,0.12); --ts-color: #88c0d0; --hl: rgba(136,192,208,0.2); --hl-active: rgba(136,192,208,0.3); --flag: #ebcb8b; --flag-border: rgba(235,203,139,0.55); --error: #f2a0a6; --field: rgba(255,255,255,0.05); --hover: rgba(255,255,255,0.08); --shadow: rgba(0,0,0,0.5); }
+    [data-theme="paper"] { color-scheme: light; --bg: #fbfaf7; --surface: #f1ede4; --header-bg: rgba(251,250,247,0.97); --text: #1f1d1a; --text-dim: #45413b; --muted: #625d55; --border: #ddd7ca; --strong: #000000; --accent: #865a00; --accent-dim: rgba(134,90,0,0.12); --ts-color: #865a00; --hl: rgba(134,90,0,0.22); --hl-active: rgba(134,90,0,0.4); --flag: #8a4b00; --flag-border: rgba(138,75,0,0.55); --error: #b42318; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    [data-theme="daylight"] { color-scheme: light; --bg: #ffffff; --surface: #f2f5f9; --header-bg: rgba(255,255,255,0.97); --text: #17202c; --text-dim: #3c4655; --muted: #596476; --border: #d9dfe7; --strong: #000000; --accent: #0a58b8; --accent-dim: rgba(10,88,184,0.12); --ts-color: #0a58b8; --hl: rgba(10,88,184,0.18); --hl-active: rgba(10,88,184,0.36); --flag: #8a4b00; --flag-border: rgba(138,75,0,0.55); --error: #b42318; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    [data-theme="sepia"] { color-scheme: light; --bg: #f4ecd8; --surface: #ebe0c4; --header-bg: rgba(244,236,216,0.97); --text: #382c1c; --text-dim: #54452f; --muted: #6c5b42; --border: #d8c9a6; --strong: #1c140a; --accent: #8f3a17; --accent-dim: rgba(143,58,23,0.12); --ts-color: #8f3a17; --hl: rgba(143,58,23,0.2); --hl-active: rgba(143,58,23,0.38); --flag: #7a4100; --flag-border: rgba(122,65,0,0.55); --error: #a3200f; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    [data-theme="sage"] { color-scheme: light; --bg: #f2f5f1; --surface: #e4ebe2; --header-bg: rgba(242,245,241,0.97); --text: #1b2820; --text-dim: #3b4b40; --muted: #56675b; --border: #cbd6c8; --strong: #0d1610; --accent: #2b6a43; --accent-dim: rgba(43,106,67,0.12); --ts-color: #2b6a43; --hl: rgba(43,106,67,0.2); --hl-active: rgba(43,106,67,0.38); --flag: #7f4a00; --flag-border: rgba(127,74,0,0.55); --error: #a8271b; --field: rgba(0,0,0,0.04); --hover: rgba(0,0,0,0.06); --shadow: rgba(0,0,0,0.14); }
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: inherit; }
+    button, input, select { font-family: inherit; font-size: inherit; color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .skip { position: absolute; left: -999px; top: 0; z-index: 999; background: var(--accent); color: var(--bg); padding: 8px 12px; }
+    .skip:focus { left: 8px; top: 8px; }
+    mark { background: var(--hl); color: var(--text); border-radius: 2px; padding: 0 1px; }
+    .mono { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-variant-numeric: tabular-nums; }
+    .chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); font-size: 0.72rem; line-height: 1.5; white-space: nowrap; }
+    .chip.kind { border-style: dashed; color: var(--text); }
+
+    /* ── Site header (shared: public/index.html, episodes.html, research.html, positions.html, guide.html, generateHTML.js) ── */
+    .site-head { border-bottom: 1px solid var(--border); background: var(--bg); }
+    .site-head-in { max-width: 1150px; margin: 0 auto; padding: 14px 20px 0; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+    .site-logo { font-size: 1.15rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.2; color: var(--accent); text-decoration: none; padding: 6px 12px; border: 2px solid var(--accent); border-radius: 6px; }
+    @media (max-width: 640px) { .site-logo { font-size: 0.88rem; padding: 4px 8px; letter-spacing: 0.08em; } }
+    .site-logo:hover { opacity: 0.8; }
+    .site-head .theme-pick { margin-left: auto; }
+    .site-tabs { display: flex; gap: 2px; width: 100%; overflow-x: auto; scrollbar-width: none; }
+    .site-tabs a { padding: 6px 12px 10px; font-size: 0.9rem; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; white-space: nowrap; }
+    .site-tabs a:first-child { padding-left: 0; }
+    .site-tabs a:hover { color: var(--text); }
+    .site-tabs a[aria-current] { color: var(--text); font-weight: 600; border-bottom-color: var(--accent); }
+    @media (max-width: 640px) { .site-head-in { padding: 12px 16px 0; } .theme-label { display: none; } .theme-btn { padding: 4px; } .site-tabs { gap: 0; } .site-tabs a { padding: 6px 5px 10px; font-size: 0.78rem; } }
+    @media (max-width: 480px) { .site-tabs .tab-x { display: none; } }
+    @media (max-width: 380px) { .site-tabs a { padding: 6px 3px 10px; font-size: 0.76rem; } }
+
+    /* ── Catalogue ── */
+    .cat { max-width: 1150px; margin: 0 auto; padding: 22px 20px 80px; }
+    .page-title { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--strong); }
+    .page-desc { font-size: 0.875rem; color: var(--muted); margin: 4px 0 16px; }
+    .searchbox { position: relative; }
+    .searchbox input { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px 12px 40px; font-size: 1rem; color: var(--text); outline: none; }
+    .searchbox input:focus { border-color: var(--accent); }
+    .searchbox input::placeholder { color: var(--muted); }
+    .searchbox svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+    .search-help { font-size: 0.75rem; color: var(--muted); margin: 6px 2px 0; }
+    .search-help code { font-family: inherit; background: var(--field); border: 1px solid var(--border); border-radius: 4px; padding: 0 4px; color: var(--text-dim); }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0 6px; }
+    .seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .seg button { background: none; border: 0; padding: 6px 11px; font-size: 0.8rem; color: var(--text-dim); cursor: pointer; border-right: 1px solid var(--border); }
+    .seg button:last-child { border-right: 0; }
+    .seg button:hover { color: var(--text); background: var(--hover); }
+    .seg button[aria-pressed="true"] { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .sel { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; font-size: 0.8rem; color: var(--text-dim); max-width: 100%; }
+    .filters .spacer { flex: 1; }
+    .count { font-size: 0.8rem; color: var(--muted); margin: 8px 0 4px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; min-height: 1.4em; }
+    .count .clear { background: none; border: 0; color: var(--accent); cursor: pointer; font-size: 0.8rem; padding: 0; }
+    .month { position: sticky; top: 0; z-index: 5; background: var(--bg); display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0 8px; border-bottom: 1px solid var(--border); }
+    .month h2 { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); }
+    .month span { font-size: 0.75rem; color: var(--muted); }
+    .row { display: grid; grid-template-columns: 64px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); text-decoration: none; }
+    .row:hover .r-title { color: var(--accent); }
+    .r-date { font-variant-numeric: tabular-nums; line-height: 1.25; padding-top: 2px; }
+    .r-date b { display: block; font-size: 0.95rem; color: var(--text); font-weight: 600; }
+    .r-date i { font-style: normal; font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .r-main { min-width: 0; }
+    .r-title { font-size: 0.98rem; font-weight: 600; line-height: 1.35; color: var(--text); overflow-wrap: anywhere; }
+    .r-meta { font-size: 0.75rem; color: var(--muted); margin-top: 3px; }
+    .r-meta .q { color: var(--accent); }
+    .r-gist { font-size: 0.82rem; color: var(--text-dim); margin-top: 5px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .r-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+    body.compact .row { padding: 7px 0; align-items: baseline; }
+    body.compact .r-title { font-size: 0.9rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    body.compact .r-date b { font-size: 0.85rem; display: inline; }
+    body.compact .r-date i, body.compact .r-chips, body.compact .r-gist, body.compact .r-meta { display: none; }
+    .empty { padding: 40px 0; text-align: center; color: var(--muted); }
+
+    /* ── Search results ── */
+    .res-h { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin: 22px 0 6px; }
+    .res-status { font-size: 0.8rem; color: var(--muted); margin: 6px 0; }
+    .res-ep { padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .res-ep-h { display: flex; gap: 4px 10px; align-items: baseline; flex-wrap: wrap; margin-bottom: 4px; }
+    .res-ep-h a { font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+    .res-ep-h a:hover { color: var(--accent); }
+    .res-ep-h span { font-size: 0.75rem; color: var(--muted); }
+    .hit { display: grid; grid-template-columns: 70px 1fr; gap: 10px; padding: 5px 6px; margin: 2px -6px; border-radius: 6px; text-decoration: none; font-size: 0.86rem; }
+    .hit:hover, .hit:focus-visible { background: var(--accent-dim); }
+    .hit .t { color: var(--ts-color); font-size: 0.78rem; padding-top: 2px; }
+    .hit .x { color: var(--text-dim); min-width: 0; overflow-wrap: anywhere; }
+    .linkish { background: none; border: 0; color: var(--accent); cursor: pointer; font-size: 0.8rem; padding: 4px 0; }
+    .linkish:hover { text-decoration: underline; }
+    .more-btn { display: block; width: 100%; margin-top: 14px; padding: 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); cursor: pointer; font-size: 0.85rem; }
+    .more-btn:hover { border-color: var(--accent); }
+
+    .ft-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 10px 0 4px; }
+    .ft-btn { padding: 8px 14px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent-dim); color: var(--accent); font-weight: 600; font-size: 0.85rem; cursor: pointer; }
+    .ft-btn:hover { background: var(--hl); }
+    .ft-bar a, .res-status a { color: var(--accent); font-size: 0.8rem; text-decoration: none; }
+    .ft-bar a:hover, .res-status a:hover { text-decoration: underline; }
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--muted); text-align: center; }
+    footer a { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      .r-gist { -webkit-line-clamp: unset; display: block; }
+      .cat { padding: 16px 16px 80px; }
+      .searchbox input { font-size: 16px; }
+      .row { grid-template-columns: 48px 1fr; gap: 10px; }
+      .hit { grid-template-columns: 58px 1fr; }
+      .filters .spacer { display: none; }
+    }
+    /* ── Theme picker (shared) ── */
+    .theme-pick { position: relative; flex-shrink: 0; }
+    .theme-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 10px 4px 5px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; color: var(--text-dim); font-family: inherit; font-size: 0.75rem; line-height: 1; cursor: pointer; }
+    .theme-btn:hover, .theme-btn[aria-expanded="true"] { border-color: var(--accent); color: var(--text); }
+    .theme-sw { display: inline-block; width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--border); background: linear-gradient(135deg, var(--bg) 50%, var(--accent) 50%); }
+    .theme-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: 300; min-width: 200px; max-height: 75vh; overflow-y: auto; padding: 6px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 8px 28px var(--shadow); text-align: left; }
+    .theme-menu[hidden] { display: none; }
+    .theme-group { padding: 6px 8px 2px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); }
+    .theme-opt { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 40px; padding: 6px 8px; background: none; border: 0; border-radius: 6px; color: var(--text); font-family: inherit; font-size: 0.875rem; text-align: left; cursor: pointer; }
+    .theme-opt:hover, .theme-opt:focus-visible { background: var(--accent-dim); outline: none; }
+    .theme-opt[aria-checked="true"] { color: var(--accent); font-weight: 600; }
+    .theme-opt[aria-checked="true"]::after { content: '✓'; margin-left: auto; }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to episodes</a>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a href="./" class="site-logo">America First Transcripts</a>
+    <div class="theme-pick" id="theme-pick"><button type="button" class="theme-btn" aria-haspopup="true" aria-expanded="false" aria-label="Color theme" title="Color theme"><span class="theme-sw"></span><span class="theme-label">Theme</span></button><div class="theme-menu" role="menu" hidden></div></div>
+    <nav class="site-tabs" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="episodes.html" aria-current="page">Episodes</a>
+      <a href="research.html">Research</a>
+      <a href="positions.html"><span class="tab-x">Nick's </span>Positions</a>
+      <a href="guide.html">How to use</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="cat" id="main" tabindex="-1">
+  <h1 class="page-title">Episodes</h1>
+  <p class="page-desc">Full transcripts with timestamps, search, and shareable links.</p>
+  <div class="searchbox" role="search">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <label class="sr-only" for="q">Search episode titles and summaries; press Enter to search the transcripts too</label>
+    <input id="q" type="search" placeholder="Search titles and summaries (Enter: transcripts too)" autocomplete="off" aria-describedby="search-help" />
+  </div>
+  <p class="search-help" id="search-help">Titles and summaries match as you type. Press <code>Enter</code> to search every transcript line too, newest month first · <code>"exact phrase"</code> · <code>-word</code> excludes · <code>/</code> to search</p>
+
+  <div class="filters">
+    <div class="seg" role="group" aria-label="Kind" id="kind">
+      <button type="button" data-v="all" aria-pressed="true">All</button>
+      <button type="button" data-v="regular" aria-pressed="false">Episodes</button>
+      <button type="button" data-v="guest" aria-pressed="false">Interviews</button>
+      <button type="button" data-v="special" aria-pressed="false">Specials</button>
+    </div>
+    <label class="sr-only" for="topic">Topic</label>
+    <select class="sel" id="topic"><option value="">Any topic</option></select>
+    <label class="sr-only" for="year">Year</label>
+    <select class="sel" id="year"><option value="">All years</option></select>
+    <span class="spacer"></span>
+    <label class="sr-only" for="sort">Sort</label>
+    <select class="sel" id="sort">
+      <option value="new">Newest first</option>
+      <option value="old">Oldest first</option>
+      <option value="quoted">Most quoted in Positions</option>
+    </select>
+    <div class="seg" role="group" aria-label="Density" id="density">
+      <button type="button" data-v="comfy" aria-pressed="true" aria-label="Comfortable rows" title="Comfortable">☰</button>
+      <button type="button" data-v="compact" aria-pressed="false" aria-label="Compact rows" title="Compact">≡</button>
+    </div>
+  </div>
+  <div class="count" id="count" aria-live="polite"></div>
+  <div id="out"><p class="empty">Loading…</p></div>
+  <footer><span id="foot-upd"></span><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFVo0FznkFfD4VMrMhvTrxI5SiGqacwLXyWMkojunxg-GN3w/viewform" target="_blank" rel="noopener">Report an error</a></footer>
+</main>
+
+<script src="search.js"></script>
+<script id="catalogue">
+(function () {
+  // export_static.py flips this to true for the static site.
+  var STATIC = true;
+  var DATA = STATIC ? 'data/' : '/data/';
+  var SS = window.SignalSearch;
+  // Episode links are /ep/<slug> (catalogue "u"); the old id URL is only a fallback.
+  var U = {};
+  function epHref(id, t) { return (U[id] ? (STATIC ? 'ep/' + U[id] + '/' : '/ep/' + U[id]) : (STATIC ? 'transcripts/' + id + '.html' : '/transcripts/' + id + '/html')) + (t != null ? '#t=' + t : ''); }
+  function researchHref(q) { return (STATIC ? 'research.html' : '/research') + '?' + q; }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var MONL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var DOW = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var KIND = { regular: 'Episode', guest: 'Interview', special: 'Special' };
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function d(s) { return new Date(+s.slice(0, 4), +s.slice(4, 6) - 1, +s.slice(6, 8)); }
+  function dateShort(s) { return s ? MON[+s.slice(4, 6) - 1] + ' ' + +s.slice(6, 8) : ''; }
+  function dateMed(s) { return s ? dateShort(s) + ', ' + s.slice(0, 4) : ''; }
+  function monthLabel(k) { return MONL[+k.slice(4, 6) - 1] + ' ' + k.slice(0, 4); }
+  function hms(s) { var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + ':' + (m < 10 ? '0' : '') + m : m) + ':' + (x < 10 ? '0' : '') + x; }
+  function dur(min) { if (!min) return ''; var h = Math.floor(min / 60), m = min % 60; return h ? h + 'h ' + (m < 10 ? '0' : '') + m + 'm' : m + 'm'; }
+
+  var CAT = null, E = [], SHORT = {};
+  // ft: the transcripts are searched too (Enter or the button); typing alone searches titles and summaries.
+  var st = { q: '', kind: 'all', topic: '', year: '', sort: 'new', density: 'comfy', ft: false };
+  var sp = new URLSearchParams(location.search);
+  ['q', 'kind', 'topic', 'year', 'sort'].forEach(function (k) { if (sp.get(k)) st[k] = sp.get(k); });
+  st.ft = sp.get('ft') === '1';
+  try { st.density = localStorage.getItem('signal-density') || 'comfy'; } catch (e) {}
+
+  /* ── Data: catalogue.json; on :8000 also pick up episodes published since it was built ── */
+  var getJSON = SS.getJSON;
+  var load = getJSON(DATA + 'catalogue.json');
+  if (!STATIC) {
+    load = Promise.all([load.catch(function () { return { topics: [], months: [], episodes: [] }; }),
+                        getJSON('/transcripts?status=published').catch(function () { return []; })])
+      .then(function (r) {
+        var cat = r[0], have = {};
+        cat.episodes.forEach(function (e) { have[e.id] = 1; });
+        r[1].forEach(function (x) {
+          if (have[x.id]) return;
+          var m = (x.title || '').match(/Ep\. ?(\d+)/);
+          cat.episodes.push({ id: x.id, u: m ? m[1] : null, ep: m ? m[1] : null, date: x.video_date || '', kind: /America First Ep\./.test(x.title || '') ? 'regular' : 'special',
+            h: (x.title || '').replace(/\s*\|\s*America First Ep\.?\s*\d+\s*$/, ''), topics: [], ft: [], nsec: 0, quoted: 0, min: 0, gist: '', fresh: true });
+        });
+        cat.episodes.sort(function (a, b) { return b.date.localeCompare(a.date) || b.id - a.id; });
+        if (!cat.episodes.length) throw new Error('No published transcripts yet.');
+        return cat;
+      });
+  }
+  load.then(function (cat) {
+    CAT = cat; E = cat.episodes; SS.aliases(cat.aliases);
+    E.forEach(function (e) { U[e.id] = e.u; });
+    if (cat.updated) $('foot-upd').textContent = 'Updated ' + dateMed(cat.updated) + ' · ';
+    cat.topics.forEach(function (t) { SHORT[t.slug] = t.short || t.name; });
+    cat.topics.slice().sort(function (a, b) { return (a.short || a.name).localeCompare(b.short || b.name); }).forEach(function (t) {
+      $('topic').insertAdjacentHTML('beforeend', '<option value="' + esc(t.slug) + '">' + esc(t.short || t.name) + '</option>');
+    });
+    var years = {};
+    E.forEach(function (e) { var y = e.date.slice(0, 4); if (y) years[y] = (years[y] || 0) + 1; });
+    Object.keys(years).sort().reverse().forEach(function (y) { $('year').insertAdjacentHTML('beforeend', '<option value="' + y + '">' + y + ' (' + years[y] + ')</option>'); });
+    $('q').value = st.q;
+    sync();
+  }).catch(function (err) {
+    $('out').innerHTML = '<p class="empty">Could not load the catalogue: ' + esc(err.message) + '</p>';
+  });
+
+  /* ── Filters ── */
+  function pass(e) {
+    if (st.kind !== 'all' && e.kind !== st.kind) return false;
+    if (st.topic && (e.ft || []).indexOf(st.topic) === -1) return false;
+    if (st.year && e.date.slice(0, 4) !== st.year) return false;
+    return true;
+  }
+  function chips(e) {
+    var h = e.kind !== 'regular' ? '<span class="chip kind">' + KIND[e.kind] + '</span>' : '';
+    (e.topics || []).slice(0, 3).forEach(function (t) { h += '<span class="chip">' + esc(SHORT[t] || t) + '</span>'; });
+    return h;
+  }
+  function row(e, terms) {
+    var meta = [];
+    if (e.ep) meta.push('Ep. ' + e.ep);
+    if (e.min) meta.push(dur(e.min));
+    if (e.nsec) meta.push(e.nsec + ' sections');
+    var title = terms ? hl(e.h, terms) : esc(e.h), gist = terms ? hl(e.gist || '', terms) : esc(e.gist || '');
+    return '<a class="row" href="' + epHref(e.id) + '">' +
+      '<div class="r-date"><b>' + dateShort(e.date) + '</b><i>' + (e.date ? DOW[d(e.date).getDay()] : '') + '</i></div>' +
+      '<div class="r-main"><div class="r-title">' + title + '</div>' +
+      '<div class="r-meta">' + meta.join(' · ') + (e.quoted ? (meta.length ? ' · ' : '') + '<span class="q">❝ ' + e.quoted + ' quoted in Positions</span>' : '') + '</div>' +
+      (e.gist ? '<div class="r-gist">' + gist + '</div>' : '') +
+      '<div class="r-chips">' + chips(e) + '</div></div></a>';
+  }
+  function countLine(txt) {
+    var active = st.kind !== 'all' || st.topic || st.year || st.q;
+    $('count').innerHTML = '<span>' + txt + '</span>' + (active ? '<button type="button" class="clear" id="clear">Clear all</button>' : '');
+    if (active) $('clear').onclick = function () { st.q = ''; st.ft = false; st.kind = 'all'; st.topic = ''; st.year = ''; $('q').value = ''; sync(); $('q').focus(); };
+  }
+  function renderList() {
+    var q = st.q.trim().toLowerCase();
+    var list = E.filter(function (e) { return pass(e) && (!q || e.h.toLowerCase().indexOf(q) !== -1); });
+    if (st.sort === 'old') list = list.slice().reverse();
+    if (st.sort === 'quoted') list = list.slice().sort(function (a, b) { return b.quoted - a.quoted || b.date.localeCompare(a.date); });
+    var counts = {}, h = '', mk = '';
+    list.forEach(function (e) { var k = e.date.slice(0, 6); counts[k] = (counts[k] || 0) + 1; });
+    list.forEach(function (e) {
+      if (st.sort !== 'quoted') {
+        var k = e.date.slice(0, 6);
+        if (k !== mk) { mk = k; h += '<div class="month"><h2>' + (k ? monthLabel(k) : 'Undated') + '</h2><span>' + counts[k] + ' episode' + (counts[k] > 1 ? 's' : '') + '</span></div>'; }
+      }
+      h += row(e);
+    });
+    $('out').innerHTML = h || '<p class="empty">No episodes match these filters.</p>';
+    countLine(list.length + ' of ' + E.length + ' episodes');
+  }
+
+  /* ── Query syntax and matching: search.js ── */
+  var parse = SS.parse, hl = SS.hl, textMatch = SS.textMatch, scanEp = SS.scanEp, snippet = SS.snippet;
+
+  /* ── Search: titles and summaries at once (no download); the transcripts only on Enter or the
+       button, a page at a time: the next months that hold 20 of the listed episodes ── */
+  var shard = SS.shards(DATA), run = 0, S = null;
+  var PAGE_EPS = 20, SHOW_HITS = 3;
+  function startSearch() {
+    var p = parse(st.q), my = ++run, byId = {}, per = {};
+    E.forEach(function (e) { byId[e.id] = e; if (pass(e)) per[e.date.slice(0, 6)] = (per[e.date.slice(0, 6)] || 0) + 1; });
+    var months = (CAT.months || []).filter(function (m) { return per[m] && (!st.year || m.slice(0, 4) === st.year); });
+    if (st.sort === 'old') months = months.slice().reverse();
+    S = { p: p, run: my, byId: byId, per: per, months: months, next: 0, eps: [], hits: 0, titles: [], loading: false, failed: [], ft: st.ft };
+    S.titles = E.filter(function (e) { return pass(e) && textMatch((e.h + ' ' + (e.gist || '')).toLowerCase(), p); });
+    renderSearch();
+    if (S.ft && p.terms.length) more();
+  }
+  function more() {
+    if (!S || S.loading) return;
+    var my = S.run, page = 0, all = st.sort === 'quoted';
+    S.loading = true;
+    (function step() {
+      if (my !== run) return;
+      if (S.next >= S.months.length || (!all && page >= PAGE_EPS)) { S.loading = false; renderSearch(); return; }
+      var m = S.months[S.next];
+      page += S.per[m];
+      S.label = monthLabel(m); renderStatus();
+      shard(m).then(function (j) {
+        if (my !== run) return;
+        j.e.forEach(function (ep) {
+          var e = S.byId[ep[0]];
+          if (e ? !pass(e) : (st.kind !== 'all' || st.topic)) return;
+          var hits = scanEp(ep[1], ep[2], S.p);
+          if (hits.length) { S.eps.push({ id: ep[0], e: e, lines: ep[1], low: ep[2], hits: hits }); S.hits += hits.length; }
+        });
+        S.next++; renderSearch(); step();
+      }, function () { if (my !== run) return; S.failed.push(m); S.next++; step(); });
+    })();
+  }
+  function renderStatus() {
+    var el = $('res-status');
+    if (!el || !S) return;
+    var done = S.next >= S.months.length;
+    var rs = '<a href="' + esc(researchHref('q=' + encodeURIComponent(st.q) + '&tab=ft')) + '">Open in Research for filters →</a>';
+    if (!S.ft) { el.innerHTML = ''; return; }
+    el.innerHTML = esc(!S.p.terms.length ? 'Type a word to search the transcripts.' :
+      (S.loading ? 'Searching ' + (S.label || '') + '… ' : '') +
+      S.hits + ' match' + (S.hits === 1 ? '' : 'es') + ' in ' + S.eps.length + ' episode' + (S.eps.length === 1 ? '' : 's') +
+      (done ? (S.months.length ? ', all months searched' : '') : S.next ? ', searched back to ' + monthLabel(S.months[S.next - 1]) : '') +
+      (S.failed.length ? ' (' + S.failed.length + ' month' + (S.failed.length > 1 ? 's' : '') + ' failed to load)' : '')) + ' · ' + rs;
+  }
+  function renderSearch() {
+    if (!S) return;
+    var terms = S.p.terms, h = '';
+    h += '<h2 class="res-h">Titles and summaries · ' + S.titles.length + '</h2>';
+    if (!S.titles.length) h += '<p class="res-status">No episode title or summary matches.</p>';
+    S.titles.slice(0, S.showAll ? S.titles.length : 8).forEach(function (e) { h += row(e, terms); });
+    if (S.titles.length > 8 && !S.showAll) h += '<button type="button" class="linkish" id="all-titles">Show all ' + S.titles.length + '</button>';
+    h += '<h2 class="res-h">In the transcripts</h2>';
+    if (!S.ft) h += '<div class="ft-bar"><button type="button" class="ft-btn" id="ft-go">Search transcripts too</button><span class="res-status">Every line of every show, newest month first (or press Enter). ' +
+      '<a href="' + esc(researchHref('q=' + encodeURIComponent(st.q) + '&tab=ft')) + '">Open in Research for filters →</a></span></div>';
+    h += '<p class="res-status" id="res-status"></p>';
+    var eps = S.eps.slice(), dd = function (r) { return (r.e && r.e.date) || ''; };
+    if (st.sort === 'quoted') eps.sort(function (a, b) { return b.hits.length - a.hits.length || dd(b).localeCompare(dd(a)); });
+    else eps.sort(function (a, b) { return st.sort === 'old' ? dd(a).localeCompare(dd(b)) : dd(b).localeCompare(dd(a)); });
+    eps.forEach(function (r) {
+      var e = r.e || { h: 'Episode ' + r.id, date: '' };
+      h += '<div class="res-ep"><div class="res-ep-h"><a href="' + epHref(r.id) + '">' + esc(e.h) + '</a><span>' +
+        [dateMed(e.date), e.ep ? 'Ep. ' + e.ep : '', r.hits.length + ' match' + (r.hits.length === 1 ? '' : 'es')].filter(Boolean).join(' · ') + '</span></div>';
+      r.hits.forEach(function (i, k) {
+        var t = r.lines[i][0];
+        h += '<a class="hit" href="' + epHref(r.id, t) + '"' + (k >= SHOW_HITS ? ' hidden' : '') + '><span class="t mono">' + hms(t) + '</span><span class="x">' + snippet(r.lines, i, terms) + '</span></a>';
+      });
+      if (r.hits.length > SHOW_HITS) h += '<button type="button" class="linkish more-hits">+ ' + (r.hits.length - SHOW_HITS) + ' more in this episode</button>';
+      h += '</div>';
+    });
+    if (S.ft && !S.loading && S.next < S.months.length && S.p.terms.length)
+      h += '<button type="button" class="more-btn" id="more">Search older months (' + (S.months.length - S.next) + ' left)</button>';
+    if (S.ft && !S.loading && S.next >= S.months.length && !S.eps.length && S.p.terms.length) h += '<p class="empty">No transcript lines match. Try fewer words, or remove a filter.</p>';
+    $('out').innerHTML = h;
+    renderStatus();
+    countLine(S.titles.length + ' title' + (S.titles.length === 1 ? '' : 's') + ' or summar' + (S.titles.length === 1 ? 'y' : 'ies') +
+      (S.ft ? ' · ' + S.hits + ' transcript match' + (S.hits === 1 ? '' : 'es') + (S.loading ? ' so far' : '') : ''));
+    var mb = $('more'); if (mb) mb.onclick = more;
+    var go = $('ft-go'); if (go) go.onclick = searchTranscripts;
+    var at = $('all-titles'); if (at) at.onclick = function () { S.showAll = true; renderSearch(); };
+  }
+  function searchTranscripts() {
+    if (!S || !S.p.terms.length) return;
+    st.ft = true; writeURL();
+    S.ft = true; renderSearch(); more();
+  }
+  $('out').addEventListener('click', function (e) {
+    var b = e.target.closest('.more-hits');
+    if (!b) return;
+    [].forEach.call(b.parentNode.querySelectorAll('.hit[hidden]'), function (x) { x.hidden = false; });
+    b.parentNode.removeChild(b);
+  });
+
+  /* ── State ↔ URL ── */
+  function applyDensity() {
+    [].forEach.call($('density').children, function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-v') === st.density ? 'true' : 'false'); });
+    document.body.classList.toggle('compact', st.density === 'compact');
+  }
+  function writeURL() {
+    var p = new URLSearchParams();
+    ['q', 'topic', 'year'].forEach(function (k) { if (st[k]) p.set(k, st[k]); });
+    if (st.kind !== 'all') p.set('kind', st.kind);
+    if (st.sort !== 'new') p.set('sort', st.sort);
+    if (st.ft && st.q) p.set('ft', '1');
+    history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p : '') + location.hash);
+  }
+  function sync() {
+    if (!CAT) return;
+    [].forEach.call($('kind').children, function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-v') === st.kind ? 'true' : 'false'); });
+    applyDensity();
+    $('topic').value = st.topic; $('year').value = st.year; $('sort').value = st.sort;
+    var searching = st.q.trim().length >= 3;
+    $('sort').options[2].textContent = searching && st.ft ? 'Most matches' : 'Most quoted in Positions';
+    writeURL();
+    if (searching) startSearch(); else { S = null; run++; renderList(); }
+  }
+  var tm;
+  // Typing searches titles and summaries; a new query waits for Enter before the transcripts.
+  $('q').addEventListener('input', function () { clearTimeout(tm); tm = setTimeout(function () { st.q = $('q').value; st.ft = false; sync(); }, 250); });
+  $('q').addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault(); clearTimeout(tm);
+    if ($('q').value.trim().length < 3) return;
+    if (st.q !== $('q').value || !S) { st.q = $('q').value; st.ft = true; sync(); } else searchTranscripts();
+  });
+  $('kind').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) { st.kind = b.getAttribute('data-v'); sync(); } });
+  $('density').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    st.density = b.getAttribute('data-v');
+    try { localStorage.setItem('signal-density', st.density); } catch (x) {}
+    applyDensity();
+  });
+  $('topic').onchange = function () { st.topic = this.value; sync(); };
+  $('year').onchange = function () { st.year = this.value; sync(); };
+  $('sort').onchange = function () { st.sort = this.value; sync(); };
+  document.addEventListener('keydown', function (e) {
+    var tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(tag) && !e.metaKey && !e.ctrlKey) { e.preventDefault(); $('q').focus(); $('q').select(); }
+  });
+})();
+</script>
+
+<script id="theme-picker">
+(function () {
+  var THEMES = [['signal-dark','Classic Dark','dark'],['midnight','Midnight','dark'],['graphite','Graphite','dark'],['forest','Forest','dark'],['oxblood','Oxblood','dark'],['arctic','Arctic Night','dark'],['paper','Paper','light'],['daylight','Daylight','light'],['sepia','Sepia','light'],['sage','Sage','light']];
+  var KEY = 'signal-theme', root = document.documentElement;
+  var pick = document.getElementById('theme-pick');
+  if (!pick) return;
+  var btn = pick.querySelector('.theme-btn'), menu = pick.querySelector('.theme-menu');
+  var h = '', group = '';
+  THEMES.forEach(function (t) {
+    if (t[2] !== group) { group = t[2]; h += '<div class="theme-group">' + (group === 'dark' ? 'Dark' : 'Light') + '</div>'; }
+    h += '<button type="button" class="theme-opt" role="menuitemradio" data-set="' + t[0] + '"><span class="theme-sw" data-theme="' + t[0] + '"></span>' + t[1] + '</button>';
+  });
+  menu.innerHTML = h;
+  var opts = [].slice.call(menu.querySelectorAll('.theme-opt'));
+  function cur() { return root.getAttribute('data-theme') || 'signal-dark'; }
+  function sync() { opts.forEach(function (o) { o.setAttribute('aria-checked', o.getAttribute('data-set') === cur() ? 'true' : 'false'); }); }
+  function show(v) {
+    menu.hidden = !v;
+    btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+    if (v) { sync(); (menu.querySelector('[aria-checked="true"]') || opts[0]).focus(); }
+  }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); show(menu.hidden); });
+  menu.addEventListener('click', function (e) {
+    var o = e.target.closest('.theme-opt');
+    if (!o) return;
+    root.setAttribute('data-theme', o.getAttribute('data-set'));
+    try { localStorage.setItem(KEY, o.getAttribute('data-set')); } catch (err) {}
+    show(false); btn.focus();
+  });
+  menu.addEventListener('keydown', function (e) {
+    var i = opts.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); opts[(i + 1) % opts.length].focus(); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); opts[(i - 1 + opts.length) % opts.length].focus(); }
+  });
+  document.addEventListener('click', function (e) { if (!menu.hidden && !pick.contains(e.target)) show(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !menu.hidden) { show(false); btn.focus(); } });
+  window.addEventListener('storage', function (e) {
+    if (e.key !== KEY) return;
+    if (e.newValue) root.setAttribute('data-theme', e.newValue); else root.removeAttribute('data-theme');
+  });
+})();
+</script>
+</body>
+</html>
