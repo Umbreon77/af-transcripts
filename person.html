@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem('signal-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <title>People — America First Transcripts</title>
+  <meta name="description" content="Everything indexed about one person on America First: mentions month by month, the moments, and the related positions." />
+  <link rel="alternate" type="application/rss+xml" title="America First Transcripts" href="https://umbreon77.github.io/af-transcripts/feed.xml" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c9a84c'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='%230f0f0f'%3EAF%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="features.css" />
+  <style>
+    .crumb { font-size: 0.8rem; margin-bottom: 6px; }
+    .crumb a { color: var(--accent); text-decoration: none; }
+    .facts { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 0.85rem; color: var(--text-dim); margin: 8px 0 4px; }
+    .facts b { color: var(--muted); font-weight: 600; font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.12em; display: block; }
+    .facts a { color: var(--ts-color); text-decoration: none; }
+    .facts a:hover { text-decoration: underline; }
+    .bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 18px; }
+    .pick { margin-top: 10px; }
+    .cols { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 32px; align-items: start; }
+    .mhead { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline; justify-content: space-between; }
+    .plink { display: block; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; color: var(--text-dim); text-decoration: none; }
+    .plink:hover { color: var(--text); }
+    .plink b { color: var(--accent); font-weight: 600; margin-right: 4px; }
+    .plink small { display: block; color: var(--muted); font-size: 0.72rem; }
+    @media (max-width: 900px) { .cols { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="site-head-in">
+    <a href="./" class="site-logo">America First Transcripts</a>
+    <div class="theme-pick" id="theme-pick"><button type="button" class="theme-btn" aria-haspopup="true" aria-expanded="false" aria-label="Color theme" title="Color theme"><span class="theme-sw"></span><span class="theme-label">Theme</span></button><div class="theme-menu" role="menu" hidden></div></div>
+    <nav class="site-tabs" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="positions.html"><span class="tab-x">Nick's </span>Positions</a>
+      <a href="guide.html">How to use</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+  <div class="page-title">Research</div>
+  <nav class="rtabs" id="rtabs" aria-label="Research"><a href="research.html" data-rt="m">Moments</a><a href="research.html?tab=ft" data-rt="ft">Full text</a><a href="trends.html" data-rt="trends">Trends</a><a href="people.html" data-rt="people" aria-current="page">People</a></nav>
+  <div class="crumb"><a href="people.html">← All people</a></div>
+  <h1 class="h1b" id="name">…</h1>
+  <div class="facts" id="facts"></div>
+  <div class="bar" id="bar">
+    <div class="seg" role="group" aria-label="Measure">
+      <button type="button" data-m="count" aria-pressed="true">Mentions</button>
+      <button type="button" data-m="per-hour" aria-pressed="false">Per hour of show</button>
+    </div>
+    <button type="button" class="btn" id="tbl" aria-pressed="false">Table</button>
+  </div>
+  <div id="chart"></div>
+  <div id="table" hidden></div>
+  <div class="pick note" id="pick">Click a month on the chart to find those mentions in Research.</div>
+
+  <div class="cols">
+    <section>
+      <div class="mhead">
+        <div class="h2" id="mh">Moments</div>
+        <label class="opt"><input type="checkbox" id="allspk" /> <span id="allspk-l">Include clips, readings and guests</span></label>
+      </div>
+      <div id="moments"></div>
+    </section>
+    <aside>
+      <div class="h2" id="ph">Related positions</div>
+      <div id="positions"></div>
+      <div class="h2">Topics alongside</div>
+      <div class="chips" id="topics"></div>
+    </aside>
+  </div>
+  <footer><span id="foot-upd"></span><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFVo0FznkFfD4VMrMhvTrxI5SiGqacwLXyWMkojunxg-GN3w/viewform" target="_blank" rel="noopener">Report an error</a> · <a href="feed.xml">RSS</a></footer>
+</main>
+
+<script>
+  // export_static.py flips this to true for the static site.
+  var STATIC = true;
+</script>
+<script src="features.js"></script>
+<script>
+(function () {
+  var esc = SF.esc, $ = function (id) { return document.getElementById(id); };
+  var slug = new URLSearchParams(location.search).get('p') || location.pathname.replace(/\/+$/, '').split('/').pop();
+  if (!/^[a-z0-9-]+$/.test(slug)) slug = '';
+  var P = null, META = null, CAT = null, mode = 'count', table = false, sel = null, limit = 25, allSpk = false;
+  var OWN = { self: 1, mixed: 1, bit: 1 };
+  function epOf(tid) { return CAT.byId[tid]; }
+  function mention(x) {
+    var e = x && epOf(x.tid);
+    if (!e) return '—';
+    return '<a href="' + SF.epHref(e.u, x.t) + '">' + SF.dateMed(e.date) + ' · ' + SF.epLabel(e) + ' · ' + SF.hms(x.t) + '</a>';
+  }
+  function chart() {
+    var per = mode === 'per-hour';
+    var vals = P.s.map(function (v, k) { return per ? (META.hours[k] ? v / META.hours[k] : 0) : v; });
+    var series = [{ name: P.name, ci: 0, values: vals }];
+    SF.lineChart($('chart'), {
+      months: META.months, series: series, dec: per, sel: sel,
+      label: (per ? 'Mentions per hour of show' : 'Mentions') + ' of ' + P.name + ' per month',
+      tipNote: per ? 'per hour of show' : null,
+      partial: META.months[META.months.length - 1] === META.last_date.slice(0, 6) ? 'Month so far' : null,
+      onPick: function (i) {
+        sel = i;
+        var m = META.months[i];
+        $('pick').innerHTML = '<b>' + SF.monLong(m) + '</b> · ' + P.s[i].toLocaleString() + ' mentions · <a class="lnk" href="' + SF.HREF.research({ q: P.name, tab: 'ft', m: m }) + '">Full text in Research</a> · <a class="lnk" href="' + SF.HREF.research({ q: P.name, m: m }) + '">Moments in Research</a>';
+      }
+    });
+    $('table').innerHTML = SF.tableView(META.months, series, per);
+    [].forEach.call(document.querySelectorAll('#bar .seg button'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-m') === mode ? 'true' : 'false'); });
+  }
+  function shownMoments() { return P.moments.filter(function (m) { return allSpk || OWN[m[3]]; }); }
+  function moments() {
+    var ms = shownMoments(), n = Math.min(limit, ms.length), h = '';
+    var others = P.moments.length - P.moments.filter(function (m) { return OWN[m[3]]; }).length;
+    $('allspk-l').textContent = 'Include clips, readings and guests (' + others + ')';
+    $('mh').textContent = 'Moments (' + ms.length.toLocaleString() + ')';
+    for (var k = 0; k < n; k++) {
+      var m = ms[k], e = epOf(m[0]);
+      if (!e) continue;
+      h += '<div class="res"><div class="w"><b>' + SF.dateMed(e.date) + '</b>' + SF.epLabel(e) + ' · <a class="mono" href="' + SF.epHref(e.u, m[1]) + '">' + SF.hms(m[1]) + '</a></div>' +
+        '<div class="x">' + SF.badge(m[3]) + '<span class="k">Summary · not a quote</span><span class="sum-t">' + esc(m[2]) + '</span>' +
+        m[4].map(function (q) { return '<span class="q"><span class="k said">❝ He said</span><span class="said-t">' + esc(q[1]) + '</span><a class="mono" href="' + SF.epHref(e.u, q[0]) + '">' + SF.hms(q[0]) + '</a></span>'; }).join('') +
+        '<small>' + esc(e.h) + '</small></div></div>';
+    }
+    if (!ms.length) h = '<div class="empty">No indexed moments.</div>';
+    if (n < ms.length) h += '<button type="button" class="more-btn" id="more">Load more (' + (ms.length - n).toLocaleString() + ' left)</button>';
+    $('moments').innerHTML = h;
+  }
+  function render() {
+    document.title = P.name + ' — People — America First Transcripts';
+    SF.rtabs(P.name);
+    $('name').textContent = P.name;
+    $('facts').innerHTML =
+      '<div><b>Mentions</b>' + P.total.toLocaleString() + (P.forms.length > 1 ? ' <span class="note">(' + esc(P.forms.join(', ')) + ')</span>' : '') + '</div>' +
+      '<div><b>First mention</b>' + mention(P.first) + '</div>' +
+      '<div><b>Latest mention</b>' + mention(P.last) + '</div>';
+    chart(); moments();
+    $('ph').textContent = 'Related positions (' + P.positions.length + ')';
+    $('positions').innerHTML = P.positions.length ? P.positions.map(function (p) {
+      return '<a class="plink" href="' + SF.HREF.positions(p[0]) + '"><small>' + esc(p[2]) + '</small><b>❝ ' + esc(p[0]) + '</b>' + esc(p[3]) + '</a>';
+    }).join('') : '<div class="note">None name ' + esc(P.name) + '.</div>';
+    $('topics').innerHTML = P.topics.map(function (t) {
+      return '<a class="chip-b" href="' + SF.HREF.research({ q: P.name, topic: t[0] }) + '">' + esc(t[1]) + '<span class="n">' + t[2] + '</span></a>';
+    }).join('') || '<span class="note">—</span>';
+  }
+  $('bar').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.hasAttribute('data-m')) { mode = b.getAttribute('data-m'); chart(); }
+    else if (b.id === 'tbl') { table = !table; $('table').hidden = !table; b.setAttribute('aria-pressed', table ? 'true' : 'false'); }
+  });
+  $('moments').addEventListener('click', function (e) { if (e.target.id === 'more') { limit += 25; moments(); } });
+  $('allspk').addEventListener('change', function () { allSpk = this.checked; limit = 25; moments(); });
+  Promise.all([SF.getJSON(SF.DATA + 'people/' + slug + '.json'), SF.getJSON(SF.DATA + 'trends/meta.json'), SF.catalogue()]).then(function (r) {
+    P = r[0]; META = r[1]; CAT = r[2]; render();
+  }, function (err) { $('name').textContent = 'Not found'; $('moments').innerHTML = '<div class="empty">' + esc(err.message) + '</div>'; });
+})();
+</script>
+</body>
+</html>

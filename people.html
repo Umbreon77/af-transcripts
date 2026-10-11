@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>(function(){try{var t=localStorage.getItem('signal-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <title>People — America First Transcripts</title>
+  <meta name="description" content="Everything indexed about one person on America First: how often the name comes up, the moments, and the related positions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="America First Transcripts" />
+  <meta property="og:title" content="People — America First Transcripts" />
+  <meta property="og:description" content="Everything indexed about one person on America First: how often the name comes up, the moments, and the related positions." />
+  <meta property="og:url" content="https://umbreon77.github.io/af-transcripts/people.html" />
+  <meta property="og:image" content="https://umbreon77.github.io/af-transcripts/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://umbreon77.github.io/af-transcripts/people.html" />
+  <link rel="alternate" type="application/rss+xml" title="America First Transcripts" href="https://umbreon77.github.io/af-transcripts/feed.xml" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c9a84c'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='%230f0f0f'%3EAF%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="features.css" />
+  <style>
+    .plist { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 0 28px; margin-top: 8px; }
+    .prow { display: grid; grid-template-columns: minmax(0, 1fr) 96px; gap: 2px 12px; align-items: center; padding: 10px 6px; margin: 0 -6px; border-bottom: 1px solid var(--border); text-decoration: none; border-radius: 6px; }
+    .prow:hover { background: var(--hover); }
+    .prow b { font-size: 0.95rem; color: var(--text); overflow-wrap: anywhere; }
+    .prow small { grid-column: 1; font-size: 0.75rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .prow svg { grid-row: 1 / span 2; grid-column: 2; }
+    .sortbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 6px; font-size: 0.8rem; color: var(--muted); }
+    @media (max-width: 640px) { .plist { grid-template-columns: minmax(0, 1fr); } }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="site-head-in">
+    <a href="./" class="site-logo">America First Transcripts</a>
+    <div class="theme-pick" id="theme-pick"><button type="button" class="theme-btn" aria-haspopup="true" aria-expanded="false" aria-label="Color theme" title="Color theme"><span class="theme-sw"></span><span class="theme-label">Theme</span></button><div class="theme-menu" role="menu" hidden></div></div>
+    <nav class="site-tabs" aria-label="Site">
+      <a href="./">Home</a>
+      <a href="episodes.html">Episodes</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="positions.html"><span class="tab-x">Nick's </span>Positions</a>
+      <a href="guide.html">How to use</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+  <div class="page-title">Research</div>
+  <nav class="rtabs" id="rtabs" aria-label="Research"><a href="research.html" data-rt="m">Moments</a><a href="research.html?tab=ft" data-rt="ft">Full text</a><a href="trends.html" data-rt="trends">Trends</a><a href="people.html" data-rt="people" aria-current="page">People</a></nav>
+  <h1 class="h1b">People</h1>
+  <p class="page-desc">Everything indexed about one person: how often the name comes up, the moments, and the related positions. Names include their other forms; counts are mentions in the main show.</p>
+  <div class="sortbar">Sort
+    <div class="seg" role="group" aria-label="Sort">
+      <button type="button" data-s="total" aria-pressed="true">Most mentioned</button>
+      <button type="button" data-s="name" aria-pressed="false">A–Z</button>
+    </div>
+  </div>
+  <div class="plist" id="list"><div class="empty">Loading…</div></div>
+  <footer><span id="foot-upd"></span><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFVo0FznkFfD4VMrMhvTrxI5SiGqacwLXyWMkojunxg-GN3w/viewform" target="_blank" rel="noopener">Report an error</a> · <a href="feed.xml">RSS</a></footer>
+</main>
+
+<script>
+  // export_static.py flips this to true for the static site.
+  var STATIC = true;
+</script>
+<script src="features.js"></script>
+<script>
+(function () {
+  var esc = SF.esc, list = document.getElementById('list'), D = null, sort = 'total';
+  function render() {
+    var ps = D.people.slice();
+    if (sort === 'name') ps.sort(function (a, b) { return a.name.localeCompare(b.name); });
+    list.innerHTML = ps.map(function (p) {
+      return '<a class="prow" href="' + SF.HREF.person(p.slug) + '"><b>' + esc(p.name) + '</b>' + SF.sparkline(p.s, 96, 28) +
+        '<small>' + p.total.toLocaleString() + ' mentions · ' + p.moments.toLocaleString() + ' moments' + (p.positions ? ' · ' + p.positions + (p.positions === 1 ? ' position' : ' positions') : '') + '</small></a>';
+    }).join('');
+    [].forEach.call(document.querySelectorAll('.sortbar button'), function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-s') === sort ? 'true' : 'false'); });
+  }
+  document.querySelector('.sortbar').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-s]'); if (b) { sort = b.getAttribute('data-s'); render(); }
+  });
+  SF.catalogue();
+  SF.getJSON(SF.DATA + 'people/index.json').then(function (d) { D = d; render(); },
+    function (err) { list.innerHTML = '<div class="empty">Could not load: ' + esc(err.message) + '</div>'; });
+})();
+</script>
+</body>
+</html>

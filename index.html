@@ -16,6 +16,7 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://umbreon77.github.io/af-transcripts/" />
+  <link rel="alternate" type="application/rss+xml" title="America First Transcripts" href="https://umbreon77.github.io/af-transcripts/feed.xml" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c9a84c'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='%230f0f0f'%3EAF%3C/text%3E%3C/svg%3E" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -120,6 +121,14 @@
     .door b { font-size: 1rem; color: var(--strong); }
     .door span { font-size: 0.84rem; color: var(--text-dim); }
     .door small { margin-top: auto; padding-top: 6px; font-size: 0.75rem; color: var(--accent); }
+    .explore { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 14px; font-size: 0.86rem; }
+    .explore a { color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 8px; background: var(--surface); padding: 8px 14px; }
+    .explore a:hover { background: var(--accent-dim); }
+    .explore a b { font-weight: 600; }
+    .explore a span { color: var(--text-dim); margin-left: 6px; }
+    .wk-link { display: inline-block; margin-top: 12px; font-size: 0.86rem; color: var(--accent); text-decoration: none; font-weight: 600; border: 1px solid var(--accent); border-radius: 8px; background: var(--surface); padding: 8px 14px; }
+    .wk-link:hover { background: var(--accent-dim); }
+    .wk-link span { color: var(--muted); font-weight: 400; }
 
     /* In his words */
     .words { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -260,6 +269,11 @@
   <section class="hero" id="hero" aria-label="Latest episode"><p class="loading">Loading…</p></section>
 
   <nav class="doors" id="doors" aria-label="Ways in"></nav>
+  <nav class="explore" aria-label="Explore">
+    <span class="k">Explore</span>
+    <a href="trends.html"><b>Trends</b><span>how often a word or name comes up, month by month</span> →</a>
+    <a href="people.html"><b>People</b><span>every moment on one person, with the related positions</span> →</a>
+  </nav>
 
   <div class="sh"><h2>In his words</h2><a href="positions.html">All of Nick's Positions →</a></div>
   <div class="words" id="words"></div>
@@ -280,7 +294,7 @@
   <div class="cal-grid" id="cal"></div>
   <p class="cal-key"><span><i></i>a show (click to read it)</span><span><i class="g"></i>an interview or special</span></p>
 
-  <footer><span id="foot-upd"></span><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFVo0FznkFfD4VMrMhvTrxI5SiGqacwLXyWMkojunxg-GN3w/viewform" target="_blank" rel="noopener">Report an error</a></footer>
+  <footer><span id="foot-upd"></span><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFVo0FznkFfD4VMrMhvTrxI5SiGqacwLXyWMkojunxg-GN3w/viewform" target="_blank" rel="noopener">Report an error</a> · <a href="feed.xml">RSS</a></footer>
 </main>
 <div class="tip" id="tip" aria-hidden="true"></div>
 
@@ -298,6 +312,7 @@
   function posHref(h) { return (STATIC ? 'positions.html' : '/positions') + (h ? '#' + h : ''); }
   function episodesHref(q) { return (STATIC ? 'episodes.html' : '/episodes') + (q ? '?' + q : ''); }
   function researchHref(q) { return (STATIC ? 'research.html' : '/research') + (q ? '?' + q : ''); }
+  function weekHref() { return STATIC ? 'week.html' : '/week'; }
 
   var $ = function (id) { return document.getElementById(id); };
   var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -345,7 +360,8 @@
         '<h2 class="hero-h"><a href="' + epHref(L.id) + '">' + esc(L.h) + '</a></h2>' + (L.gist ? '<p class="gist">' + esc(L.gist) + '</p>' : '') +
         '<div class="chips">' + (L.topics || []).slice(0, 5).map(chip).join('') + '</div>' +
         '<div class="cta-row"><a class="cta" href="' + epHref(L.id) + '">Read the transcript →</a><span>' +
-        [dur(L.min), L.quoted ? L.quoted + ' line' + (L.quoted === 1 ? '' : 's') + ' quoted in Nick\'s Positions' : ''].filter(Boolean).join(' · ') + '</span></div></div>' +
+        [dur(L.min), L.quoted ? L.quoted + ' line' + (L.quoted === 1 ? '' : 's') + ' quoted in Nick\'s Positions' : ''].filter(Boolean).join(' · ') + '</span></div>' +
+        '<a class="wk-link" href="' + weekHref() + '">This week → <span>the week\'s episodes, topics and quotes</span></a></div>' +
         (inside.length ? '<div class="inside"><h3>Inside this episode · ' + inside.length + ' parts</h3>' +
           '<p class="inside-note">Auto chapters, from the index summaries. Times match the video' + (H.latest.start > 120 ? ': the show starts ' + hms(H.latest.start) + ' into the stream' : '') + '.</p><div class="inside-list">' + inside.map(function (s) {
           return '<a href="' + epHref(L.id, s[0]) + '"><span class="t mono">' + hms(s[0]) + '</span><span>' + (SPK[s[2]] ? '<span class="spk">' + SPK[s[2]] + '</span>' : '') + esc(s[1]) + '</span></a>';
