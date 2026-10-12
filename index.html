@@ -285,7 +285,7 @@
   <div class="sh"><h2>Follow a topic</h2><span class="sub">the topics he has talked about most in the last two months</span></div>
   <div id="shelves"></div>
 
-  <div class="sh"><h2>What he's been talking about</h2><span class="sub">share of each month's show, by topic · click a square to see those moments</span></div>
+  <div class="sh"><h2>What he's been talking about</h2><span class="sub">share of each month's show, by topic · click a square to see those discussions</span></div>
   <div class="heat" id="heat"></div>
   <div class="legend" id="legend"></div>
 
@@ -371,7 +371,7 @@
     /* Three doors */
     var st = H.stats;
     $('doors').innerHTML =
-      '<a class="door" href="' + researchHref() + '"><b>Research</b><span>Every part of every show, summarized and searchable, with his verified quotes. Filter by topic, year and who is speaking.</span><small>' + n(st.segments + st.quotes) + ' moments →</small></a>' +
+      '<a class="door" href="' + researchHref('mode=disc') + '"><b>Research</b><span>Every part of every show, summarized and searchable, with his verified quotes. Filter by topic, year and who is speaking.</span><small>' + n(st.segments + st.quotes) + ' moments →</small></a>' +
       '<a class="door" href="' + posHref() + '"><b>Nick\'s Positions</b><span>What he argues, topic by topic, in short summaries backed by his own words, each linked to the second he said it.</span><small>' + st.topics + ' topics · ' + st.positions + ' positions · ' + n(st.pquotes) + ' quotes →</small></a>' +
       '<a class="door" href="' + episodesHref() + '"><b>Episodes</b><span>Every transcript, newest first. Filter by topic or year, or search every word.</span><small>' + n(st.episodes) + ' transcripts →</small></a>';
 
@@ -412,11 +412,11 @@
     }).join('') + '</tr></thead><tbody>';
     order.forEach(function (x) {
       var t = x.t, c = H.heat[t.slug] || {};
-      h += '<tr><th scope="row"><a href="' + researchHref('topic=' + encodeURIComponent(t.slug)) + '">' + esc(t.short || t.name) + '</a></th>' + months.map(function (m) {
+      h += '<tr><th scope="row"><a href="' + researchHref('mode=disc&topic=' + encodeURIComponent(t.slug)) + '">' + esc(t.short || t.name) + '</a></th>' + months.map(function (m) {
         var k = c[m] || 0, of = H.segs[m] || 0, share = of ? k / of : 0;
         var l = !k ? '' : share < 0.05 ? 'l1' : share < 0.12 ? 'l2' : share < 0.25 ? 'l3' : 'l4';
         var label = (t.short || t.name) + ', ' + monthLabel(m) + ': ' + k + ' of ' + of + ' segments';
-        return '<td class="' + l + '">' + (k ? '<a href="' + researchHref('topic=' + encodeURIComponent(t.slug) + '&m=' + m) + '" data-t="' + esc(t.short || t.name) + '" data-m="' + m + '" data-n="' + k + '" data-of="' + of + '" aria-label="' + esc(label) + '"></a>' : '') + '</td>';
+        return '<td class="' + l + '">' + (k ? '<a href="' + researchHref('mode=disc&topic=' + encodeURIComponent(t.slug) + '&m=' + m) + '" data-t="' + esc(t.short || t.name) + '" data-m="' + m + '" data-n="' + k + '" data-of="' + of + '" aria-label="' + esc(label) + '"></a>' : '') + '</td>';
       }).join('') + '</tr>';
     });
     $('heat').innerHTML = h + '</tbody></table>';
@@ -451,7 +451,7 @@
               ' title="' + esc(es.map(function (e) { return (e.ep ? 'Ep. ' + e.ep + ': ' : '') + e.h; }).join(' / ')) + '" aria-label="' + esc(dateMed(key) + ': ' + es[0].h) + '">' + day + '</a>';
           } else h += '<span class="x" aria-hidden="true">' + day + '</span>';
         }
-        return '<div class="cal"><div class="cal-h"><h3><a href="' + researchHref('m=' + m) + '" title="Browse this month in Research">' + monthLabel(m) + '</a></h3><span>' + cnt + ' show' + (cnt === 1 ? '' : 's') + '</span></div><div class="days">' + h + '</div></div>';
+        return '<div class="cal"><div class="cal-h"><h3><a href="' + researchHref('mode=disc&m=' + m) + '" title="Browse this month in Research">' + monthLabel(m) + '</a></h3><span>' + cnt + ' show' + (cnt === 1 ? '' : 's') + '</span></div><div class="days">' + h + '</div></div>';
       }).join('');
     }
     $('years').addEventListener('click', function (e) { var b = e.target.closest('[data-y]'); if (b) { year = b.getAttribute('data-y'); renderCal(); } });

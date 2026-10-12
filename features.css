@@ -61,14 +61,12 @@ mark { background: var(--hl); color: var(--text); border-radius: 2px; padding: 0
 
 /* ── Feature pages ── */
 [hidden] { display: none !important; }
-/* Research's section tabs (Moments · Full text · Trends · People), as in research.html */
+/* Research's sub-tabs (Search · Trends · People), as in research.html: a faint accent tint, the current one filled */
 .rtabs { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 0; margin: 4px 0 14px; }
-.rtabs button, .rtabs a { border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding: 6px 14px; margin: 0; font-size: 0.9rem; font-weight: 600; color: var(--text-dim); text-decoration: none; cursor: pointer; white-space: nowrap; }
-.rtabs button:hover, .rtabs a:hover { border-color: var(--accent); color: var(--text); }
-.rtabs button[aria-selected="true"], .rtabs a[aria-current] { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
-.rtabs .n { font-weight: 400; opacity: 0.8; font-variant-numeric: tabular-nums; }
-.rtabs .rt-in { display: contents; }
-@media (max-width: 480px) { .rtabs { gap: 4px; } .rtabs button, .rtabs a { padding: 5px 8px; font-size: 0.8rem; } }
+.rtabs a { border: 1px solid var(--border); border-color: color-mix(in srgb, var(--accent) 32%, var(--border)); border-radius: 8px; background: var(--surface); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); padding: 6px 16px; margin: 0; font-size: 0.9rem; font-weight: 600; color: var(--text-dim); text-decoration: none; cursor: pointer; white-space: nowrap; }
+.rtabs a:hover { border-color: var(--accent); color: var(--text); }
+.rtabs a[aria-current] { background: var(--accent-dim); background: color-mix(in srgb, var(--accent) 30%, var(--surface)); border-color: var(--accent); color: var(--strong); }
+@media (max-width: 480px) { .rtabs { gap: 4px; } .rtabs a { padding: 5px 12px; font-size: 0.82rem; } }
 .h1b { font-size: 1.15rem; font-weight: 700; color: var(--strong); line-height: 1.3; overflow-wrap: anywhere; }
 .wrap { max-width: 1150px; margin: 0 auto; padding: 22px 20px 80px; }
 .page-title { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--strong); overflow-wrap: anywhere; }

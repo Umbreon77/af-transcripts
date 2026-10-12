@@ -128,9 +128,9 @@
     W.episodes.forEach(function (e) { months[e.date.slice(0, 6)] = 1; });
     var ms = Object.keys(months).sort(), m1 = ms.length === 1 ? ms[0] : '';
     $('topics').innerHTML = W.topics.map(function (t) {
-      return '<a class="chip-b" href="' + SF.HREF.research(m1 ? { topic: t[0], m: m1 } : { topic: t[0] }) + '">' + esc(t[1]) + '<span class="n">' + t[2] + '</span></a>';
+      return '<a class="chip-b" href="' + SF.HREF.research(m1 ? { mode: 'disc', topic: t[0], m: m1 } : { mode: 'disc', topic: t[0] }) + '">' + esc(t[1]) + '<span class="n">' + t[2] + '</span></a>';
     }).join('') || '<span class="note">This week\'s episodes aren\'t indexed yet.</span>';
-    $('tnote').textContent = W.topics.length ? 'Counts are this week\'s segments on each topic. A topic opens its moments in Research' +
+    $('tnote').textContent = W.topics.length ? 'Counts are this week\'s segments on each topic. A topic opens its main discussions in Research' +
       (m1 ? ' for all of ' + SF.monLong(m1) : '') + ' (Research filters by month, not week).' : '';
     $('qh').textContent = 'From Nick\'s Positions (' + W.quotes.length + ')';
     $('quotes').innerHTML = W.quotes.slice(0, allQ ? W.quotes.length : 8).map(function (q) {

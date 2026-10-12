@@ -373,7 +373,7 @@
     var el = $('res-status');
     if (!el || !S) return;
     var done = S.next >= S.months.length;
-    var rs = '<a href="' + esc(researchHref('q=' + encodeURIComponent(st.q) + '&tab=ft')) + '">Open in Research for filters →</a>';
+    var rs = '<a href="' + esc(researchHref('q=' + encodeURIComponent(st.q))) + '">Open in Research for filters →</a>';
     if (!S.ft) { el.innerHTML = ''; return; }
     el.innerHTML = esc(!S.p.terms.length ? 'Type a word to search the transcripts.' :
       (S.loading ? 'Searching ' + (S.label || '') + '… ' : '') +
@@ -390,7 +390,7 @@
     if (S.titles.length > 8 && !S.showAll) h += '<button type="button" class="linkish" id="all-titles">Show all ' + S.titles.length + '</button>';
     h += '<h2 class="res-h">In the transcripts</h2>';
     if (!S.ft) h += '<div class="ft-bar"><button type="button" class="ft-btn" id="ft-go">Search transcripts too</button><span class="res-status">Every line of every show, newest month first (or press Enter). ' +
-      '<a href="' + esc(researchHref('q=' + encodeURIComponent(st.q) + '&tab=ft')) + '">Open in Research for filters →</a></span></div>';
+      '<a href="' + esc(researchHref('q=' + encodeURIComponent(st.q))) + '">Open in Research for filters →</a></span></div>';
     h += '<p class="res-status" id="res-status"></p>';
     var eps = S.eps.slice(), dd = function (r) { return (r.e && r.e.date) || ''; };
     if (st.sort === 'quoted') eps.sort(function (a, b) { return b.hits.length - a.hits.length || dd(b).localeCompare(dd(a)); });

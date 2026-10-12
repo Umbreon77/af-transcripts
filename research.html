@@ -96,6 +96,10 @@
     .examples button { background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 3px 11px; font-size: 0.8rem; color: var(--text); cursor: pointer; }
     .examples button:hover { border-color: var(--accent); color: var(--accent); }
     body.has-q .welcome { display: none; }
+    .w-all { flex-basis: 100%; }
+    .w-all .linkish { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font-size: inherit; }
+    .w-all .linkish:hover { text-decoration: underline; }
+    body.mode-all .w-disc, body:not(.mode-all) .w-all { display: none; }
     .how { display: grid; gap: 10px; margin-top: 14px; }
     .how div { border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 0.82rem; color: var(--text-dim); }
     .how b { display: block; color: var(--text); margin-bottom: 2px; }
@@ -117,13 +121,20 @@
     .fhint { font-size: 0.72rem; color: var(--muted); margin: 2px 6px 4px; }
     .drawer-foot { display: none; }
 
+    /* Sub-tabs (Search · Trends · People): a faint accent tint of their own, the current one filled (same rules in features.css). */
     .rtabs { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 0; margin: 4px 0 14px; }
-    .rtabs button, .rtabs a { border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding: 6px 14px; margin: 0; font-size: 0.9rem; font-weight: 600; color: var(--text-dim); text-decoration: none; cursor: pointer; white-space: nowrap; }
-    .rtabs button:hover, .rtabs a:hover { border-color: var(--accent); color: var(--text); }
-    .rtabs button[aria-selected="true"], .rtabs a[aria-current] { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
-    .rtabs .n { font-weight: 400; opacity: 0.8; font-variant-numeric: tabular-nums; }
-    .rtabs .rt-in { display: contents; }
-    @media (max-width: 480px) { .rtabs { gap: 4px; } .rtabs button, .rtabs a { padding: 5px 8px; font-size: 0.8rem; } }
+    .rtabs a { border: 1px solid var(--border); border-color: color-mix(in srgb, var(--accent) 32%, var(--border)); border-radius: 8px; background: var(--surface); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); padding: 6px 16px; margin: 0; font-size: 0.9rem; font-weight: 600; color: var(--text-dim); text-decoration: none; cursor: pointer; white-space: nowrap; }
+    .rtabs a:hover { border-color: var(--accent); color: var(--text); }
+    .rtabs a[aria-current] { background: var(--accent-dim); background: color-mix(in srgb, var(--accent) 30%, var(--surface)); border-color: var(--accent); color: var(--strong); }
+    @media (max-width: 480px) { .rtabs { gap: 4px; } .rtabs a { padding: 5px 12px; font-size: 0.82rem; } }
+    /* Mode toggle (All mentions | Main discussions): a small segmented control, a step below the sub-tabs. */
+    .mode { display: inline-flex; margin: 12px 0 0; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; max-width: 100%; }
+    .mode button { background: none; border: 0; padding: 3px 12px; font-size: 0.78rem; color: var(--text-dim); cursor: pointer; white-space: nowrap; }
+    .mode button + button { border-left: 1px solid var(--border); }
+    .mode button:hover { color: var(--text); }
+    .mode button[aria-pressed="true"] { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+    .mode .n { font-weight: 400; font-variant-numeric: tabular-nums; }
+    @media (max-width: 400px) { .mode button { padding: 3px 9px; font-size: 0.74rem; } }
     .person-link { color: var(--accent); text-decoration: none; font-weight: 600; white-space: nowrap; }
     .person-link:hover { text-decoration: underline; }
     .activef { display: flex; flex-wrap: wrap; gap: 5px; margin: 10px 0 0; }
@@ -152,6 +163,7 @@
     .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; vertical-align: -2px; margin-right: 6px; }
     @keyframes spin { to { transform: rotate(360deg); } }
     @media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 2.4s; } }
+    .ft-tip { display: none; font-size: 0.72rem; color: var(--muted); margin: 0 0 4px; }
     .empty { padding: 34px 0; text-align: center; color: var(--muted); font-size: 0.9rem; }
 
     /* Results */
@@ -244,6 +256,7 @@
       .preview { top: auto; left: 0; right: 0; width: auto; max-height: 85vh; border-width: 1px 0 0; border-radius: 14px 14px 0 0; box-shadow: 0 -10px 30px var(--shadow); }
       .res { grid-template-columns: 74px minmax(0, 1fr); gap: 10px; }
       .hist-h span:last-child, .search-help .kb { display: none; }
+      body.on-ft .ft-tip { display: block; }
     }
     /* ── Theme picker (shared) ── */
     .theme-pick { position: relative; flex-shrink: 0; }
@@ -282,6 +295,7 @@
     <h1 class="page-title">Research</h1>
     <p class="page-desc">Find the moment he said it, and every time he came back to it. <b>❝ He said</b> results are his exact words, checked against the transcript; <i>summaries</i> are ours, not quotes. <a href="about.html">How this is made</a></p>
   </div>
+  <nav class="rtabs" aria-label="Research"><a href="research.html" id="tab-search" aria-current="page">Search</a><a href="trends.html" id="tab-trends">Trends</a><a href="people.html" id="tab-people">People</a></nav>
   <div class="qrow">
     <div class="searchbox" role="search">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -291,6 +305,7 @@
     <button type="button" class="btn filters-btn" id="fbtn" aria-controls="facets" aria-expanded="false">Filters</button>
   </div>
   <p class="search-help" id="search-help"><code>"exact phrase"</code> · several words must all match · <code>-word</code> excludes<span class="kb"> · <code>/</code> to search, <code>↑</code> <code>↓</code> to move, <code>Enter</code> to open</span></p>
+  <div class="mode" role="group" aria-label="Show"><button type="button" id="mode-all" data-tab="ft" aria-pressed="true" aria-controls="list">All mentions <span class="n"></span></button><button type="button" id="mode-disc" data-tab="m" aria-pressed="false" aria-controls="list">Main discussions <span class="n"></span></button></div>
 
   <div class="desk">
     <aside class="facets" id="facets" aria-label="Filters">
@@ -307,19 +322,13 @@
           <button type="button" data-q="Vance -Usha">Vance -Usha</button>
           <button type="button" data-q="Tucker Fuentes">Tucker Fuentes</button>
         </div>
-        <span>or pick filters to browse.</span>
-      </div>
-      <div class="rtabs">
-        <div class="rt-in" role="tablist" aria-label="Search in">
-          <button type="button" role="tab" id="tab-m" data-tab="m" aria-selected="true" aria-controls="list">Moments <span class="n"></span></button>
-          <button type="button" role="tab" id="tab-ft" data-tab="ft" aria-selected="false" aria-controls="list">Full text <span class="n"></span></button>
-        </div>
-        <a href="trends.html" id="tab-trends">Trends</a>
-        <a href="people.html" id="tab-people">People</a>
+        <span class="w-disc">or pick filters to browse.</span>
+        <span class="w-all">Type a word to find every mention, or <button type="button" class="linkish" data-tab="m">browse main discussions by topic →</button></span>
       </div>
       <div class="activef" id="activef"></div>
       <div class="hist" id="hist"></div>
       <div class="status" id="status" aria-live="polite"></div>
+      <p class="ft-tip">Tip: the first search downloads the whole archive (about 17 MB), so it's quicker on a computer.</p>
       <div id="list" role="listbox" aria-label="Results"></div>
     </section>
 
@@ -362,21 +371,26 @@
 
   /* ── State (all of it in the URL) ── */
   var FACETS = ['spk', 'kind', 'year', 'topic', 'tag'];
-  // said: "His words only", the ❝ quotes without the summaries (Moments only).
-  var st = { q: '', tab: 'm', m: '', said: false, spk: SPK_DEFAULT.slice(), kind: [], year: [], topic: [], tag: [] };
+  // tab: the mode, 'ft' All mentions (the default) or 'm' Main discussions. It changes only on a click.
+  // URL: mode=disc (mode=all is the default); the old tab=ft / tab=m still open the same modes.
+  // said: "His words only", the ❝ quotes without the summaries (Main discussions only).
+  var st = { q: '', tab: 'ft', m: '', said: false, spk: SPK_DEFAULT.slice(), kind: [], year: [], topic: [], tag: [] };
   (function () {
     var sp = new URLSearchParams(location.search);
     st.q = sp.get('q') || '';
     st.said = sp.get('said') === '1';
-    st.tab = sp.get('tab') === 'ft' ? 'ft' : 'm';
     st.m = /^\d{6}$/.test(sp.get('m') || '') ? sp.get('m') : '';
     ['kind', 'year', 'topic', 'tag'].forEach(function (k) { st[k] = (sp.get(k) || '').split(',').filter(Boolean); });
+    var md = sp.get('mode') || { ft: 'all', m: 'disc' }[sp.get('tab')];
+    // Older links that browse with no search (a topic, theme, month…) meant the moments: Main discussions.
+    if (!md && !st.q && (st.said || st.m || st.kind.length || st.year.length || st.topic.length || st.tag.length)) md = 'disc';
+    st.tab = md === 'disc' ? 'm' : 'ft';
     if (sp.has('spk')) st.spk = sp.get('spk') === 'all' ? Object.keys(SPK) : (sp.get('spk') || '').split(',').filter(function (v) { return SPK[v]; });
   })();
   function writeURL() {
     var p = new URLSearchParams();
     if (st.q) p.set('q', st.q);
-    if (st.tab === 'ft') p.set('tab', 'ft');
+    if (st.tab === 'm') p.set('mode', 'disc');
     if (st.m) p.set('m', st.m);
     if (st.said) p.set('said', '1');
     ['kind', 'year', 'topic', 'tag'].forEach(function (k) { if (st[k].length) p.set(k, st[k].join(',')); });
@@ -432,7 +446,8 @@
     if (f === 'tag') return x.seg ? x.seg.tags : [];
   }
   function ok(x, skip) {
-    if (st.said && st.tab === 'm' && skip !== 'said' && !x.said) return false;
+    // His words only drops the summaries (transcript lines have no said flag, so All mentions ignores it).
+    if (st.said && skip !== 'said' && x.said === false) return false;
     for (var i = 0; i < FACETS.length; i++) {
       var f = FACETS[i], sel = st[f];
       if (f === skip || (!sel.length && f !== 'spk')) continue;
@@ -455,35 +470,50 @@
     matched = P.terms.length ? MOM.filter(function (x) { return textMatch(x.low, P); }) : MOM;
   }
 
-  /* ── Full text: the shared shard engine, newest month first, results as they arrive ── */
-  var shard = SS.shards(DATA), FT = null, ftRun = 0;
+  /* ── Full text: the shared shard engine over every month (within the year/month filter).
+     Shards load PAR at a time, but a month's hits join the results only once every newer month
+     has, so the list grows at the bottom and nothing already shown moves. ── */
+  var shard = SS.shards(DATA), FT = null, ftRun = 0, PAR = 4;
   function ftMonths() {
     return MONTHS.slice().reverse().filter(function (m) { return (!st.m || m === st.m) && (!st.year.length || st.year.indexOf(m.slice(0, 4)) !== -1); });
   }
   function startFT() {
-    FT = { run: ++ftRun, p: P, months: ftMonths(), next: 0, items: [], loading: false, failed: 0, target: 20 };
-    pumpFT();
+    FT = { run: ++ftRun, p: P, months: ftMonths(), asked: 0, next: 0, got: {}, items: [], failed: 0 };
+    document.documentElement.removeAttribute('data-ft-done'); document.documentElement.removeAttribute('data-ft-first');
+    for (var k = 0; k < PAR; k++) pumpFT();
   }
-  function ftEpisodes() { var s = {}; FT.items.forEach(function (x) { if (ok(x)) s[x.tid] = 1; }); return Object.keys(s).length; }
+  function ftLoading() { return !!FT && FT.next < FT.months.length; }
   function pumpFT() {
-    if (!FT || FT.loading || !FT.p.terms.length) return;
-    var my = FT.run;
-    if (FT.next >= FT.months.length || ftEpisodes() >= FT.target) return;
-    FT.loading = true;
-    var m = FT.months[FT.next];
-    FT.label = monthLabel(m); render();
+    if (!FT || !FT.p.terms.length || FT.asked >= FT.months.length) return;
+    var my = FT.run, m = FT.months[FT.asked++];
     shard(m).then(function (j) {
       if (my !== ftRun) return;
+      var hits = [];
       j.e.forEach(function (row) {
         var e = byId[row[0]];
         if (!e) return;
         SS.scanEp(row[1], row[2], FT.p).forEach(function (i) {
           var t = row[1][i][0], seg = segAt(row[0], t);
-          FT.items.push({ tid: row[0], t: t, i: i, lines: row[1], seg: seg, ep: e, ym: e.date.slice(0, 6), y: e.date.slice(0, 4) });
+          hits.push({ tid: row[0], t: t, i: i, lines: row[1], seg: seg, ep: e, ym: e.date.slice(0, 6), y: e.date.slice(0, 4) });
         });
       });
-      FT.next++; FT.loading = false; render(); pumpFT();
-    }, function () { if (my !== ftRun) return; FT.failed++; FT.next++; FT.loading = false; render(); pumpFT(); });
+      gotFT(m, hits);
+    }, function () { if (my !== ftRun) return; FT.failed++; gotFT(m, []); });
+  }
+  function gotFT(m, hits) {
+    FT.got[m] = hits;
+    var moved = false;
+    while (FT.next < FT.months.length && FT.got[FT.months[FT.next]]) {
+      FT.items.push.apply(FT.items, FT.got[FT.months[FT.next]]);
+      delete FT.got[FT.months[FT.next]];
+      FT.next++; moved = true;
+    }
+    // Timing marks for the tests (ms since the page started loading): first result, every month searched.
+    var de = document.documentElement, ms = String(Math.round(performance.now()));
+    if (FT.items.length && !de.hasAttribute('data-ft-first')) de.setAttribute('data-ft-first', ms);
+    if (!ftLoading()) de.setAttribute('data-ft-done', ms);
+    if (moved) { if (st.tab === 'ft') render(); else renderTabs(); }
+    pumpFT();
   }
 
   /* ── Render ── */
@@ -495,7 +525,7 @@
     shown = all.filter(function (x) { return ok(x); });
     if (st.tab === 'ft') shown.sort(function (a, b) { return b.ep.date.localeCompare(a.ep.date) || b.tid - a.tid || a.t - b.t; });
     // Moments keep MOM's newest-first order through the filter.
-    renderTabs(); renderFacets(all); renderActive(); renderList(); renderStatus();
+    renderTabs(); renderFacets(st.tab === 'ft' && !P.terms.length ? matched : all); renderActive(); renderList(); renderStatus();
     if (st.tab === 'ft' && !P.terms.length) $('hist').innerHTML = ''; else renderHist(all);
   }
   // The search as a name in the People pages (any form of an alias group, quotes and -exclusions aside).
@@ -504,14 +534,17 @@
     return PEOPLE[k] || null;
   }
   function renderTabs() {
-    [['m', 'tab-m'], ['ft', 'tab-ft']].forEach(function (x) { $(x[1]).setAttribute('aria-selected', st.tab === x[0] ? 'true' : 'false'); });
+    document.body.classList.toggle('on-ft', st.tab === 'ft' && !!P.terms.length);
+    document.body.classList.toggle('mode-all', st.tab === 'ft');
+    [['m', 'mode-disc'], ['ft', 'mode-all']].forEach(function (x) { $(x[1]).setAttribute('aria-pressed', st.tab === x[0] ? 'true' : 'false'); });
     // Trends takes a name or a one- or two-word term; anything else opens it empty.
     var tq = st.q.trim(), simple = personOf(tq) || (/^[a-z0-9' ]+$/i.test(tq) && tq.split(/\s+/).length <= 2) ? tq.replace(/"/g, '') : '';
     $('tab-trends').href = trendsHref(simple);
-    var nm = matched.filter(function (x) { return ok(x); }).length;
-    $('tab-m').querySelector('.n').textContent = '· ' + nm.toLocaleString();
-    var nf = FT && FT.p === P ? FT.items.filter(function (x) { return ok(x); }).length : null;
-    $('tab-ft').querySelector('.n').textContent = nf == null ? '' : '· ' + nf.toLocaleString() + (FT.next < FT.months.length ? '+' : '');
+    // Each side's count, once a search is typed (Main discussions' with His words only, if ticked).
+    var nm = P.terms.length ? matched.filter(function (x) { return ok(x); }).length : null;
+    $('mode-disc').querySelector('.n').textContent = nm == null ? '' : '· ' + nm.toLocaleString();
+    var nf = P.terms.length && FT && FT.p === P ? FT.items.filter(function (x) { return ok(x); }).length : null;
+    $('mode-all').querySelector('.n').textContent = nf == null ? '' : '· ' + nf.toLocaleString() + (ftLoading() ? '+' : '');
   }
   function group(f, title, opts, counts, extra) {
     var on = st[f], h = '<div class="fg" data-f="' + f + '"><h3><span>' + title + '</span>' +
@@ -525,10 +558,11 @@
   var tagsOpen = false;
   function renderFacets(all) {
     var h = '', c;
-    var nSaid = st.tab === 'm' ? all.filter(function (x) { return x.said && ok(x, 'said'); }).length : 0;
-    h += '<div class="fg fg-said"><h3><span>Show</span></h3><label class="opt' + (st.tab === 'm' ? '' : ' zero') + '"><input type="checkbox" id="said" data-said' + (st.said ? ' checked' : '') + (st.tab === 'm' ? '' : ' disabled') +
-      '><span>His words only</span><span class="n">' + (st.tab === 'm' ? nSaid.toLocaleString() : '') + '</span></label><p class="fhint">' +
-      (st.tab === 'm' ? '❝ Verified quotes only, no summaries.' : 'Full text is every transcript line; this applies to Moments.') + '</p></div>';
+    var browse = st.tab === 'm' || !P.terms.length;
+    var nSaid = browse ? all.filter(function (x) { return x.said && ok(x, 'said'); }).length : 0;
+    h += '<div class="fg fg-said"><h3><span>Show</span></h3><label class="opt' + (st.tab === 'm' || !P.terms.length ? '' : ' zero') + '"><input type="checkbox" id="said" data-said' + (st.said ? ' checked' : '') + (st.tab === 'm' || !P.terms.length ? '' : ' disabled') +
+      '><span>His words only</span><span class="n">' + (browse ? nSaid.toLocaleString() : '') + '</span></label><p class="fhint">' +
+      (browse ? '❝ Verified quotes only, no summaries.' : 'All mentions are transcript lines; this applies to Main discussions.') + '</p></div>';
     c = tally(all, 'spk');
     var allSpk = st.spk.length === 6;
     h += group('spk', 'Who is speaking', Object.keys(SPK).map(function (k) { return [k, SPK[k]]; }), c,
@@ -549,7 +583,7 @@
     $('facets').scrollTop = y;
     if (keep) [].some.call(fg.querySelectorAll('input,button'), function (el) { if ((el.getAttribute('data-f') || '') + '|' + (el.value || el.textContent) === keep) { el.focus({ preventScroll: true }); return true; } });
     $('fdone').textContent = 'Show ' + shown.length.toLocaleString() + ' result' + (shown.length === 1 ? '' : 's');
-    var nf = st.kind.length + st.year.length + st.topic.length + st.tag.length + (st.m ? 1 : 0) + (st.said ? 1 : 0) + (st.spk.join() !== SPK_DEFAULT.join() ? 1 : 0);
+    var nf = st.kind.length + st.year.length + st.topic.length + st.tag.length + (st.m ? 1 : 0) + (st.said && st.tab === 'm' ? 1 : 0) + (st.spk.join() !== SPK_DEFAULT.join() ? 1 : 0);
     $('fbtn').textContent = 'Filters' + (nf ? ' (' + nf + ')' : '');
   }
   function renderActive() {
@@ -570,8 +604,8 @@
     MONTHS.forEach(function (m) { if ((c[m] || 0) > max) max = c[m]; });
     var searched = {};
     if (st.tab === 'ft' && FT) FT.months.slice(0, FT.next).forEach(function (m) { searched[m] = 1; });
-    var h = '<div class="hist-h"><span>' + (P.terms.length ? 'When he talked about it · ' : 'All moments · ') + (st.tab === 'ft' ? 'lines' : 'moments') + ' per month' +
-      (st.tab === 'ft' && FT && FT.next < FT.months.length ? ' (dashed: not searched yet)' : '') + '</span><span>' + (st.m ? 'click the month again to clear' : 'click a month to filter') + '</span></div><div class="hist-bars">';
+    var h = '<div class="hist-h"><span>' + (P.terms.length ? 'When he talked about it · ' : 'All main discussions · ') + (st.tab === 'ft' ? 'lines' : 'summaries and quotes') + ' per month' +
+      (st.tab === 'ft' && ftLoading() ? ' (dashed: not searched yet)' : '') + '</span><span>' + (st.m ? 'click the month again to clear' : 'click a month to filter') + '</span></div><div class="hist-bars">';
     MONTHS.forEach(function (m) {
       var n = c[m] || 0, todo = st.tab === 'ft' && !searched[m] && (!FT || FT.months.indexOf(m) !== -1);
       var ht = n ? Math.max(4, Math.round(n / (max || 1) * 100)) : 0;
@@ -626,11 +660,9 @@
       n = k2;
     }
     if (n < shown.length) h += '<button type="button" class="more-btn" data-more>Show more (' + (shown.length - n).toLocaleString() + ' left)</button>';
-    if (st.tab === 'ft' && FT && !FT.loading && FT.next < FT.months.length && n >= shown.length)
-      h += '<button type="button" class="more-btn" data-older>Search older months (' + (FT.months.length - FT.next) + ' left)</button>';
-    if (!shown.length && !(st.tab === 'ft' && FT && (FT.loading || FT.next < FT.months.length)))
-      h += '<p class="empty">' + (st.tab === 'ft' && !P.terms.length ? 'Full text searches every transcript line for a word or phrase, so it needs one. Type it in the box above.' :
-        current().length ? 'Nothing left after these filters. Remove one above.' : st.tab === 'm' ? 'No moments match. Try Full text, or fewer words.' : 'No transcript lines match. Try fewer words.') + '</p>';
+    // All mentions with nothing typed: the Try line above says what to do.
+    if (!shown.length && !(st.tab === 'ft' && (ftLoading() || !P.terms.length)))
+      h += '<p class="empty">' + (current().length ? 'Nothing left after these filters. Remove one above.' : st.tab === 'm' ? 'No main discussions match. Try All mentions, or fewer words.' : 'No transcript lines match. Try fewer words.') + '</p>';
     $('list').innerHTML = h;
   }
   function closeGroup(tid, cnt) { return (cnt > 3 && !openGroups[tid] ? '<button type="button" class="more-hits" data-open="' + tid + '">+ ' + (cnt - 3) + ' more in this episode</button>' : '') + '</div>'; }
@@ -638,18 +670,15 @@
     var h = '';
     if (st.tab === 'm') {
       var eps = {}; shown.forEach(function (x) { eps[x.tid] = 1; });
-      h = '<span>' + (P.terms.length ? '' : 'Browsing ') + shown.length.toLocaleString() + ' moment' + (shown.length === 1 ? '' : 's') + ' in ' + Object.keys(eps).length + ' episode' + (Object.keys(eps).length === 1 ? '' : 's') + ', newest first' +
+      h = '<span>' + (P.terms.length ? '' : 'Browsing ') + shown.length.toLocaleString() + (shown.length === 1 ? ' summary or quote' : ' summaries and quotes') + ' in ' + Object.keys(eps).length + ' episode' + (Object.keys(eps).length === 1 ? '' : 's') + ', newest first' +
         (P.terms.length ? '' : '. Type a search above to narrow them.') + '</span>' +
-        (P.terms.length && shown.length < 5 ? '<button type="button" class="linkish" data-tab="ft">Search every transcript line →</button>' : '');
-    } else if (!P.terms.length) {
-      h = '<span>Full text needs a word or phrase to search.</span>';
-    } else if (FT) {
-      var done = FT.next >= FT.months.length, e2 = {}; shown.forEach(function (x) { e2[x.tid] = 1; });
-      h = '<span>' + (FT.loading ? '<span class="spinner" aria-hidden="true"></span>Searching ' + esc(FT.label) + '… ' : '') +
-        plural(shown.length, 'match') + ' in ' + Object.keys(e2).length + ' episode' + (Object.keys(e2).length === 1 ? '' : 's') +
-        (done ? (FT.months.length > 1 ? ', all ' + FT.months.length + ' months searched' : '') : ', ' + FT.next + ' of ' + FT.months.length + ' months searched') +
-        (FT.failed ? ' (' + FT.failed + ' failed to load)' : '') + '</span>' +
-        (!done && !FT.loading ? '<button type="button" class="linkish" data-allmonths>Search all months</button>' : '');
+        (P.terms.length && shown.length < 5 ? '<button type="button" class="linkish" data-tab="ft">See all mentions →</button>' : '');
+    } else if (P.terms.length && FT) {
+      var ne = {}; shown.forEach(function (x) { ne[x.tid] = 1; }); ne = Object.keys(ne).length;
+      var found = shown.length.toLocaleString() + ' line' + (shown.length === 1 ? '' : 's') + ' in ' + ne + ' episode' + (ne === 1 ? '' : 's');
+      h = '<span>' + (ftLoading() ? '<span class="spinner" aria-hidden="true"></span>Searching… ' + FT.next + ' of ' + FT.months.length + ' months' + (shown.length ? ' · ' + found + ' so far' : '') :
+        found + (FT.months.length === 1 ? ', all of ' + monthLabel(FT.months[0]) + ' searched' : ', all ' + FT.months.length + ' months searched')) +
+        (FT.failed ? ' (' + FT.failed + ' failed to load)' : '') + '</span>';
     }
     var who = P.terms.length && personOf(st.q);
     if (who) h += '<a class="person-link" href="' + personHref(who.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')) + '">All on ' + esc(who) + ' →</a>';
@@ -659,10 +688,10 @@
   /* ── Preview ── */
   var pvItem = null;
   var PV_EMPTY = '<p class="pv-empty">Select a result to see where it sits in the episode: the running order, and anything quoted in Nick\'s Positions.</p>' +
-    '<div class="how"><div><b>Moments</b>Every part of every show, summarized, plus his verified quotes. With no search typed you are browsing all of them, newest first. Instant, and every result opens the transcript at that second.</div>' +
-    '<div><b>Full text</b>Searches every line of every transcript, month by month, newest first. Slower, but it finds anything he said word for word. It needs a word to search.</div>' +
-    '<div><b>Trends</b>How often a word or name comes up, month by month. Compare up to four, and click a month to see those moments.</div>' +
-    '<div><b>People</b>Every moment on one person, newest first, with their mentions over time and the related Nick\'s Positions.</div></div>';
+    '<div class="how"><div><b>All mentions</b>Every line where the word was said, in every show, newest first. A search starts here.</div>' +
+    '<div><b>Main discussions</b>The parts of shows that are about it, summarized, with his verified quotes. With nothing typed, browse them all by topic.</div>' +
+    '<div><b>Trends</b>How often a word or name comes up, month by month. Compare up to four.</div>' +
+    '<div><b>People</b>Everything on one person: mentions over time, main discussions and the related positions.</div></div>';
   function preview(x, open) {
     pvItem = x;
     var pv = $('preview');
@@ -721,9 +750,12 @@
 
   /* ── Updates ── */
   function update(full) {
+    if (full) {
+      P = parse(st.q); runMoments(); sel = -1; limit = LIMIT; openGroups = {}; FT = null; ftRun++; preview(null);
+    }
     writeURL();
-    if (full) { P = parse(st.q); runMoments(); sel = -1; limit = LIMIT; openGroups = {}; FT = null; ftRun++; preview(null); }
-    if (st.tab === 'ft' && P.terms.length) {
+    // All mentions loads whenever a search is typed, so both sides can show their counts.
+    if (P.terms.length) {
       var ms = ftMonths().join();
       if (!FT || FT.p !== P || FT.months.join() !== ms) startFT(); else pumpFT();
     }
@@ -735,12 +767,14 @@
   $('q').value = st.q;
   $('q').addEventListener('input', function () { clearTimeout(tm); tm = setTimeout(function () { st.q = $('q').value.trim(); update(true); }, 200); });
   $('examples').addEventListener('click', function (e) { var b = e.target.closest('[data-q]'); if (!b) return; st.q = b.getAttribute('data-q'); $('q').value = st.q; update(true); $('q').focus(); });
-  document.querySelector('.rtabs').addEventListener('click', function (e) { var b = e.target.closest('[data-tab]'); if (b) setTab(b.getAttribute('data-tab')); });
+  [document.querySelector('.mode'), $('examples').parentNode].forEach(function (el) { el.addEventListener('click', function (e) { var b = e.target.closest('[data-tab]'); if (b) setTab(b.getAttribute('data-tab')); }); });
   function setTab(t) { if (st.tab === t) return; st.tab = t; sel = -1; limit = LIMIT; openGroups = {}; preview(null); update(false); }
   $('facets').addEventListener('change', function (e) {
     var t = e.target, f = t.getAttribute('data-f');
-    if (t.hasAttribute('data-said')) { st.said = t.checked; refilter(); return; }
+    if (t.hasAttribute('data-said')) { if (st.tab === 'ft' && !st.q.trim()) st.tab = 'm'; st.said = t.checked; refilter(); return; }
     if (!f) return;
+    // Filters with nothing typed browse main discussions (All mentions needs a word).
+    if (st.tab === 'ft' && !st.q.trim()) st.tab = 'm';
     st[f] = t.checked ? st[f].concat(t.value) : st[f].filter(function (v) { return v !== t.value; });
     refilter();
   });
@@ -768,12 +802,10 @@
   $('status').addEventListener('click', function (e) {
     var b = e.target.closest('button'); if (!b) return;
     if (b.hasAttribute('data-tab')) setTab(b.getAttribute('data-tab'));
-    if (b.hasAttribute('data-allmonths') && FT) { FT.target = Infinity; pumpFT(); }
   });
   $('list').addEventListener('click', function (e) {
     var b = e.target.closest('button');
     if (b && b.hasAttribute('data-more')) { limit += LIMIT; renderList(); return; }
-    if (b && b.hasAttribute('data-older') && FT) { FT.target = ftEpisodes() + 20; pumpFT(); return; }
     if (b && b.hasAttribute('data-open')) { openGroups[b.getAttribute('data-open')] = 1; renderList(); return; }
     if (e.target.closest('a')) return;
     var r = e.target.closest('.res'); if (r) select(+r.getAttribute('data-k'), true, true);

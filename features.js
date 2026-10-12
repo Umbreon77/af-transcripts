@@ -199,12 +199,12 @@
     return h + '</tbody></table></div>';
   }
 
-  // Research's section tabs: carry the current name or term over to Moments, Full text and Trends.
+  // Research's sub-tabs: carry the current name or term over to Search (All mentions) and Trends.
   function rtabs(q) {
     var nav = document.getElementById('rtabs');
     if (!nav) return;
     var p = q ? { q: q } : {};
-    var to = { m: HREF.research(p), ft: HREF.research(q ? { q: q, tab: 'ft' } : { tab: 'ft' }), trends: HREF.trends(p), people: HREF.people() };
+    var to = { search: HREF.research(p), trends: HREF.trends(p), people: HREF.people() };
     [].forEach.call(nav.querySelectorAll('a[data-rt]'), function (a) { a.href = to[a.getAttribute('data-rt')]; });
   }
 

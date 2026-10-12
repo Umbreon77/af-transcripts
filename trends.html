@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>(function(){try{var t=localStorage.getItem('signal-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <title>Trends — America First Transcripts</title>
-  <meta name="description" content="How often a word or name comes up on America First, month by month: compare up to four, and jump to those moments in Research." />
+  <meta name="description" content="How often a word or name comes up on America First, month by month: compare up to four, and jump to those mentions in Research." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="America First Transcripts" />
   <meta property="og:title" content="Trends — America First Transcripts" />
-  <meta property="og:description" content="How often a word or name comes up on America First, month by month: compare up to four, and jump to those moments in Research." />
+  <meta property="og:description" content="How often a word or name comes up on America First, month by month: compare up to four, and jump to those mentions in Research." />
   <meta property="og:url" content="https://umbreon77.github.io/af-transcripts/trends.html" />
   <meta property="og:image" content="https://umbreon77.github.io/af-transcripts/og-card.png" />
   <meta property="og:image:width" content="1200" />
@@ -55,7 +55,7 @@
 </header>
 <main class="wrap" id="main">
   <div class="page-title">Research</div>
-  <nav class="rtabs" id="rtabs" aria-label="Research"><a href="research.html" data-rt="m">Moments</a><a href="research.html?tab=ft" data-rt="ft">Full text</a><a href="trends.html" data-rt="trends" aria-current="page">Trends</a><a href="people.html" data-rt="people">People</a></nav>
+  <nav class="rtabs" id="rtabs" aria-label="Research"><a href="research.html" data-rt="search">Search</a><a href="trends.html" data-rt="trends" aria-current="page">Trends</a><a href="people.html" data-rt="people">People</a></nav>
   <h1 class="h1b">Trends</h1>
   <p class="page-desc">How often a word or name comes up on the show, month by month. Compare up to four.</p>
   <form class="qrow" id="f" role="search">
@@ -95,7 +95,7 @@
       <li>Months with fewer or shorter shows have lower counts; <b>per hour of show</b> evens that out. The first two months (Nov–Dec 2024) cover only 12 episodes.</li>
       <li>The latest month is only part of a month until it ends.</li>
       <li>Only words and two-word phrases said 20 times or more in total are kept.</li>
-      <li>Research's Full text matches inside words too ("Iran" also finds "Iranian"), so its counts there can run higher.</li>
+      <li>Research's All mentions matches inside words too ("Iran" also finds "Iranian"), so its counts there can run higher.</li>
     </ul>
   </div>
   <footer><span id="foot-upd"></span><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFVo0FznkFfD4VMrMhvTrxI5SiGqacwLXyWMkojunxg-GN3w/viewform" target="_blank" rel="noopener">Report an error</a> · <a href="feed.xml">RSS</a></footer>
@@ -187,7 +187,7 @@
     var m = META.months[i];
     $('pick').innerHTML = '<b>' + SF.monLong(m) + '</b> · ' + META.episodes[i] + ' episodes, ' + SF.fmtN(META.hours[i], true) + ' hours of show · in Research: ' +
       series.map(function (s) {
-        return '<a class="btn" href="' + SF.HREF.research({ q: s.research, tab: 'ft', m: m }) + '"><i style="background:' + SF.color(s.ci) + '"></i>' + esc(s.name) + ' · ' + s.raw[i].toLocaleString() + '</a>';
+        return '<a class="btn" href="' + SF.HREF.research({ q: s.research, m: m }) + '"><i style="background:' + SF.color(s.ci) + '"></i>' + esc(s.name) + ' · ' + s.raw[i].toLocaleString() + '</a>';
       }).join('');
   }
   $('f').addEventListener('submit', function (e) {

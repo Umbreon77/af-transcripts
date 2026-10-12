@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script>(function(){try{var t=localStorage.getItem('signal-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <title>People — America First Transcripts</title>
-  <meta name="description" content="Everything indexed about one person on America First: mentions month by month, the moments, and the related positions." />
+  <meta name="description" content="Everything indexed about one person on America First: mentions month by month, the main discussions, and the related positions." />
   <link rel="alternate" type="application/rss+xml" title="America First Transcripts" href="https://umbreon77.github.io/af-transcripts/feed.xml" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c9a84c'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='%230f0f0f'%3EAF%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="features.css" />
@@ -45,7 +45,7 @@
 </header>
 <main class="wrap" id="main">
   <div class="page-title">Research</div>
-  <nav class="rtabs" id="rtabs" aria-label="Research"><a href="research.html" data-rt="m">Moments</a><a href="research.html?tab=ft" data-rt="ft">Full text</a><a href="trends.html" data-rt="trends">Trends</a><a href="people.html" data-rt="people" aria-current="page">People</a></nav>
+  <nav class="rtabs" id="rtabs" aria-label="Research"><a href="research.html" data-rt="search">Search</a><a href="trends.html" data-rt="trends">Trends</a><a href="people.html" data-rt="people" aria-current="page">People</a></nav>
   <div class="crumb"><a href="people.html">← All people</a></div>
   <h1 class="h1b" id="name">…</h1>
   <div class="facts" id="facts"></div>
@@ -63,7 +63,7 @@
   <div class="cols">
     <section>
       <div class="mhead">
-        <div class="h2" id="mh">Moments</div>
+        <div class="h2" id="mh">Main discussions</div>
         <label class="opt"><input type="checkbox" id="allspk" /> <span id="allspk-l">Include clips, readings and guests</span></label>
       </div>
       <div id="moments"></div>
@@ -108,7 +108,7 @@
       onPick: function (i) {
         sel = i;
         var m = META.months[i];
-        $('pick').innerHTML = '<b>' + SF.monLong(m) + '</b> · ' + P.s[i].toLocaleString() + ' mentions · <a class="lnk" href="' + SF.HREF.research({ q: P.name, tab: 'ft', m: m }) + '">Full text in Research</a> · <a class="lnk" href="' + SF.HREF.research({ q: P.name, m: m }) + '">Moments in Research</a>';
+        $('pick').innerHTML = '<b>' + SF.monLong(m) + '</b> · ' + P.s[i].toLocaleString() + ' mentions · <a class="lnk" href="' + SF.HREF.research({ q: P.name, m: m }) + '">All mentions in Research</a> · <a class="lnk" href="' + SF.HREF.research({ q: P.name, mode: 'disc', m: m }) + '">Main discussions</a>';
       }
     });
     $('table').innerHTML = SF.tableView(META.months, series, per);
@@ -119,7 +119,7 @@
     var ms = shownMoments(), n = Math.min(limit, ms.length), h = '';
     var others = P.moments.length - P.moments.filter(function (m) { return OWN[m[3]]; }).length;
     $('allspk-l').textContent = 'Include clips, readings and guests (' + others + ')';
-    $('mh').textContent = 'Moments (' + ms.length.toLocaleString() + ')';
+    $('mh').textContent = 'Main discussions (' + ms.length.toLocaleString() + ')';
     for (var k = 0; k < n; k++) {
       var m = ms[k], e = epOf(m[0]);
       if (!e) continue;
@@ -128,7 +128,7 @@
         m[4].map(function (q) { return '<span class="q"><span class="k said">❝ He said</span><span class="said-t">' + esc(q[1]) + '</span><a class="mono" href="' + SF.epHref(e.u, q[0]) + '">' + SF.hms(q[0]) + '</a></span>'; }).join('') +
         '<small>' + esc(e.h) + '</small></div></div>';
     }
-    if (!ms.length) h = '<div class="empty">No indexed moments.</div>';
+    if (!ms.length) h = '<div class="empty">No indexed discussions.</div>';
     if (n < ms.length) h += '<button type="button" class="more-btn" id="more">Load more (' + (ms.length - n).toLocaleString() + ' left)</button>';
     $('moments').innerHTML = h;
   }
@@ -146,7 +146,7 @@
       return '<a class="plink" href="' + SF.HREF.positions(p[0]) + '"><small>' + esc(p[2]) + '</small><b>❝ ' + esc(p[0]) + '</b>' + esc(p[3]) + '</a>';
     }).join('') : '<div class="note">None name ' + esc(P.name) + '.</div>';
     $('topics').innerHTML = P.topics.map(function (t) {
-      return '<a class="chip-b" href="' + SF.HREF.research({ q: P.name, topic: t[0] }) + '">' + esc(t[1]) + '<span class="n">' + t[2] + '</span></a>';
+      return '<a class="chip-b" href="' + SF.HREF.research({ q: P.name, mode: 'disc', topic: t[0] }) + '">' + esc(t[1]) + '<span class="n">' + t[2] + '</span></a>';
     }).join('') || '<span class="note">—</span>';
   }
   $('bar').addEventListener('click', function (e) {
