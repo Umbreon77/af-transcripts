@@ -10,13 +10,13 @@
   <meta property="og:site_name" content="America First Transcripts" />
   <meta property="og:title" content="Nick Fuentes's positions, in his own words" />
   <meta property="og:description" content="What Nick Fuentes argues, topic by topic: short summaries backed by his own words, every quote checked against the transcript and linked to the second he said it." />
-  <meta property="og:url" content="https://umbreon77.github.io/af-transcripts/positions.html" />
-  <meta property="og:image" content="https://umbreon77.github.io/af-transcripts/og-card.png" />
+  <meta property="og:url" content="https://groyplax.github.io/af-transcripts/positions.html" />
+  <meta property="og:image" content="https://groyplax.github.io/af-transcripts/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://umbreon77.github.io/af-transcripts/positions.html" />
-  <link rel="alternate" type="application/rss+xml" title="America First Transcripts" href="https://umbreon77.github.io/af-transcripts/feed.xml" />
+  <link rel="canonical" href="https://groyplax.github.io/af-transcripts/positions.html" />
+  <link rel="alternate" type="application/rss+xml" title="America First Transcripts" href="https://groyplax.github.io/af-transcripts/feed.xml" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c9a84c'/%3E%3Ctext x='16' y='21.5' font-family='Arial,sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='%230f0f0f'%3EAF%3C/text%3E%3C/svg%3E" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -676,7 +676,7 @@
     text = String(text || '').trim();
     if (text.length > 500) text = text.slice(0, 499).replace(/\s+\S*$/, '') + '…';
     var name = e.ep ? 'America First Ep. ' + e.ep : e.kind === 'guest' ? '"' + e.h + '" (interview)' : 'America First special stream, "' + e.h + '"';
-    var v = [['page', 'https://umbreon77.github.io/af-transcripts/' + (e.u ? 'ep/' + e.u + '/' : 'transcripts/' + e.id + '.html') + '#t=' + t],
+    var v = [['page', 'https://groyplax.github.io/af-transcripts/' + (e.u ? 'ep/' + e.u + '/' : 'transcripts/' + e.id + '.html') + '#t=' + t],
       ['episode', name + (e.date ? ', ' + fmtDate(e.date) : '')], ['time', h + ':' + (m < 10 ? '0' : '') + m + ':' + (x < 10 ? '0' : '') + x], ['text', text]];
     return REPORT.form + '?usp=pp_url' + v.filter(function (p) { return p[1]; }).map(function (p) { return '&' + REPORT[p[0]] + '=' + encodeURIComponent(p[1]); }).join('');
   }
