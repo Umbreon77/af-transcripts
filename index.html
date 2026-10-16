@@ -372,7 +372,7 @@
     var st = H.stats;
     $('doors').innerHTML =
       '<a class="door" href="' + researchHref('mode=disc') + '"><b>Research</b><span>Every part of every show, summarized and searchable, with his verified quotes. Filter by topic, year and who is speaking.</span><small>' + n(st.segments + st.quotes) + ' moments →</small></a>' +
-      '<a class="door" href="' + posHref() + '"><b>Nick\'s Positions</b><span>What he argues, topic by topic, in short summaries backed by his own words, each linked to the second he said it.</span><small>' + st.topics + ' topics · ' + st.positions + ' positions · ' + n(st.pquotes) + ' quotes →</small></a>' +
+      '<a class="door" href="' + posHref() + '"><b>Nick\'s Positions</b><span>What he argues, topic by topic, in short summaries backed by his own words, each linked to the second he said it.</span><small>' + st.topics + ' topics · ' + st.positions + ' positions · ' + n(st.pquotes) + ' quotes' + (st.ppassages ? ' · ' + n(st.ppassages) + ' passages' : '') + ' →</small></a>' +
       '<a class="door" href="' + episodesHref() + '"><b>Episodes</b><span>Every transcript, newest first. Filter by topic or year, or search every word.</span><small>' + n(st.episodes) + ' transcripts →</small></a>';
 
     /* In his words */
